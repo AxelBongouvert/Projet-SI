@@ -9,7 +9,18 @@ class Home extends React.Component {
     render() {
         return (
             <div>
-                    <h1> salut les mecs </h1>
+                <div>
+                    <a href="/Accueil">
+                        <header class="masthead text-white text-center">
+                            <div class="container d-flex align-items-center flex-column">
+                                <img class="masthead-avatar mb-5" src="assets/img/dana.png" alt="" />
+                            </div>
+                        </header>
+                    </a>
+                </div>
+                <div class="float-right p-5">
+                    <p class="masthead-subheading font-weight-light mb-0">Version 1.0.0</p>
+                </div>
             </div>
             );
         }
