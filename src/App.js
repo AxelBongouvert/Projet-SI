@@ -23,10 +23,11 @@ class App extends React.Component {
         <BrowserRouter basename={process.env.REACT_APP_ROUTER_BASE || ''}>
           <div>
             <Switch>
+              <Route path="/Demo" component={Demo} />
               <Route path="/Home" component={Home} />
               <Route path="/Accueil" component={Accueil} />            
               <Route path="/Calculator" component={Calculator} />
-              <Route path="/" component={Home} />             
+              <Route path="/" component={Home} />
             </Switch>
           </div>
         </BrowserRouter>
