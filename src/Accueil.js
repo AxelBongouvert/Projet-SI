@@ -10,6 +10,7 @@ class Accueil extends React.Component {
         return (
             <div>
                 <p>accueil</p>
+                <a href="Calculator"> calcul de volume </a>
             </div>
             );
         }
