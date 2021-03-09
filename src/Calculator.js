@@ -1,6 +1,6 @@
 import React from 'react';
 
-class Home extends React.Component {
+class Calculator extends React.Component {
     
     constructor(props) {
         super(props);
@@ -9,11 +9,10 @@ class Home extends React.Component {
     render() {
         return (
             <div>
-                    <h1> salut les mecs </h1>
-                    <a href="Calculator"> caluclator </a>
+                    <h1> le Calculator ! </h1>
             </div>
             );
         }
     }
     
-    export default Home;
+    export default Calculator;

@@ -8,6 +8,7 @@ import {
 
 import Demo from './Demo.js';
 import Home from './Home.js';
+import Calculator from './Calculator.js';
 
 class App extends React.Component {
   
@@ -21,7 +22,8 @@ class App extends React.Component {
         <BrowserRouter basename={process.env.REACT_APP_ROUTER_BASE || ''}>
           <div>
             <Switch>
-            <Route path="/Home" component={Home} />
+              <Route path="/Home" component={Home} />
+              <Route path="/Calculator" component={Calculator} />
               <Route path="/" component={Demo} />             
             </Switch>
           </div>
