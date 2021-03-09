@@ -7,7 +7,8 @@ import {
 } from 'react-router-dom';
 
 import Demo from './Demo.js';
-import Home from './Home.js';
+import Loader from './Loader.js';
+import Choix from './Choix.js';
 import Accueil from './Accueil.js';
 import Calculator from './Calculator.js';
 import Profil from './Profil.js';
@@ -27,7 +28,8 @@ class App extends React.Component {
           <div>
             <Switch>
               <Route path="/Demo" component={Demo} />
-              <Route path="/Home" component={Home} />
+              <Route path="/Loader" component={Loader} />
+              <Route path="/Choix" component={Choix} />
               <Route path="/Accueil" component={Accueil} />            
               <Route path="/Calculator" component={Calculator} />
               <Route path="/Profil" component={Profil} />
