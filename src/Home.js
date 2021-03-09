@@ -9,7 +9,7 @@ class Home extends React.Component {
     render() {
         return (
             <div>
-
+                    <h1> salut les mecs </h1>
             </div>
             );
         }

@@ -7,6 +7,7 @@ import {
 } from 'react-router-dom';
 
 import Demo from './Demo.js';
+import Home from './Home.js';
 
 class App extends React.Component {
   
@@ -20,7 +21,8 @@ class App extends React.Component {
         <BrowserRouter basename={process.env.REACT_APP_ROUTER_BASE || ''}>
           <div>
             <Switch>
-              <Route path="/" component={Demo} />
+            <Route path="/Home" component={Home} />
+              <Route path="/" component={Demo} />             
             </Switch>
           </div>
         </BrowserRouter>
@@ -29,4 +31,4 @@ class App extends React.Component {
     }
   }
   
-  export default Demo;
+  export default App;
