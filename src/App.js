@@ -34,7 +34,7 @@ class App extends React.Component {
               <Route path="/Calculator" component={Calculator} />
               <Route path="/Profil" component={Profil} />
               <Route path="/Menu" component={Menu} />
-              <Route path="/" component={Home} />
+              <Route path="/" component={Loader} />
             </Switch>
           </div>
         </BrowserRouter>
