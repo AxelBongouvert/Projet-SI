@@ -8,11 +8,8 @@ import {
 
 import Demo from './Demo.js';
 import Home from './Home.js';
-<<<<<<< HEAD
 import Accueil from './Accueil.js';
-=======
 import Calculator from './Calculator.js';
->>>>>>> e946ee1b765a76da97d43a404b01753bf7c65692
 
 class App extends React.Component {
   
@@ -27,13 +24,9 @@ class App extends React.Component {
           <div>
             <Switch>
               <Route path="/Home" component={Home} />
-<<<<<<< HEAD
-              <Route path="/Accueil" component={Accueil} />
-              <Route path="/" component={Home} />             
-=======
+              <Route path="/Accueil" component={Accueil} />            
               <Route path="/Calculator" component={Calculator} />
               <Route path="/" component={Demo} />             
->>>>>>> e946ee1b765a76da97d43a404b01753bf7c65692
             </Switch>
           </div>
         </BrowserRouter>

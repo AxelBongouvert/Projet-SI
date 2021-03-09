@@ -22,7 +22,7 @@ class Home extends React.Component {
                     <p class="masthead-subheading font-weight-light mb-0">Version 1.0.0</p>
                 </div>
                     <h1> salut les mecs </h1>
-                    <a href="Calculator"> caluclator </a>
+                    <a href="/Calculator"> caluclator </a>
             </div>
             );
         }
