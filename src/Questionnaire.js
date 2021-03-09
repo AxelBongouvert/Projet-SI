@@ -12,6 +12,7 @@ class Questionnaire extends React.Component {
                 <section class="page-section" id="contact">
                         <div class="container">
                         <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">Faisons connaissance</h2>
+                        <br />
                         <p class="text-center">Compléter le formulaire pour personnaliser votre parcours</p>
                             <div class="row">
                                 <div class="col-lg-8 mx-auto">
@@ -42,6 +43,7 @@ class Questionnaire extends React.Component {
                                         </div>
                                         <br />
                                         <div id="success"></div>
+                                        <p>J'aurais besoin d'aide pour :</p>
                                         <div class="form-group"><button class="btn btn-primary btn-xl" id="sendMessageButton" type="submit">Valider</button></div>
                                     </form>
                                 </div>
