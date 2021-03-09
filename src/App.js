@@ -9,6 +9,7 @@ import {
 import Demo from './Demo.js';
 import Loader from './Loader.js';
 import Choix from './Choix.js';
+import Questionnaire from './Questionnaire.js';
 import Accueil from './Accueil.js';
 import Calculator from './Calculator.js';
 import Profil from './Profil.js';
@@ -30,6 +31,7 @@ class App extends React.Component {
               <Route path="/Demo" component={Demo} />
               <Route path="/Loader" component={Loader} />
               <Route path="/Choix" component={Choix} />
+              <Route path="/Questionnaire" component={Questionnaire} />  
               <Route path="/Accueil" component={Accueil} />            
               <Route path="/Calculator" component={Calculator} />
               <Route path="/Profil" component={Profil} />
