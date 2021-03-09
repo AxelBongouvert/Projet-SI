@@ -8,24 +8,27 @@ class Menu extends React.Component {
 
     render() {
         return (
-            <footer class="footer text-center">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-lg-4 mb-5 mb-lg-0">
-                            <a href="/Profil">Profil</a>
+            <div>
+                <footer class="footer text-center">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-3 mb-5 mb-lg-0">
+                                <h3><a class="btn btn-outline-light btn-social mx-1" href="/Profil">Profil</a></h3>
+                            </div>
+                            <div class="col-lg-3 mb-5 mb-lg-0">
+                                <h3><a class="btn btn-outline-light btn-social mx-1" href="/">Promo</a></h3>
+                            </div>
+                            <div class="col-lg-3 mb-5 mb-lg-0">
+                                <h3><a class="btn btn-outline-light btn-social mx-1" href="/">Messages</a></h3>
+                            </div>
+                            <div class="col-lg-3 mb-5 mb-lg-0">
+                                <h3><a class="btn btn-outline-light btn-social mx-1" href="/">Plus</a></h3>
+                            </div>
                         </div>
-                        <div class="col-lg-4 mb-5 mb-lg-0">
-                            <a href="/">Promo</a>
-                        </div>
-                        <div class="col-lg-4 mb-5 mb-lg-0">
-                            <a href="/">Messages</a>
-                        </div>
-                        <div class="col-lg-4 mb-5 mb-lg-0">
-                            <a href="/">Plus</a>
-                        </div>
-                    </div>
-                </div>
-            </footer>
+                    </div>  
+                </footer>
+            </div>
+            
         );
     }
 }
