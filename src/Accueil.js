@@ -1,4 +1,5 @@
 import React from 'react';
+import Menu from './Menu.js';
 
 class Accueil extends React.Component {
     
@@ -8,6 +9,7 @@ class Accueil extends React.Component {
     
     render() {
         return (
+            <div>
                 <footer class="footer text-center">
                     <div class="container">
                         <div class="row">
@@ -20,6 +22,8 @@ class Accueil extends React.Component {
                         </div>
                     </div>
                 </footer>
+                <Menu></Menu>
+            </div>
             );
         }
     }
