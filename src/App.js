@@ -11,6 +11,9 @@ import Connexion from './Connexion.js';
 import Accueil from './Accueil.js';
 import Calculator from './Calculator.js';
 import Profil from './Profil.js';
+import Promos from './Promos.js';
+import Messages from './Messages.js';
+import Plus from './Plus.js';
 
 
 class App extends React.Component {
@@ -28,6 +31,9 @@ class App extends React.Component {
               <Route path="/Accueil" component={Accueil} />            
               <Route path="/Calculator" component={Calculator} />
               <Route path="/Profil" component={Profil} />
+              <Route path="/Promos" component={Promos} />
+              <Route path="/Messages" component={Messages} />
+              <Route path="/Plus" component={Plus} />
               <Route path="/" component={Loader} />
             </Switch>
         </BrowserRouter>
