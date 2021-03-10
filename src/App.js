@@ -8,6 +8,7 @@ import {
 
 import Demo from './Demo.js';
 import Loader from './Loader.js';
+import Connexion from './Connexion.js';
 import Choix from './Choix.js';
 import Questionnaire from './Questionnaire.js';
 import Accueil from './Accueil.js';
@@ -28,6 +29,7 @@ class App extends React.Component {
             <Switch>
               <Route path="/Demo" component={Demo} />
               <Route path="/Loader" component={Loader} />
+              <Route path="/Connexion" component={Connexion} />
               <Route path="/Choix" component={Choix} />
               <Route path="/Questionnaire" component={Questionnaire} />  
               <Route path="/Accueil" component={Accueil} />            

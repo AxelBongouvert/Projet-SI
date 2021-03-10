@@ -8,9 +8,9 @@ class Loader extends React.Component {
     
     render() {
         return (
-            <header class="masthead text-white text-center h-100">
-                <div class="container d-flex align-items-center flex-column">
-                    <a href="/Choix"><img class="masthead-avatar" src="assets/img/dana.png" alt="" /></a>
+            <header class="text-white text-center align-items-center row h-100">
+                <div class="container">
+                    <a href="/Connexion"><img class="masthead-avatar" src="assets/img/dana.png" alt="" /></a>
                 </div>
             </header>
             );
