@@ -31,6 +31,9 @@ class App extends React.Component {
               <Route path="/Accueil" component={Accueil} />            
               <Route path="/Calculator" component={Calculator} />
               <Route path="/Profil" component={Profil} />
+              <Route path="/Promos" component={Promos} />
+              <Route path="/Messages" component={Messages} />
+              <Route path="/Plus" component={Plus} />
               <Route path="/" component={Loader} />
             </Switch>
         </BrowserRouter>
