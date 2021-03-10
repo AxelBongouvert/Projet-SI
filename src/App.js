@@ -24,9 +24,7 @@ class App extends React.Component {
   
   render() {
     return (
-      <div>
         <BrowserRouter basename={process.env.REACT_APP_ROUTER_BASE || ''}>
-          <div>
             <Switch>
               <Route path="/Demo" component={Demo} />
               <Route path="/Loader" component={Loader} />
@@ -38,9 +36,7 @@ class App extends React.Component {
               <Route path="/Menu" component={Menu} />
               <Route path="/" component={Loader} />
             </Switch>
-          </div>
         </BrowserRouter>
-      </div>
       );
     }
   }
