@@ -1,6 +1,6 @@
 import React from 'react';
 
-class Loader extends React.Component {
+class Connexion extends React.Component {
     
     constructor(props) {
 		super(props);
@@ -59,4 +59,4 @@ class Loader extends React.Component {
         }
     }
     
-    export default Loader;
+    export default Connexion;

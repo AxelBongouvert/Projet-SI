@@ -2,7 +2,7 @@ import React from 'react';
 import Header from './Header.js';
 import Footer from './Footer.js';
 
-class Accueil extends React.Component {
+class Choix extends React.Component {
     
     constructor(props) {
         super(props);
@@ -18,4 +18,4 @@ class Accueil extends React.Component {
         }
     }
     
-    export default Accueil;
+    export default Choix;
