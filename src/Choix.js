@@ -1,4 +1,6 @@
 import React from 'react';
+import Header from './Header.js';
+import Footer from './Footer.js';
 
 class Accueil extends React.Component {
     
@@ -8,18 +10,10 @@ class Accueil extends React.Component {
     
     render() {
         return (
-                <footer class="footer text-center">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-lg-4 mb-10 mb-lg-0">
-                               <a href=""><h4 class="text-uppercase mb-4">Je veux aider à déménager</h4></a>
-                            </div>
-                            <div class="col-lg-4 mb-10 mb-lg-0">
-                                <a href="/Questionnaire"><h4 class="text-uppercase mb-4">Je déménage</h4></a>
-                            </div>
-                        </div>
-                    </div>
-                </footer>
+            <div>
+                <Header></Header>
+                <Footer></Footer>
+            </div>
             );
         }
     }
