@@ -1,4 +1,5 @@
 import React from 'react';
+import Footer from './Footer';
 
 class Profil extends React.Component {
     
@@ -10,6 +11,7 @@ class Profil extends React.Component {
         return (
             <div>
                 <h1>OUAIS LE PROFIL</h1>
+                <Footer></Footer>
             </div>
         );
     }

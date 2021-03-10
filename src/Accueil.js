@@ -1,5 +1,5 @@
 import React from 'react';
-import Menu from './Menu.js';
+import Footer from './Footer.js';
 
 class Accueil extends React.Component {
     
@@ -10,7 +10,7 @@ class Accueil extends React.Component {
     render() {
         return (
             <div>
-                <Menu></Menu>
+                <Footer></Footer>
             </div>
             );
         }
