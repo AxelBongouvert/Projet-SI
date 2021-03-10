@@ -6,7 +6,6 @@ import {
   Switch
 } from 'react-router-dom';
 
-import Demo from './Demo.js';
 import Loader from './Loader.js';
 import Connexion from './Connexion.js';
 import Choix from './Choix.js';
@@ -26,7 +25,6 @@ class App extends React.Component {
     return (
         <BrowserRouter basename={process.env.REACT_APP_ROUTER_BASE || ''}>
             <Switch>
-              <Route path="/Demo" component={Demo} />
               <Route path="/Loader" component={Loader} />
               <Route path="/Connexion" component={Connexion} />
               <Route path="/Choix" component={Choix} />
