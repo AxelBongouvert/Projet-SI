@@ -9,7 +9,7 @@ class Header extends React.Component {
     render() {
         return (
             <div>
-                <nav class="navbar navbar-expand navbar-light bg-white topbar static-top shadow">
+                <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
                     <ul class="navbar-nav justify-content-center">
                         <h6 class="m-0 font-weight-bold text-primary">Tableau de bord</h6>
                     </ul>
