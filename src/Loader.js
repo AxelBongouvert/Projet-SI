@@ -10,7 +10,7 @@ class Loader extends React.Component {
         return (
             <header class="text-white text-center align-items-center row h-100">
                 <div class="container">
-                    <a href="/Connexion"><img class="masthead-avatar" src="assets/img/dana.png" alt="" /></a>
+                    <a href="/Connexion"><img class="masthead-avatar" src="/img/dana.png" alt="" /></a>
                 </div>
             </header>
             );
