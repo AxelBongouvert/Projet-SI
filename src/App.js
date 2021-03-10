@@ -7,9 +7,14 @@ import {
 } from 'react-router-dom';
 
 import Demo from './Demo.js';
-import Home from './Home.js';
+import Loader from './Loader.js';
+import Connexion from './Connexion.js';
+import Choix from './Choix.js';
+import Questionnaire from './Questionnaire.js';
 import Accueil from './Accueil.js';
 import Calculator from './Calculator.js';
+import Profil from './Profil.js';
+
 
 class App extends React.Component {
   
@@ -19,19 +24,19 @@ class App extends React.Component {
   
   render() {
     return (
-      <div>
         <BrowserRouter basename={process.env.REACT_APP_ROUTER_BASE || ''}>
-          <div>
             <Switch>
               <Route path="/Demo" component={Demo} />
-              <Route path="/Home" component={Home} />
+              <Route path="/Loader" component={Loader} />
+              <Route path="/Connexion" component={Connexion} />
+              <Route path="/Choix" component={Choix} />
+              <Route path="/Questionnaire" component={Questionnaire} />  
               <Route path="/Accueil" component={Accueil} />            
               <Route path="/Calculator" component={Calculator} />
-              <Route path="/" component={Home} />
+              <Route path="/Profil" component={Profil} />
+              <Route path="/" component={Loader} />
             </Switch>
-          </div>
         </BrowserRouter>
-      </div>
       );
     }
   }
