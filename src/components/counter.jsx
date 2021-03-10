@@ -4,14 +4,16 @@ class Counter extends Component {
   render() {
     return (
       <div>
-        <div className="row" style={{border:"solid grey", margin:"1%"}}>
-          <div className="col-md-1" style={{ fontSize: 24 }}>
-            {this.props.counter.nom} ({this.props.counter.volume} m3)
+        <div className="card bg-primary text-white shadow">
+          <div className="col-md-6" style={{ fontSize: 24 }}>
+            {this.props.counter.nom}             
           </div>
-
-          <div className="col-md-1" style={{ fontSize: 24 }}>
+          <div className="col-md-6" style={{ fontSize: 15 }}>
+          Dim: {this.props.counter.dimX}m x {this.props.counter.dimY}m x {this.props.counter.dimZ}m : ({this.props.counter.volume} m3)
+          </div>
+          <div className="col-md-3" style={{ fontSize: 24 }}>
             <button
-              className="btn btn-info m-3"
+              className="btn btn-danger m-3"
               onClick={() => this.props.onDecrement(this.props.counter)}
               disabled={this.props.counter.value === 0 ? "disabled" : ""}
             >
@@ -23,7 +25,7 @@ class Counter extends Component {
             </span>
 
             <button
-              className="btn btn-secondary m-3"
+              className="btn btn-success m-3"
               onClick={() => this.props.onIncrement(this.props.counter)}
             >
               <i className="fa fa-plus-circle" aria-hidden="true" />

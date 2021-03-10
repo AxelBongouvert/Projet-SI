@@ -10,6 +10,7 @@ import Loader from './Loader.js';
 import Connexion from './Connexion.js';
 import Accueil from './Accueil.js';
 import Calculator from './Calculator.js';
+import CheckCamions from './CheckCamions.js';
 import Profil from './Profil.js';
 import Promos from './Promos.js';
 import Messages from './Messages.js';
@@ -30,11 +31,13 @@ class App extends React.Component {
               <Route path="/Connexion" component={Connexion} /> 
               <Route path="/Accueil" component={Accueil} />            
               <Route path="/Calculator" component={Calculator} />
+              <Route path="/CheckCamions" component={CheckCamions} />
               <Route path="/Profil" component={Profil} />
               <Route path="/Promos" component={Promos} />
               <Route path="/Messages" component={Messages} />
               <Route path="/Plus" component={Plus} />
               <Route path="/" component={Loader} />
+
             </Switch>
         </BrowserRouter>
       );

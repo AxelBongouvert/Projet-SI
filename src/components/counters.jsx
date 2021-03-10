@@ -14,6 +14,9 @@ class Counters extends Component {
           <Counter          
             nom={counter.nom}
             volume={counter.volume}
+            dimX={counter.dimX}
+            dimY={counter.dimY}
+            dimZ={counter.dimZ}
 
             key={counter.id}
             counter={counter}
@@ -21,7 +24,14 @@ class Counters extends Component {
             onDecrement={onDecrement}
           />
         ))}
+        <div>
+          YAKOI?!
+          <br></br>
+          <br></br>          
+          <br></br>
+        </div>
       </div>
+      
     );
   }
 }
