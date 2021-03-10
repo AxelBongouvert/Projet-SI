@@ -11,7 +11,7 @@ class Header extends React.Component {
             <div>
                 <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
                     <ul class="navbar-nav justify-content-center">
-                        <h6 class="m-0 font-weight-bold text-primary">Tableau de bord</h6>
+                        <h1 class="h3 mb-0 text-gray-800">Tableau de bord</h1>
                     </ul>
                 </nav>
             </div>
