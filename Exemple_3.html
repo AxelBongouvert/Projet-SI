@@ -1,0 +1,94 @@
+<html>
+<head>
+    <style type="text/css">
+        div {
+            border: solid black 1px;
+            display: inline-block;
+            padding: 2px;
+            margin: 2px;
+            font-size: 1em;
+        }
+    </style>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    
+    <!-- Don't use this in production: -->
+    <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+</head>
+
+<body>
+    <div id="root"></div>
+<script type='text/babel'>
+    class Zone extends React.Component{
+	        render() {
+            return (<div>
+                {this.props.text} 
+            </div>);
+        }
+    };
+	class Choix extends React.Component{
+        render() {
+            return (<button onClick={this.props.onClick}> {this.props.texte}
+                          </button>);
+        }
+    };
+    class Page extends  React.Component{
+		constructor(props) {
+            super(props);
+            this.state = {
+					valeurs : [1, 2],
+                    valMax: 2
+            };
+		};
+		ajoutValeur = () => {
+				this.setState(state => {
+						const valMax = state.valMax + 1;
+						const valeurs = state.valeurs.concat(valMax);
+			return {
+                valeurs,
+                valMax};
+			});
+		};
+  supprimerValeur = i => {
+    this.setState(state => {
+	  let valMax = state.valMax;
+      const valeurs = state.valeurs.filter((val, indice) => i !== val);
+		valMax = valMax - 1;
+      return {
+        valeurs,
+        valMax};
+    });
+  };
+		renderBoutonPlus() {
+			return (
+			
+			<Choix texte="Plus"
+			onClick={() => this.ajoutValeur()}/>
+			
+			
+    );
+  };
+  		renderBoutonMoins() {
+			return (
+			
+			<Choix texte = "Moins"
+			onClick={() => this.supprimerValeur(this.state.valMax)}/>
+			
+			
+    );
+  };
+	
+        render() {
+            return (<div>
+                    
+				{this.renderBoutonPlus()} <br />
+				{this.renderBoutonMoins()} <br />
+				{this.state.valeurs.map((d)=><Zone text={"zone de texte : "+ d} />)}
+            </div>);
+        }
+    };
+    ReactDOM.render(<Page />, document.getElementById('root'));
+    </script>
+</body>
+</html>
