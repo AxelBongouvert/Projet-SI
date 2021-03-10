@@ -35,7 +35,7 @@ class Connexion extends React.Component {
                                                 </div>
                                                 <form class="user" onSubmit={this.handleSubmit}>
                                                     <div class="form-group">
-                                                        <input type="text" class="form-control form-control-user" id="login" aria-describedby="nom de compte" placeholder="Nom de compte" onChange={this.handleInputChange}></input>
+                                                        <input type="text" class="form-control form-control-user" id="login" placeholder="Nom de compte" onChange={this.handleInputChange}></input>
                                                     </div>
                                                     <div class="form-group">
                                                         <input type="password" class="form-control form-control-user" id="mdp" placeholder="Mot de passe" onChange={this.handleInputChange}></input>
