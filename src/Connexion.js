@@ -16,45 +16,57 @@ class Connexion extends React.Component {
     
     handleSubmit = (event) => {
 		const { history } = this.props;
-		history.push('/Choix');
+		history.push('/Accueil');
 		event.preventDefault();
 	}
     
     render() {
         return (
-            <section class="page-section text-center row h-100" id="contact">
-                <div class="container">
-                    <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">Identifiants de connexion</h2>
-                    <div class="divider-custom">
-                        <div class="divider-custom-line"></div>
-                        <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
-                        <div class="divider-custom-line"></div>
-                    </div>
-                    <div class="row">
-                        <div class="col-lg-8 mx-auto">
-                            <form id="contactForm" name="sentMessage" novalidate="novalidate" onSubmit={this.handleSubmit}>
-                                <div class="control-group">
-                                    <div class="form-group floating-label-form-group controls mb-0 pb-2">
-                                        <input class="form-control text-center" id="pseudo" type="text" placeholder="Nom de compte" required="required" data-validation-required-message="Veuillez saisir votre nom de compte." onChange={this.handleInputChange}/>
-                                        <p class="help-block text-danger"></p>
+                <div class="container h-100">
+                    <div class="row justify-content-center">
+                        <div class="col-xl-10 col-lg-12 col-md-9">
+                            <div class="card o-hidden border-0 shadow-lg my-5">
+                                <div class="card-body p-0">
+                                    <div class="row">
+                                        <div class="col-lg-12">
+                                            <div class="p-5">
+                                                <div class="text-center">
+                                                    <h1 class="h4 text-gray-900 mb-4">Espace de connexion</h1>
+                                                </div>
+                                                <form class="user" onSubmit={this.handleSubmit}>
+                                                    <div class="form-group">
+                                                        <input type="text" class="form-control form-control-user" id="login" aria-describedby="nom de compte" placeholder="Nom de compte" onChange={this.handleInputChange}></input>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <input type="password" class="form-control form-control-user" id="mdp" placeholder="Mot de passe" onChange={this.handleInputChange}></input>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <div class="custom-control custom-checkbox small">
+                                                            <input type="checkbox" class="custom-control-input" id="souvenir" onChange={this.handleInputChange}></input>
+                                                            <label class="custom-control-label" for="souvenir">Se souvenir de moi</label>
+                                                        </div>
+                                                    </div>
+                                                    <button class="btn btn-primary btn-user btn-block" id="submit" type="submit">Connexion</button>
+                                                    <hr />
+                                                    <a href="Connexion" class="btn btn-google btn-user btn-block">
+                                                        <i class="fab fa-google fa-fw"></i> Se connecter avec Google
+                                                    </a>
+                                                </form>
+                                                <hr/>
+                                                <div class="text-center">
+                                                    <a class="small" href="Connexion">Mot de passe oublié?</a>
+                                                </div>
+                                                <div class="text-center">
+                                                    <a class="small" href="Connexion">Créer un compte!</a>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
-                                <div class="control-group">
-                                    <div class="form-group floating-label-form-group controls mb-0 pb-2">
-                                        <input class="form-control text-center" id="mdp" type="password" placeholder="Mot de passe" required="required" data-validation-required-message="Veuillez saisir votre mot de passe." onChange={this.handleInputChange}/>
-                                        <p class="help-block text-danger"></p>
-                                    </div>
-                                </div>
-                                <br />
-                                <div id="success"></div>
-                                <div class="form-group">
-                                    <button class="btn btn-primary btn-xl" id="submit" type="submit">Connexion</button>
-                                </div>
-                            </form>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </section>
             );
         }
     }

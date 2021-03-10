@@ -9,19 +9,40 @@ class Footer extends React.Component {
     render() {
         return (
             <div>
-                <footer class="footer text-center fixed-bottom"> 
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-lg-4 mb-5 mb-lg-0">
-                                <a class="btn btn-outline-light btn-social mx-2" href="/Profil">Profil</a>
-                                <a class="btn btn-outline-light btn-social mx-2" href="/">Promo</a>
-                                <a class="btn btn-outline-light btn-social mx-2" href="/">Messages</a>
-                                <a class="btn btn-outline-light btn-social mx-2" href="/">Plus</a>
-                            </div>
-                        </div>
-                    </div>  
-                </footer>
-            </div>    
+                <nav class="navbar navbar-expand navbar-light bg-white topbar static-top shadow fixed-bottom">
+                    <ul class="navbar-nav justify-content-center">
+
+                        <li class="nav-item no-arrow mx-3">
+                            <a class="nav-link" href="/Profil" id="userDropdown" role="button" data-toggle="dropdown"
+                                aria-haspopup="true" aria-expanded="false">
+                                <img class="img-profile rounded-circle" src="img/undraw_profile.svg"/>
+                            </a>
+                        </li>
+
+                        <li class="nav-item no-arrow mx-3">
+                            <a class="nav-link" href="/Promos" id="alertsDropdown" role="button" data-toggle="dropdown"
+                                aria-haspopup="true" aria-expanded="false">
+                                <i class="fas fa-cart-plus fa-fw"></i>
+                            </a>
+                        </li>
+
+                        <li class="nav-item no-arrow mx-3">
+                            <a class="nav-link" href="/Messages" id="messagesDropdown" role="button" data-toggle="dropdown"
+                                aria-haspopup="true" aria-expanded="false">
+                                <i class="fas fa-envelope fa-fw"></i>
+                            </a>
+                        </li>
+
+                        <li class="nav-item no-arrow mx-3">
+                            <a class="nav-link" href="/Plus" id="messagesDropdown" role="button" data-toggle="dropdown"
+                                aria-haspopup="true" aria-expanded="false">
+                                <i class="fas fa-dot-circle fa-fw"></i>
+                            </a>
+                        </li>
+
+                    </ul>
+                </nav>
+            </div>
         );
     }
 }
