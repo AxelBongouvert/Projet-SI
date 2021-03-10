@@ -12,8 +12,6 @@ class GestionCartons extends React.Component {
         return (
             <div>
                 <Header></Header>
-                <nav class="navbar navbar-expand navbar-light topbar mb-4 static-top ">
-                </nav>
                 <div class="container-fluid">
                     <div class="row">
                         <div class="col-lg-2 mb-2">

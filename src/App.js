@@ -12,6 +12,9 @@ import Accueil from './Accueil.js';
 import Calculator from './Calculator.js';
 import Profil from './Profil.js';
 import GestionCartons from './GestionCartons.js';
+import Promos from './Promos.js';
+import Messages from './Messages.js';
+import Plus from './Plus.js';
 
 
 class App extends React.Component {
