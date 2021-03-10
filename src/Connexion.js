@@ -16,7 +16,7 @@ class Connexion extends React.Component {
     
     handleSubmit = (event) => {
 		const { history } = this.props;
-		history.push('/Choix');
+		history.push('/Accueil');
 		event.preventDefault();
 	}
     
