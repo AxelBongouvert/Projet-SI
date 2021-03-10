@@ -1,83 +1,70 @@
-import React from 'react';
-class Calculator extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            total: 0,
-            nbCanape2places: 0,
-            volumeCanape2places: 5,
+import React, { Component } from "react";
+import Counters from "./components/counters";
+import NavBar from "./components/navBar";
+class Calculator2 extends Component {
+  state = {
+    counters: [
+      { nom: "Canapé 2 places", volume: "4", id: 1, value: 0 },
+      { nom: "Télé", volume: "1", id: 2, value: 0 },
+      { nom: "Tapis", volume: "0.3", id: 3, value: 0 },
+      { nom: "Table basse", volume: "2", id: 4, value: 0 }
+    ]
+  };
 
-            nbCanape1place: 0,
-            volumeCanape1place: 2
-        };
+  handleIncrement = counter => {
+    const counters = [...this.state.counters];
+    const index = counters.indexOf(counter);
+    counters[index] = { ...counters[index] };
+    counters[index].value++;
+    this.setState({ counters });
+  };
+
+  handleDecrement = counter => {
+    const counters = [...this.state.counters];
+    const index = counters.indexOf(counter);
+    counters[index] = { ...counters[index] };
+    counters[index].value--;
+    this.setState({ counters });
+  };
+
+  handleRestart = () => {
+    window.location.reload();
+  };
+
+  getSomme() {
+    var somme = 0;
+    for (let index = 0; index < this.state.counters.length; index++) {
+      somme = somme + this.state.counters[index].value
     }
-    ajouterTotal(volumeToAdd) {
-        this.setState({ total: this.state.total + volumeToAdd })
-    };
-
-    supprimerTotal(volumeToAdd) {
-        if (this.state.total - volumeToAdd < 0) {
-            this.setState({ total: 0 })
-        } else {
-            this.setState({ total: this.state.total - volumeToAdd })
-        }
-    };
-
-    addCanape2Places() {
-        this.setState({ nbCanape2places: this.state.nbCanape2places + 1 })
-        this.ajouterTotal(this.state.volumeCanape2places)
+    return somme;
+  };
+  getVolume() {
+    var somme = 0;
+    for (let index = 0; index < this.state.counters.length; index++) {
+      somme = somme + (this.state.counters[index].value) * this.state.counters[index].volume
     }
-    rmCanape2Places() {
-        if (this.state.nbCanape2places <= 0) {
-            this.setState({ nbCanape2places: 0 })
-        } else {
-            this.setState({ nbCanape2places: this.state.nbCanape2places - 1 })
-            this.supprimerTotal(this.state.volumeCanape2places)
-        }
-    }
+    return somme;
+  };
 
-    addCanape1Place() {
-        this.setState({ nbCanape1place: this.state.nbCanape1place + 1 })
-        this.ajouterTotal(this.state.volumeCanape1place)
-    }
-    rmCanape1Place() {
-        if (this.state.nbCanape1place <= 0) {
-            this.setState({ nbCanape1place: 0 })
-        } else {
-            this.setState({ nbCanape1place: this.state.nbCanape1place - 1 })
-            this.supprimerTotal(this.state.volumeCanape1place)
-        }
-    }
-
-
-    // this.ajouterTotal(this.state.volumeCanape2places)
-    // <button onClick={() => this.setState({nbCanape2places: this.state.nbCanape2places + 1}) }> + </button>
-    // <button onClick={() => this.calculerTotal() }> Calculer le volume total! </button> 
-    //<button style={{margin : ".5%" }} onClick={()=> this.ajouterTotal(this.state.volumeCanape2places) }> + </button>
-
-    render() {
-        return (
-            <div>
-                <div> <h1> le Calculator ! </h1> </div>
-
-                <div style={{ backgroundColor: "grey", padding: "5%", margin: "5%", border: "2px solid black" }} >
-                    {this.state.nbCanape2places} canape 2 places de volume : {this.state.volumeCanape2places} m3
-                    <button style={{ margin: ".5%" }} onClick={() => this.addCanape2Places()}> + </button>
-                    <button style={{ margin: ".5%" }} onClick={() => this.rmCanape2Places()}> - </button>
-                </div>
-
-                <div style={{ backgroundColor: "grey", padding: "5%", margin: "5%", border: "2px solid black" }} >
-                    {this.state.nbCanape1place} canape 1 place de volume : {this.state.volumeCanape1place} m3
-                    <button style={{ margin: ".5%" }} onClick={() => this.addCanape1Place()}> + </button>
-                    <button style={{ margin: ".5%" }} onClick={() => this.rmCanape1Place()}> - </button>
-                </div>
-
-                <div >
-                    <h1>total = {this.state.total} </h1>
-                </div>
-            </div>
-        );
-    }
+  render() {
+    return (
+      <div>
+        <NavBar
+          totalCounters={this.getSomme()}
+          totalVolume={this.getVolume()}
+        />
+        <main className="container">
+          <Counters
+            counters={this.state.counters}
+            onReset={this.handleReset}
+            onIncrement={this.handleIncrement}
+            onDecrement={this.handleDecrement}
+            onRestart={this.handleRestart}
+          />
+        </main>
+      </div>
+    );
+  }
 }
 
-export default Calculator;
+export default Calculator2;
