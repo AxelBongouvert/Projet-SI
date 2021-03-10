@@ -9,19 +9,33 @@ class Footer extends React.Component {
     render() {
         return (
             <div>
-                <footer class="footer text-center fixed-bottom"> 
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-lg-4 mb-5 mb-lg-0">
-                                <a class="btn btn-outline-light btn-social mx-2" href="/Profil">Profil</a>
-                                <a class="btn btn-outline-light btn-social mx-2" href="/">Promo</a>
-                                <a class="btn btn-outline-light btn-social mx-2" href="/">Messages</a>
-                                <a class="btn btn-outline-light btn-social mx-2" href="/">Plus</a>
-                            </div>
-                        </div>
-                    </div>  
-                </footer>
-            </div>    
+                <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow fixed-bottom">
+                    <ul class="navbar-nav ml-auto">
+
+                        <li class="nav-item dropdown no-arrow">
+                            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown"
+                                aria-haspopup="true" aria-expanded="false">
+                                <img class="img-profile rounded-circle" src="img/undraw_profile.svg"/>
+                            </a>
+                        </li>
+
+                        <li class="nav-item dropdown no-arrow mx-1">
+                            <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button" data-toggle="dropdown"
+                                aria-haspopup="true" aria-expanded="false">
+                                <i class="fas fa-bell fa-fw"></i>
+                            </a>
+                        </li>
+
+                        <li class="nav-item dropdown no-arrow mx-1">
+                            <a class="nav-link dropdown-toggle" href="#" id="messagesDropdown" role="button" data-toggle="dropdown"
+                                aria-haspopup="true" aria-expanded="false">
+                                <i class="fas fa-envelope fa-fw"></i>
+                            </a>
+                        </li>
+
+                    </ul>
+                </nav>
+            </div>
         );
     }
 }
