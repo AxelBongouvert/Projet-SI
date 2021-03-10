@@ -8,11 +8,13 @@ class Header extends React.Component {
     
     render() {
         return (
-            <nav class="navbar navbar-expand-lg bg-secondary text-uppercase fixed-top" id="mainNav">
-                <div class="container">
-                    <a class="navbar-brand js-scroll-trigger" href="#page-top">Tableau de bord</a>
-                </div>
-            </nav>
+            <div>
+                <nav class="navbar navbar-expand navbar-light bg-white topbar static-top shadow fixed-top">
+                    <ul class="navbar-nav justify-content-center">
+                        <h6 class="m-0 font-weight-bold text-primary">Tableau de bord</h6>
+                    </ul>
+                </nav>
+            </div>
             );
         }
     }
