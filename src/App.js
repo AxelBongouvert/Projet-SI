@@ -14,6 +14,7 @@ import Questionnaire from './Questionnaire.js';
 import Accueil from './Accueil.js';
 import Calculator from './Calculator.js';
 import Profil from './Profil.js';
+import GestionCartons from './GestionCartons.js'
 
 
 class App extends React.Component {
@@ -30,7 +31,8 @@ class App extends React.Component {
               <Route path="/Loader" component={Loader} />
               <Route path="/Connexion" component={Connexion} />
               <Route path="/Choix" component={Choix} />
-              <Route path="/Questionnaire" component={Questionnaire} />  
+              <Route path="/Questionnaire" component={Questionnaire} /> 
+              <Route path="/GestionCartons" component={GestionCartons} />
               <Route path="/Accueil" component={Accueil} />            
               <Route path="/Calculator" component={Calculator} />
               <Route path="/Profil" component={Profil} />
