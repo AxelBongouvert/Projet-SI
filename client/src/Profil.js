@@ -38,9 +38,6 @@ class Profil extends React.Component {
 														<input type="email" class="form-control form-control-user" id="email" placeholder="Adresse email" onChange={this.handleInputChange}></input>
 													</div>
 													<div class="form-group">
-														<input type="text" class="form-control form-control-user" id="adresse" placeholder="Adresse postale" onChange={this.handleInputChange}></input>
-													</div>
-													<div class="form-group">
 														<input type="passsword" class="form-control form-control-user" id="mdp" placeholder="Mot de passe" onChange={this.handleInputChange}></input>
 													</div>
 													<button class="btn btn-danger btn-user btn-block" id="submit" type="submit">Valider</button>
