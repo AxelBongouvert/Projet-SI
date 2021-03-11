@@ -21,6 +21,10 @@ class Profil extends React.Component {
 												<div class="text-center">
 													<h1 class="h4 text-gray-900 mb-4">FC Panik</h1>
 												</div>
+												<div class="text-center">
+													<a href="/Deconnexion">Se déconnecter</a>
+												</div>
+												<br/>
 												<form class="user" onSubmit={this.handleSubmit}>
 													<div class="form-group">
 														<input type="text" class="form-control form-control-user" id="nom" placeholder="Nom" onChange={this.handleInputChange}></input>

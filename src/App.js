@@ -9,6 +9,7 @@ import {
 import Loader from './Loader.js';
 import Connexion from './Connexion.js';
 import Inscription from './Inscription.js';
+import Deconnexion from './Deconnexion.js';
 import Accueil from './Accueil.js';
 import Demenagement from './Demenagement.js';
 import Calculator from './Calculator.js';
@@ -31,6 +32,7 @@ class App extends React.Component {
 				<Route path="/Loader" component={Loader} />
 				<Route path="/Connexion" component={Connexion} />
 				<Route path="/Inscription" component={Inscription} />
+				<Route path="/Deconnexion" component={Deconnexion} />
 				<Route path="/Accueil" component={Accueil} />
 				<Route path="/Demenagement" component={Demenagement} />
 				<Route path="/Calculator" component={Calculator} />
