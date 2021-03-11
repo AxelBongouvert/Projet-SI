@@ -12,6 +12,7 @@ import Inscription from './Inscription.js';
 import Deconnexion from './Deconnexion.js';
 import Accueil from './Accueil.js';
 import Demenagement from './Demenagement.js';
+import Taches from './Taches.js';
 import Calculator from './Calculator.js';
 import CheckCamions from './CheckCamions.js';
 import Profil from './Profil.js';
@@ -35,6 +36,7 @@ class App extends React.Component {
 				<Route path="/Deconnexion" component={Deconnexion} />
 				<Route path="/Accueil" component={Accueil} />
 				<Route path="/Demenagement" component={Demenagement} />
+				<Route path="/Taches" component={Taches} />
 				<Route path="/Calculator" component={Calculator} />
 				<Route path="/CheckCamions" component={CheckCamions} />
 				<Route path="/Profil" component={Profil} />
