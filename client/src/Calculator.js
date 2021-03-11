@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import Counters from "./components/counters";
 import NavBar from "./components/navBar";
 
-class Calculator2 extends Component {
+class Calculator extends Component {
 
 	state = {
 		counters: [
@@ -40,16 +40,34 @@ class Calculator2 extends Component {
 		var somme = 0;
 		for (let index = 0; index < this.state.counters.length; index++) {
 			somme = somme + this.state.counters[index].value
-		}
-		return somme;
+		}		
+		return somme;		
 	};
 	getVolume() {
 		var somme = 0;
 		for (let index = 0; index < this.state.counters.length; index++) {
 			somme = somme + (this.state.counters[index].value) * this.state.counters[index].volume
 		}
+		localStorage.setItem('volume', somme);
 		return somme;
 	};
+
+	getPlusLong(){
+		var max = 0;
+		for (let index = 0; index < this.state.counters.length; index++) {
+			if(this.state.counters[index].dimX > max){
+				max = this.state.counters[index].dimX
+			}
+			if(this.state.counters[index].dimY > max){
+				max = this.state.counters[index].dimY
+			}
+			if(this.state.counters[index].dimZ > max){
+				max = this.state.counters[index].dimZ
+			}
+		}
+		localStorage.setItem('dimMax',max)
+		return max;
+	}
 
 	render() {
 		return (
@@ -57,7 +75,9 @@ class Calculator2 extends Component {
 			<NavBar
 				totalCounters={this.getSomme()}
 				totalVolume={this.getVolume()}
+				
 			/>
+			{this.getPlusLong()}
 			<main className="container">
 				<Counters
 					counters={this.state.counters}            
@@ -72,4 +92,4 @@ class Calculator2 extends Component {
 	
 }
 
-export default Calculator2;
+export default Calculator;
