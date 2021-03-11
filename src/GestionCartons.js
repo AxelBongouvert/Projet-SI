@@ -14,47 +14,35 @@ class GestionCartons extends React.Component {
                 <Header></Header>
                 <div class="container-fluid">
                     <div class="row">
-                        <div class="col-lg-2 mb-2">
-                            <div class="card bg-primary text-white shadow">
-                                <div class="card-body">
-                                    Primary
-                                            <div class="text-white-50 small">#4e73df</div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xl-3 col-md-6 mb-4">
-                            <div class="card border-left-primary shadow h-100 py-2">
-                                <div class="card-body">
-                                    <div class="row no-gutters align-items-center">
-                                        <div class="col mr-2">
-                                            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                                                Earnings (Monthly)</div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800">$40,000</div>
-                                        </div>
-                                        <div class="col-auto">
-                                            <i class="fas fa-calendar fa-2x text-gray-300"></i>
-                                        </div>
+                        <div class="col-lg-0 mb-2">
+                            <a href="/CreationCarton">
+                                <div class="card bg-primary text-white shadow">
+                                    <div class="card-body">
+                                        <i class="fas fa-box-open fa-fw"></i><i class="fas fa-plus fa-fw"></i>
+                                        <div class="text-white-50 small">Ajouter un carton</div>
                                     </div>
                                 </div>
-                            </div>
+                            </a>
                         </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-xl-3 col-md-6 mb-4">
-                            <div class="card border-left-primary shadow h-100 py-2">
-                                <div class="card-body">
-                                    <div class="row no-gutters align-items-center">
-                                        <div class="col mr-2">
-                                            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                                                Earnings (Monthly)</div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800">$40,000</div>
-                                        </div>
-                                        <div class="col-auto">
-                                            <i class="fas fa-calendar fa-2x text-gray-300"></i>
-                                        </div>
+                        <div class="col-lg-0 mb-2">
+                            <a href="/">
+                                <div class="card bg-primary text-white shadow">
+                                    <div class="card-body">
+                                        <i class="fas fa-box fa-fw"></i>
+                                        <div class="text-white-50 small">salle 1</div>
                                     </div>
                                 </div>
-                            </div>
+                            </a>
+                        </div>
+                        <div class="col-lg-0 mb-2">
+                            <a href="Connexion">
+                                <div class="card bg-primary text-white shadow">
+                                    <div class="card-body">
+                                        <i class="fas fa-box fa-fw"></i>
+                                        <div class="text-white-50 small">salle 2</div>
+                                    </div>
+                                </div>
+                            </a>
                         </div>
                     </div>
                 </div>
