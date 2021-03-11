@@ -1,5 +1,5 @@
 import React from 'react';
-import Header from './Header.js';
+import Retour from './Retour.js';
 import Footer from './Footer.js';
 
 class Plus extends React.Component {
@@ -11,7 +11,7 @@ class Plus extends React.Component {
 	render() {
 		return (
 			<div>
-				<Header></Header>
+				<Retour name="Plus"></Retour>
 				<p>Plus</p>
 				<Footer></Footer>
 			</div>

@@ -1,5 +1,6 @@
 import React from 'react';
 import Footer from './Footer';
+import Retour from './Retour.js';
 
 class Profil extends React.Component {
 	
@@ -10,6 +11,7 @@ class Profil extends React.Component {
 	render() {
 		return (
 			<div>
+				<Retour name="Profil"></Retour>
 				<div class="container h-100">
 					<div class="row justify-content-center">
 						<div class="col-xl-10 col-lg-12 col-md-9">

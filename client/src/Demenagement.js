@@ -1,6 +1,6 @@
 import React from 'react';
-import Header from './Header.js';
 import Footer from './Footer.js';
+import Retour from './Retour.js';
 
 class Demenagement extends React.Component {
 	
@@ -11,7 +11,7 @@ class Demenagement extends React.Component {
 	render() {
 		return (
 			<div>
-				<Header></Header>
+				<Retour name="Déménagement"></Retour>
 				<div class="col-xl-12 col-lg-12 mb-4">
 					<form class="d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
 						<div class="input-group">

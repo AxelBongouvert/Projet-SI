@@ -1,5 +1,5 @@
 import React from 'react';
-import Header from './Header.js';
+import Retour from './Retour.js';
 import Footer from './Footer.js';
 
 class Messages extends React.Component {
@@ -11,7 +11,7 @@ class Messages extends React.Component {
     render() {
         return (
             <div>
-                <Header></Header>
+				<Retour name="Messages"></Retour>
                 <p>Messages</p>
                 <Footer></Footer>
             </div>

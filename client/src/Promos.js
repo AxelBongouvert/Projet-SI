@@ -1,6 +1,6 @@
 import React from 'react';
-import Header from './Header.js';
 import Footer from './Footer.js';
+import Retour from './Retour.js';
 
 class Promos extends React.Component {
 	
@@ -11,7 +11,7 @@ class Promos extends React.Component {
 	render() {
 		return (
 			<div>
-				<Header></Header>
+				<Retour name="Promos"></Retour>
 				<p>Promos</p>
 				<Footer></Footer>
 			</div>
