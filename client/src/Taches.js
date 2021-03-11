@@ -1,5 +1,5 @@
 import React from 'react';
-import Header from './Header.js';
+import Retour from './Retour.js';
 import Footer from './Footer.js';
 
 class Demenagement extends React.Component {
@@ -11,10 +11,10 @@ class Demenagement extends React.Component {
 	render() {
 		return (
 			<div>
-				<Header></Header>
+				<Retour name="Tâches administratives"></Retour>
 					<div class="col-xl-12 col-md-12 mb-4">
 						<a href="Taches">
-							<div class="card border-left-primary shadow h-100 py-2">
+							<div class="card border-left-danger shadow h-100 py-2">
 								<div class="card-body">
 									<div class="row no-gutters align-items-center">
 										<div class="col mr-2">
@@ -30,7 +30,7 @@ class Demenagement extends React.Component {
 					</div>
 					<div class="col-xl-12 col-md-12 mb-4">
 						<a href="Taches">
-							<div class="card border-left-primary shadow h-100 py-2">
+							<div class="card border-left-danger shadow h-100 py-2">
 								<div class="card-body">
 									<div class="row no-gutters align-items-center">
 										<div class="col mr-2">
@@ -46,7 +46,7 @@ class Demenagement extends React.Component {
 					</div>
 					<div class="col-xl-12 col-md-12 mb-4">
 						<a href="Taches">
-							<div class="card border-left-primary shadow h-100 py-2">
+							<div class="card border-left-danger shadow h-100 py-2">
 								<div class="card-body">
 									<div class="row no-gutters align-items-center">
 										<div class="col mr-2">
@@ -62,7 +62,7 @@ class Demenagement extends React.Component {
 					</div>
 					<div class="col-xl-12 col-md-12 mb-4">	
 						<a href="Taches">
-							<div class="card border-left-primary shadow h-100 py-2">
+							<div class="card border-left-danger shadow h-100 py-2">
 								<div class="card-body">
 									<div class="row no-gutters align-items-center">
 										<div class="col mr-2">
@@ -78,7 +78,7 @@ class Demenagement extends React.Component {
 					</div>
 					<div class="col-xl-12 col-md-12 mb-4">	
 						<a href="Taches">
-							<div class="card border-left-primary shadow h-100 py-2">
+							<div class="card border-left-danger shadow h-100 py-2">
 								<div class="card-body">
 									<div class="row no-gutters align-items-center">
 										<div class="col mr-2">
@@ -94,7 +94,7 @@ class Demenagement extends React.Component {
 					</div>
 					<div class="col-xl-12 col-md-12 mb-4">
 						<a href="Taches">
-							<div class="card border-left-primary shadow h-100 py-2">
+							<div class="card border-left-danger shadow h-100 py-2">
 								<div class="card-body">
 									<div class="row no-gutters align-items-center">
 										<div class="col mr-2">
@@ -110,7 +110,7 @@ class Demenagement extends React.Component {
 					</div>
 					<div class="col-xl-12 col-md-12 mb-4">	
 						<a href="Taches">
-							<div class="card border-left-primary shadow h-100 py-2">
+							<div class="card border-left-danger shadow h-100 py-2">
 								<div class="card-body">
 									<div class="row no-gutters align-items-center">
 										<div class="col mr-2">
@@ -126,7 +126,7 @@ class Demenagement extends React.Component {
 					</div>
 					<div class="col-xl-12 col-md-12 mb-4">
 						<a href="Taches">
-							<div class="card border-left-primary shadow h-100 py-2">
+							<div class="card border-left-danger shadow h-100 py-2">
 								<div class="card-body">
 									<div class="row no-gutters align-items-center">
 										<div class="col mr-2">
@@ -142,7 +142,7 @@ class Demenagement extends React.Component {
 					</div>
 					<div class="col-xl-12 col-md-12 mb-4">	
 						<a href="Taches">
-							<div class="card border-left-primary shadow h-100 py-2">
+							<div class="card border-left-danger shadow h-100 py-2">
 								<div class="card-body">
 									<div class="row no-gutters align-items-center">
 										<div class="col mr-2">
@@ -158,7 +158,7 @@ class Demenagement extends React.Component {
 					</div>
 					<div class="col-xl-12 col-md-12 mb-4">
 						<a href="Taches">
-							<div class="card border-left-primary shadow h-100 py-2">
+							<div class="card border-left-danger shadow h-100 py-2">
 								<div class="card-body">
 									<div class="row no-gutters align-items-center">
 										<div class="col mr-2">
