@@ -33,10 +33,76 @@ let db = new sqlite3.Database('./BddDana.db', sqlite3.OPEN_READWRITE, (err) => {
   console.log('Connecté à la BDD SQLite');
 });
 
-//############################################################################################ REQUETES DE LISTES ############################################################################################
+//############################################################################################ CAMION ############################################################################################
+
+//Liste des camions ayant un certain volume minimum
+app.get('/camion/:volumeMin', (req,res) => {
+	var volumeMin = parseInt(req.params.volumeMin);
+
+	const sqlString = "SELECT * FROM Camion WHERE volume >= ?";
+	const values = [volumeMin];
+  db.all(sqlString, values, (err, rows) => {
+    if (err) {
+      console.error(err.message);
+    }
+    //console.log(rows);
+    res.status(200).json(rows);
+  });
+})
+
+//insertion d'une liste de camions
+app.post('/camion',  (req,res) => {
+	var body = req.body;
+  const camions = body.map((m) => { return Object.values(m)});
+
+  let sqlString = "INSERT INTO Camion (description, largeur, hauteur, profondeur, permisMin, volume) VALUES (?,?,?,?,?,?)";
+  let statement = db.prepare(sqlString);
+  //camions.forEach( carton => console.log("UN CAMION : " + JSON.stringify(camion)));
+  
+  camions.forEach( camion => statement.run(camion, function(err, row) {
+    if (err) {
+      console.error(err.message);
+    }
+  }))
+  res.status(200).json({});
+})
+
+//Modification d'un camion
+app.put('/camion',  (req,res) => {
+  var body = req.body;
+  const camion = Object.values(body);
+
+  let sqlString = "UPDATE Camion SET description=?, largeur=?, hauteur=?, profondeur=?, permisMin=?, volume=? WHERE id = ?";
+  const values = camion;
+
+  db.all(sqlString, values, (err, rows) => {
+    if (err) {
+      console.error(err.message);
+    }
+    //console.log(rows);
+    res.status(200).json({});
+  });
+})
+
+//Suppresion d'un camion
+app.delete('/camion', (req,res) => {
+  var id = req.body.id;
+
+  let sqlString = "DELETE FROM Camion WHERE id = ?";
+  const values = [id];
+  db.all(sqlString, values, (err, rows) => {
+    if (err) {
+      console.error(err.message);
+    }
+    //console.log(rows);
+    res.status(200).json({});
+  });
+})
+
+//############################################################################################ CARTON ############################################################################################
 
 //Liste des cartons d'une salle
-app.get('/cartonList/:idSalle', (req,res) => {
+app.get('/carton/:idSalle', (req,res) => {
 	var idSalle = parseInt(req.params.idSalle);
 
 	const sqlString = "SELECT Carton.id,photo,qrCode,volume,largeur,hauteur,poids,profondeur,fragile FROM Carton INNER JOIN Salle ON Carton.fk_id_salle = Salle.id WHERE Salle.id = ?";
@@ -45,25 +111,19 @@ app.get('/cartonList/:idSalle', (req,res) => {
     if (err) {
       console.error(err.message);
     }
-    console.log(rows);
+    //console.log(rows);
     res.status(200).json(rows);
   });
 })
 
-//############################################################################################ REQUETES D'INSERTION ############################################################################################
-
 //insertion d'une liste de cartons
 app.post('/carton',  (req,res) => {
 	var body = req.body;
-
   const cartons = body.map((m) => { return Object.values(m)});
 
-
   let sqlString = "INSERT INTO Carton (photo, qrCode, volume, largeur, hauteur, poids, profondeur, fragile, fk_id_salle) VALUES (?,?,?,?,?,?,?,?,?)";
-
   let statement = db.prepare(sqlString);
-
-  cartons.forEach( carton => console.log("UN CARTON : " + JSON.stringify(carton)));
+  //cartons.forEach( carton => console.log("UN CARTON : " + JSON.stringify(carton)));
   
   cartons.forEach( carton => statement.run(carton, function(err, row) {
     if (err) {
