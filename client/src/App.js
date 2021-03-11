@@ -15,6 +15,7 @@ import Demenagement from './Demenagement.js';
 import Taches from './Taches.js';
 import Transport from './Transport.js';
 import Contrats from './Contrats.js';
+import Affaires from './Affaires.js';
 import Calculator from './Calculator.js';
 import CheckCamions from './CheckCamions.js';
 import Profil from './Profil.js';
@@ -41,6 +42,7 @@ class App extends React.Component {
 				<Route path="/Taches" component={Taches} />
 				<Route path="/Transport" component={Transport} />
 				<Route path="/Contrats" component={Contrats} />
+				<Route path="/Affaires" component={Affaires} />
 				<Route path="/Calculator" component={Calculator} />
 				<Route path="/CheckCamions" component={CheckCamions} />
 				<Route path="/Profil" component={Profil} />

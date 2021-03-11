@@ -45,7 +45,7 @@ class Demenagement extends React.Component {
 					</a>
 				</div>
 				<div class="col-lg-12 mb-4">
-					<a href="/Demenagement">
+					<a href="/Affaires">
 						<div class="card bg-danger text-white shadow">
 							<div class="card-body">
 								Tri de ses affaires
