@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Counters from "./components/counters";
 import NavBar from "./components/navBar";
+import Retour from "./Retour";
 
 class Calculator extends Component {
 
@@ -71,7 +72,8 @@ class Calculator extends Component {
 
 	render() {
 		return (
-		<div>
+			<div>
+			<Retour name="Calculateur de volume"></Retour>
 			<NavBar
 				totalCounters={this.getSomme()}
 				totalVolume={this.getVolume()}
