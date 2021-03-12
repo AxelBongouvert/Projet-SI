@@ -10,9 +10,22 @@ class Plus extends React.Component {
 	
 	render() {
 		return (
-			<div>
+			<div class="container">
 				<Retour name="Plus"></Retour>
-				<p>Plus</p>
+				<table class="table table-striped">
+					<tr>
+						<td>FAQ</td>
+					</tr>
+					<tr>
+						<td>Informations légales (CGU / Mentions légales / Notice RGPD)</td>
+					</tr>
+					<tr>
+						<td>Remerciements</td>
+					</tr>
+					<tr>
+						<td>Autorisation photo / notification</td>
+					</tr>
+				</table>
 				<Footer></Footer>
 			</div>
 		);
