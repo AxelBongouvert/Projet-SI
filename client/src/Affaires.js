@@ -21,7 +21,7 @@ class Affaires extends React.Component {
 											<div class="h5 mb-0 font-weight-bold text-gray-800">Trier grâce à notre outil d'aide à la décision</div>
 										</div>
 										<div class="col-auto">
-											<i class="fas fa-boxes fa-2x text-gray-300"></i>
+											<i class="fas fa-boxes fa-2x text-info"></i>
 										</div>
 									</div>
 								</div>
@@ -37,7 +37,7 @@ class Affaires extends React.Component {
 											<div class="h5 mb-0 font-weight-bold text-gray-800">Donner ses affaires</div>
 										</div>
 										<div class="col-auto">
-											<i class="fas fa-box fa-2x text-gray-300"></i>
+											<i class="fas fa-box fa-2x text-info"></i>
 										</div>
 									</div>
 								</div>
@@ -53,7 +53,7 @@ class Affaires extends React.Component {
 											<div class="h5 mb-0 font-weight-bold text-gray-800">Vendre ses affaires</div>
 										</div>
 										<div class="col-auto">
-											<i class="fas fa-box-open fa-2x text-gray-300"></i>
+											<i class="fas fa-box-open fa-2x text-info"></i>
 										</div>
 									</div>
 								</div>
@@ -69,7 +69,7 @@ class Affaires extends React.Component {
 											<div class="h5 mb-0 font-weight-bold text-gray-800">Jeter ses affaires</div>
 										</div>
 										<div class="col-auto">
-											<i class="fas fa-box-tissue fa-2x text-gray-300"></i>
+											<i class="fas fa-box-tissue fa-2x text-info"></i>
 										</div>
 									</div>
 								</div>

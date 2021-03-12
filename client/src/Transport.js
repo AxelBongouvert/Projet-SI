@@ -21,7 +21,7 @@ class Transport extends React.Component {
 											<div class="h5 mb-0 font-weight-bold text-gray-800">Comparer les loueurs de transports</div>
 										</div>
 										<div class="col-auto">
-											<i class="fas fa-truck fa-2x text-gray-300"></i>
+											<i class="fas fa-truck fa-2x text-info"></i>
 										</div>
 									</div>
 								</div>
@@ -37,7 +37,7 @@ class Transport extends React.Component {
 											<div class="h5 mb-0 font-weight-bold text-gray-800">Faire du co-transportage</div>
 										</div>
 										<div class="col-auto">
-											<i class="fas fa-user-friends fa-2x text-gray-300"></i>
+											<i class="fas fa-user-friends fa-2x text-info"></i>
 										</div>
 									</div>
 								</div>
@@ -53,7 +53,7 @@ class Transport extends React.Component {
 											<div class="h5 mb-0 font-weight-bold text-gray-800">Estimer le volume grâce à notre calculateur</div>
 										</div>
 										<div class="col-auto">
-											<i class="fas fa-box fa-2x text-gray-300"></i>
+											<i class="fas fa-box fa-2x text-info"></i>
 										</div>
 									</div>
 								</div>
@@ -69,7 +69,7 @@ class Transport extends React.Component {
 											<div class="h5 mb-0 font-weight-bold text-gray-800">Estimer le nombre d'aller-retour</div>
 										</div>
 										<div class="col-auto">
-											<i class="fas fa-arrow-right fa-2x text-gray-300"></i>
+											<i class="fas fa-arrow-right fa-2x text-info"></i>
 										</div>
 									</div>
 								</div>
@@ -85,7 +85,7 @@ class Transport extends React.Component {
 											<div class="h5 mb-0 font-weight-bold text-gray-800">Comparateur de loueurs de véhicule</div>
 										</div>
 										<div class="col-auto">
-											<i class="fas fa-car fa-2x text-gray-300"></i>
+											<i class="fas fa-car fa-2x text-info"></i>
 										</div>
 									</div>
 								</div>
@@ -101,7 +101,7 @@ class Transport extends React.Component {
 											<div class="h5 mb-0 font-weight-bold text-gray-800">Comparateur des déménageurs professionnel</div>
 										</div>
 										<div class="col-auto">
-											<i class="fas fa-money-bill fa-2x text-gray-300"></i>
+											<i class="fas fa-money-bill fa-2x text-info"></i>
 										</div>
 									</div>
 								</div>

@@ -21,7 +21,7 @@ class Contrats extends React.Component {
 											<div class="h5 mb-0 font-weight-bold text-gray-800">Transférer ou souscrire à un abonnement internet</div>
 										</div>
 										<div class="col-auto">
-											<i class="fas fa-wifi fa-2x text-gray-300"></i>
+											<i class="fas fa-wifi fa-2x text-info"></i>
 										</div>
 									</div>
 								</div>
@@ -37,7 +37,7 @@ class Contrats extends React.Component {
 											<div class="h5 mb-0 font-weight-bold text-gray-800">Transférer ou souscrire à une assurance habitation</div>
 										</div>
 										<div class="col-auto">
-											<i class="fas fa-home fa-2x text-gray-300"></i>
+											<i class="fas fa-home fa-2x text-info"></i>
 										</div>
 									</div>
 								</div>
@@ -53,7 +53,7 @@ class Contrats extends React.Component {
 											<div class="h5 mb-0 font-weight-bold text-gray-800">Résilier et / ou ouvrir ses contrats d'énergie</div>
 										</div>
 										<div class="col-auto">
-											<i class="fas fa-battery-three-quarters fa-2x text-gray-300"></i>
+											<i class="fas fa-battery-three-quarters fa-2x text-info"></i>
 										</div>
 									</div>
 								</div>

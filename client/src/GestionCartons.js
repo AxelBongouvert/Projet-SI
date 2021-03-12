@@ -1,5 +1,5 @@
 import React from 'react';
-import Header from './Header.js';
+import Retour from './Retour.js';
 import Footer from './Footer.js';
 
 class GestionCartons extends React.Component {
@@ -35,7 +35,7 @@ class GestionCartons extends React.Component {
     render() {
         return (
             <div>
-                <Header></Header>
+                <Retour name="Gestion cartons"></Retour>
                     <div class="card shadow mb-2">
                         <div class="card-header py-2">
                             <h6 class="m-1 font-weight-bold text-primary">Mes cartons</h6>
