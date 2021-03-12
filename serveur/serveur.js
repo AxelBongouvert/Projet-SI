@@ -20,6 +20,9 @@ const PORT_ECOUTE_SERVEUR = 5000
   https://www.sqlitetutorial.net/sqlite-nodejs/
   https://github.com/mapbox/node-sqlite3/wiki
   
+  TODO :
+    pseudo table compte en UNIQUE
+
   Questions :
     coté client react, plutôt true/false ou 1/0 ? 
     suppresion en cascade ou osef ? 
@@ -33,6 +36,131 @@ let db = new sqlite3.Database('./BddDana.db', sqlite3.OPEN_READWRITE, (err) => {
   }
   console.log('Connecté à la BDD SQLite');
 });
+
+//############################################################################################ CONNEXIONT ############################################################################################
+
+//Connexion 
+app.post('/connexion', (req,res) => {
+  console.log("post sur /connexion");
+  
+  var body = req.body;
+  const pseudoMdp = Object.values(body);
+  pseudoMdp[1] = functions.hashPwd(pseudoMdp[1]);
+
+	const sqlString = "SELECT id FROM Compte WHERE pseudo = ? AND mdp = ?";
+  const values = pseudoMdp;
+  
+  db.all(sqlString, values, (err, rows) => {
+    if (err) {
+      console.error(err.message);
+    }
+    console.log(rows);
+    if (rows[0] != null) {
+      res.status(200).json({"connexion":true});
+    } else {
+      res.status(200).json({"connexion":false});
+    }
+  });
+})
+
+
+
+//############################################################################################ COMPTE CLIENT ############################################################################################
+
+
+//Liste de tous les compte client
+app.get('/client', (req,res) => {
+  console.log("get sur /client");
+
+
+	const sqlString = "SELECT Client.id,nom,prenom,type,email,pseudo,mdp FROM Client INNER JOIN Compte ON Client.fk_id_compte = Compte.id";
+	const values = [];
+  db.all(sqlString, values, (err, rows) => {
+    if (err) {
+      console.error(err.message);
+    }
+    //console.log(rows);
+    res.status(200).json(rows);
+  });
+})
+
+//insertion d'une liste de compte client
+app.post('/client',  (req,res) => {
+  console.log("post sur /client");
+
+	var body = req.body;
+  const clients = body.map((m) => { return Object.values(m)});
+  let sqlStringCompte = "INSERT INTO Compte (pseudo,mdp) VALUES (?,?)";
+  let sqlStringClient = "INSERT INTO Client (nom,prenom,type,email,fk_id_compte) VALUES (?,?,?,?,?)";
+
+  let statementCompte = db.prepare(sqlStringCompte);
+  let statementClient = db.prepare(sqlStringClient);
+  
+  clients.forEach( client => {
+    db.serialize(function() {
+      var valuesCompte = client.slice(4,6);
+      valuesCompte[1] = functions.hashPwd(valuesCompte[1]);
+
+      statementCompte.run(valuesCompte, function(err, row) {
+        if (err) {
+          console.error(err.message);
+        }
+        var id_compte_insert = this.lastID;
+        var valuesClient = client.slice(0,4);
+        valuesClient.push(id_compte_insert);
+
+        statementClient.run(valuesClient, function(err, row) {
+          if (err) {
+           console.error(err.message);
+          }
+          res.status(200).json({});
+        })
+      })
+    })
+  });
+})
+
+/* TODO
+//Modification d'une salle
+app.put('/salle',  (req,res) => {
+  console.log("put sur /salle");
+
+  var body = req.body;
+  const salle = Object.values(body);
+
+  let sqlString = "UPDATE Salle SET nom=?,couleur=?,superficie=?,fk_id_logement=? WHERE id = ?";
+  const values = salle;
+
+  db.all(sqlString, values, (err, rows) => {
+    if (err) {
+      console.error(err.message);
+    }
+    //console.log(rows);
+    res.status(200).json({});
+  });
+})
+
+//Suppresion d'une salle
+app.delete('/salle', (req,res) => {
+  console.log("delete sur /salle");
+
+  var id = req.body.id;
+
+  let sqlString = "DELETE FROM Salle WHERE id = ?";
+  const values = [id];
+  db.all(sqlString, values, (err, rows) => {
+    if (err) {
+      console.error(err.message);
+    }
+    //console.log(rows);
+    res.status(200).json({});
+  });
+})
+*/
+
+
+
+
 
 //############################################################################################ CAMION ############################################################################################
 

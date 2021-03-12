@@ -38,7 +38,7 @@ function intToBoolean(intToCheck){
 
 //Hash un mot de passe
 function hashPwd(pwd) {
-	var hashedPwd = crypto.pbkdf2Sync(pwd, 'salt', 10000, 64, 'sha512');
+	var hashedPwd = crypto.pbkdf2Sync(pwd, 's4d54sdf54s', 10000, 64, 'sha512');
 	return hashedPwd
 }
 
