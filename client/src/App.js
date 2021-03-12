@@ -12,6 +12,8 @@ import Inscription from './Inscription.js';
 import Deconnexion from './Deconnexion.js';
 import Accueil from './Accueil.js';
 import Demenagement from './Demenagement.js';
+import GestionCartons from './GestionCartons.js';
+import CreationCarton from './CreationCarton.js';
 import Taches from './Taches.js';
 import Transport from './Transport.js';
 import Contrats from './Contrats.js';
@@ -25,13 +27,36 @@ import Plus from './Plus.js';
 import Page404 from './Page404.js';
 
 class App extends React.Component {
-	
+
 	constructor(props) {
 		super(props);
 	}
-	
+
 	render() {
 		return (
+<<<<<<< HEAD
+			<BrowserRouter basename={process.env.REACT_APP_ROUTER_BASE || ''}>
+				<Switch>
+					<Route path="/Loader" component={Loader} />
+					<Route path="/Connexion" component={Connexion} />
+					<Route path="/Inscription" component={Inscription} />
+					<Route path="/Deconnexion" component={Deconnexion} />
+					<Route path="/Accueil" component={Accueil} />
+					<Route path="/Demenagement" component={Demenagement} />
+					<Route path="/GestionCartons" component={GestionCartons} />
+					<Route path="/CreationCarton" component={CreationCarton} />
+					<Route path="/Taches" component={Taches} />
+					<Route path="/Transport" component={Transport} />
+					<Route path="/Calculator" component={Calculator} />
+					<Route path="/CheckCamions" component={CheckCamions} />
+					<Route path="/Profil" component={Profil} />
+					<Route path="/Promos" component={Promos} />
+					<Route path="/Messages" component={Messages} />
+					<Route path="/Plus" component={Plus} />
+					<Route path="/" component={Loader} />
+				</Switch>
+			</BrowserRouter>
+=======
 		<BrowserRouter basename={process.env.REACT_APP_ROUTER_BASE || ''}>
 			<Switch>
 				<Route path="/Loader" component={Loader} />
@@ -54,6 +79,7 @@ class App extends React.Component {
 				<Route path="/" component={Loader} />
 			</Switch>
 		</BrowserRouter>
+>>>>>>> 115daee5940b18c703462cb77401716b8a19c002
 		);
 	}
 
