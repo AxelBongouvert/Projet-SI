@@ -24,7 +24,8 @@ class Footer extends React.Component {
 						</li>
 						<li class="nav-item no-arrow">
 							<button class="btn btn-danger btn-circle btn-lg mb-5" href="#" id="creation_demenagement">
-								<i class="fas fa-truck fa-fw"></i>
+								
+								<img class="img-profile rounded-circle" src="img/logo_dana.png"/>
 							</button>
 						</li>
 						<li class="nav-item no-arrow">
