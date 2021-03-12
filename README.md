@@ -1,14 +1,17 @@
 # Projet Dana - Déménagement avec notre application
 
-installer le client : 
+# Installation NPM
 
-npm install
-npm install axios
-npm init 
+Dans le dossier \dana\client ou \dana\serveur
+-> npm install
+-> npm install axios
 
-démarer client : 
-npm start 
+# Client (1er terminal)
 
-(ouvrir un 2eme terminal)
-demarer serveur : 
-node serveur.js
+Démarrage du client depuis le dossier \dana\client
+-> npm start
+
+# Serveur (2d terminal)
+
+Démarrage du serveur depuis le dossier \dana\serveur
+-> node serveur.js
