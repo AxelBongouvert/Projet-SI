@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Projet Dana - Déménagement avec notre application
 
 
@@ -15,3 +16,6 @@ demarer serveur :
 node serveur.js
 
 
+=======
+# Projet Dana - Déménage avec notre application
+>>>>>>> 9ce290863aa8738afd8919c61c42a75bf437e85f

@@ -15,13 +15,13 @@ class Profil extends React.Component {
 				<div class="container h-100">
 					<div class="row justify-content-center">
 						<div class="col-xl-10 col-lg-12 col-md-9">
-							<div class="card o-hidden border-0 shadow-lg my-5">
+							<div class="card o-hidden border-0 shadow-lg">
 								<div class="card-body p-0">
 									<div class="row">
 										<div class="col-lg-12">
 											<div class="p-5">
 												<div class="text-center">
-													<h1 class="h4 text-gray-900 mb-4">FC Panik</h1>
+													<h1 class="h4 text-gray-900 mb-4">[Nom utilisateur]</h1>
 												</div>
 												<div class="text-center">
 													<a href="/Deconnexion">Se déconnecter</a>
@@ -38,12 +38,9 @@ class Profil extends React.Component {
 														<input type="email" class="form-control form-control-user" id="email" placeholder="Adresse email" onChange={this.handleInputChange}></input>
 													</div>
 													<div class="form-group">
-														<input type="text" class="form-control form-control-user" id="adresse" placeholder="Adresse postale" onChange={this.handleInputChange}></input>
-													</div>
-													<div class="form-group">
 														<input type="passsword" class="form-control form-control-user" id="mdp" placeholder="Mot de passe" onChange={this.handleInputChange}></input>
 													</div>
-													<button class="btn btn-danger btn-user btn-block" id="submit" type="submit">Valider</button>
+													<button class="btn btn-danger btn-user btn-block" id="submit" type="submit">Confirmer</button>
 												</form>
 											</div>
 										</div>

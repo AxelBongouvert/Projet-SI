@@ -9,7 +9,7 @@ class Deconnexion extends React.Component {
 
 	handleSubmit = (event) => {
 		const { history } = this.props;
-		history.push('/');
+		history.push('/Connexion');
 		event.preventDefault();
 	}
 	
