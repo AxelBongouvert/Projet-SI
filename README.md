@@ -3,8 +3,10 @@
 # Installation NPM
 
 Dans le dossier \dana\client ou \dana\serveur
--> npm install
--> npm install axios
+-> npm install (client et serveur)
+-> npm install axios (client)
+-> npm install express (serveur)
+-> npm install sqlite3 (serveur)
 
 # Client (1er terminal)
 
