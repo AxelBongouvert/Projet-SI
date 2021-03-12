@@ -22,6 +22,7 @@ import Profil from './Profil.js';
 import Promos from './Promos.js';
 import Messages from './Messages.js';
 import Plus from './Plus.js';
+import Page404 from './Page404.js';
 
 class App extends React.Component {
 	
@@ -49,6 +50,7 @@ class App extends React.Component {
 				<Route path="/Promos" component={Promos} />
 				<Route path="/Messages" component={Messages} />
 				<Route path="/Plus" component={Plus} />
+				<Route path="/Page404" component={Page404} />
 				<Route path="/" component={Loader} />
 			</Switch>
 		</BrowserRouter>
