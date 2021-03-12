@@ -38,7 +38,7 @@ let db = new sqlite3.Database('./BddDana.db', sqlite3.OPEN_READWRITE, (err) => {
 //Liste des camions ayant un certain volume minimum
 app.get('/camion/:volumeMin', (req,res) => {
 	var volumeMin = parseInt(req.params.volumeMin);
-
+  console.log("requete des camions");
 	const sqlString = "SELECT * FROM Camion WHERE volume >= ?";
 	const values = [volumeMin];
   db.all(sqlString, values, (err, rows) => {
