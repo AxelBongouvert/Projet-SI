@@ -1,3 +1,4 @@
+
 //////////////////////////////////////////////////////////////////////
 // Serveur nodeJs                                                   //
 // Fichier : serveur.js                                             //
@@ -37,16 +38,13 @@ let db = new sqlite3.Database('./BddDana.db', sqlite3.OPEN_READWRITE, (err) => {
 //############################################################################################ CAMION ############################################################################################
 
 //Liste des camions ayant un certain volume minimum
-app.get('/camion/:volumeMin', (req,res) => {
-<<<<<<< HEAD
-	var volumeMin = parseInt(req.params.volumeMin);
-  console.log("requete des camions");
-=======
+var corsOptions = {
+  origin : 'http://http://localhost:3001/CheckCamions'
+}
+
+app.get('/camion/:volumeMin',cors(corsOptions), (req,res) => {
 	console.log("get sur /camion/:volumeMin");
-
-  var volumeMin = parseInt(req.params.volumeMin);
-
->>>>>>> 9ce290863aa8738afd8919c61c42a75bf437e85f
+  var volumeMin = parseInt(req.params.volumeMin);1
 	const sqlString = "SELECT * FROM Camion WHERE volume >= ?";
 	const values = [volumeMin];
   db.all(sqlString, values, (err, rows) => {

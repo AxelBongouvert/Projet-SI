@@ -12,39 +12,41 @@ class CheckCamions extends React.Component {
 		this.componentDidMount = this.componentDidMount.bind(this)
 
 		this.state = {
-			camions: [
-				{
-					"id": 1,
-					"description": "description Camion 1",
-					"largeur": 3.50,
-					"hauteur": 1.85,
-					"profondeur": 4.65,
-					"permisMin": "Permis B",
-					"volume": 6
-				}
-
-			]
+			camions: null
 		};
 
 	}
-
+	/*
+		componentDidMount() {
+			var url = 'http://localhost:5000/camion/' + localStorage.getItem("volume")
+			//axios.get(`localhost:5000/camion/${localStorage.getItem("volume")}`)
+			fetch(url)
+				.then((res) => res.json())
+				.then((result) => {
+					console.log(result);
+					this.setState({
+						camions: result
+					});
+				})
+				.catch((error) => {
+					console.error(error);
+				})
+			console.log("bolos")
+		}
+	
+	*/
 	componentDidMount() {
+		// Simple GET request using axios
 		var url = 'http://localhost:5000/camion/' + localStorage.getItem("volume")
-		//axios.get(`localhost:5000/camion/${localStorage.getItem("volume")}`)
-		fetch(url)
-			.then((res) => res.json())
-			.then((result) => {
-				console.log(result);
-				this.setState({
-					camions: result
-				});
-			})
-			.catch((error) => {
-				console.error(error);
-			})
-		console.log("bolos")
+		fetch(url, {
+			method: 'GET',
+			headers: { 'Content-Type': 'application/json',
+					'Access-Control-Allow-Origin': '*',
+					'Access-Control-Allow-Methods':'GET,PUT,POST,DELETE,PATCH,OPTIONS'}			
+			}
+		)
+		.then(response => this.setState({ camions: response.data }));
 	}
-
 
 	choixCamion() {
 		var vomuleMini = 9999;
@@ -58,7 +60,10 @@ class CheckCamions extends React.Component {
 	}
 
 	/*
-		
+		<h2> DANA te conseille ...</h2>
+					Un véhicule de : {this.state.camions[0].volume} m3
+				<br></br>
+					Dim : {this.state.camions[0].largeur} x {this.state.camions[0].hauteur} x {this.state.camions[0].profondeur}
 	*/
 	render() {
 		return (
@@ -69,14 +74,12 @@ class CheckCamions extends React.Component {
 				<br></br>
 
 				{this.componentDidMount()}
-				{this.choixCamion()}
+				{console.log(this.state.camions)}
+
 
 				<br></br>
 				<br></br>
-				<h2> DANA te conseille ...</h2>
-					Un véhicule de : {this.state.camions[0].volume} m3
-				<br></br>
-					Dim : {this.state.camions[0].largeur} x {this.state.camions[0].hauteur} x {this.state.camions[0].profondeur}
+
 
 
 			</div>
