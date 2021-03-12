@@ -25,7 +25,7 @@ class Demenagement extends React.Component {
 					</form>
 				</div>
 				<div class="col-lg-12 mb-4">
-					<a href="/Page404">
+					<a href="Taches">
 						<div class="card bg-danger text-white shadow">
 							<div class="card-body">
 								Tâches administratives
@@ -35,7 +35,7 @@ class Demenagement extends React.Component {
 					</a>
 				</div>
 				<div class="col-lg-12 mb-4">
-					<a href="/Page404">
+					<a href="Contrats">
 						<div class="card bg-danger text-white shadow">
 							<div class="card-body">
 								Gestion des contrats
@@ -45,7 +45,7 @@ class Demenagement extends React.Component {
 					</a>
 				</div>
 				<div class="col-lg-12 mb-4">
-					<a href="/Page404">
+					<a href="Affaires">
 						<div class="card bg-danger text-white shadow">
 							<div class="card-body">
 								Tri de ses affaires
@@ -65,7 +65,7 @@ class Demenagement extends React.Component {
 					</a>
 				</div>
 				<div class="col-lg-12 mb-4">
-					<a href="/Page404">
+					<a href="Transport">
 						<div class="card bg-danger text-white shadow">
 							<div class="card-body">
 								Transport
