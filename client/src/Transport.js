@@ -13,7 +13,7 @@ class Transport extends React.Component {
 			<div>
 				<Retour name="Transport"></Retour>
 					<div class="col-xl-12 col-md-12 mb-4">
-						<a href="Transport">
+						<a href="/Page404">
 							<div class="card border-left-danger shadow h-100 py-2">
 								<div class="card-body">
 									<div class="row no-gutters align-items-center">
@@ -29,7 +29,7 @@ class Transport extends React.Component {
 						</a>
 					</div>
 					<div class="col-xl-12 col-md-12 mb-4">
-						<a href="Transport">
+						<a href="/Page404">
 							<div class="card border-left-danger shadow h-100 py-2">
 								<div class="card-body">
 									<div class="row no-gutters align-items-center">
@@ -61,7 +61,7 @@ class Transport extends React.Component {
 						</a>
 					</div>
 					<div class="col-xl-12 col-md-12 mb-4">	
-						<a href="Transport">
+						<a href="/Page404">
 							<div class="card border-left-danger shadow h-100 py-2">
 								<div class="card-body">
 									<div class="row no-gutters align-items-center">
@@ -77,7 +77,7 @@ class Transport extends React.Component {
 						</a>
 					</div>
 					<div class="col-xl-12 col-md-12 mb-4">	
-						<a href="Transport">
+						<a href="/Page404">
 							<div class="card border-left-danger shadow h-100 py-2">
 								<div class="card-body">
 									<div class="row no-gutters align-items-center">
@@ -93,7 +93,7 @@ class Transport extends React.Component {
 						</a>
 					</div>
 					<div class="col-xl-12 col-md-12 mb-4">
-						<a href="Transport">
+						<a href="/Page404">
 							<div class="card border-left-danger shadow h-100 py-2">
 								<div class="card-body">
 									<div class="row no-gutters align-items-center">
