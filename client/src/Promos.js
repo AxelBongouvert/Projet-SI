@@ -12,7 +12,6 @@ class Promos extends React.Component {
 		return (
 			<div>
 				<Retour name="Promos"></Retour>
-				<p>Promos</p>
 				<Footer></Footer>
 			</div>
 		);

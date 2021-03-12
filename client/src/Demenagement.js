@@ -13,9 +13,9 @@ class Demenagement extends React.Component {
 			<div>
 				<Retour name="Déménagement"></Retour>
 				<div class="col-xl-12 col-lg-12 mb-4">
-					<form class="d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
+					<form class="d-sm-inline form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
 						<div class="input-group">
-							<input type="text" class="form-control bg-light border-0 small" placeholder="Rechercher" aria-label="Rechercher" aria-describedby="basic-addon2"></input>
+							<input type="text" class="form-control bg-light border-0 small" placeholder="Rechercher" aria-label="Rechercher"></input>
 							<div class="input-group-append">
 								<button class="btn btn-danger" type="button">
 									<i class="fas fa-search fa-sm"></i>
@@ -25,7 +25,7 @@ class Demenagement extends React.Component {
 					</form>
 				</div>
 				<div class="col-lg-12 mb-4">
-					<a href="/Taches">
+					<a href="Taches">
 						<div class="card bg-danger text-white shadow">
 							<div class="card-body">
 								Tâches administratives
@@ -34,8 +34,24 @@ class Demenagement extends React.Component {
 						</div>
 					</a>
 				</div>
+				<div class="col-xl-12 col-md-12 mb-4">
+						<a href="/Page404">
+							<div class="card border-left-danger shadow h-100 py-2">
+								<div class="card-body">
+									<div class="row no-gutters align-items-center">
+										<div class="col mr-2">
+											<div class="h5 mb-0 font-weight-bold text-gray-800">Tâches administratives</div>
+										</div>
+										<div class="col-auto">
+											<i class="fas fa-signature fa-2x text-gray-300"></i>
+										</div>
+									</div>
+								</div>
+							</div>
+						</a>
+					</div>
 				<div class="col-lg-12 mb-4">
-					<a href="/Contrats">
+					<a href="Contrats">
 						<div class="card bg-danger text-white shadow">
 							<div class="card-body">
 								Gestion des contrats
@@ -45,7 +61,7 @@ class Demenagement extends React.Component {
 					</a>
 				</div>
 				<div class="col-lg-12 mb-4">
-					<a href="/Affaires">
+					<a href="Affaires">
 						<div class="card bg-danger text-white shadow">
 							<div class="card-body">
 								Tri de ses affaires
@@ -65,7 +81,7 @@ class Demenagement extends React.Component {
 					</a>
 				</div>
 				<div class="col-lg-12 mb-4">
-					<a href="/Transport">
+					<a href="Transport">
 						<div class="card bg-danger text-white shadow">
 							<div class="card-body">
 								Transport
