@@ -27,35 +27,21 @@ class Demenagement extends React.Component {
 				<div class="col-lg-12 mb-4">
 					<a href="Taches">
 						<div class="card bg-danger text-white shadow">
-							<div class="card-body">
-								Tâches administratives
-								<div class="text-white-50 small">On vous accompagne pour vous facilier la vie avec la paperasse</div>
+							<div class="card-body d-flex flex-column justify-content-center text-center">
+								<img class="img mx-auto w-25" src="img/man.png" />
+								<h4 class="font-weight-bold pt-3 pb-3">Tâches<br />administratives</h4>
+								<h5 class="text-white-50">On vous accompagne pour vous facilier la vie avec la paperasse.</h5>
 							</div>
 						</div>
 					</a>
 				</div>
-				<div class="col-xl-12 col-md-12 mb-4">
-						<a href="/Page404">
-							<div class="card border-left-danger shadow h-100 py-2">
-								<div class="card-body">
-									<div class="row no-gutters align-items-center">
-										<div class="col mr-2">
-											<div class="h5 mb-0 font-weight-bold text-gray-800">Tâches administratives</div>
-										</div>
-										<div class="col-auto">
-											<i class="fas fa-signature fa-2x text-gray-300"></i>
-										</div>
-									</div>
-								</div>
-							</div>
-						</a>
-					</div>
 				<div class="col-lg-12 mb-4">
 					<a href="Contrats">
 						<div class="card bg-danger text-white shadow">
-							<div class="card-body">
-								Gestion des contrats
-								<div class="text-white-50 small">Laissez-vous guider pour transférer ou souscrire à un contrat.</div>
+							<div class="card-body d-flex flex-column justify-content-center text-center">
+								<img class="img mx-auto w-25" src="img/woman.png" />
+								<h4 class="font-weight-bold pt-3 pb-3">Gestion<br />des contrats</h4>
+								<h5 class="text-white-50">Laissez-vous guider pour transférer ou souscrire à un contrat.</h5>
 							</div>
 						</div>
 					</a>
@@ -63,19 +49,21 @@ class Demenagement extends React.Component {
 				<div class="col-lg-12 mb-4">
 					<a href="Affaires">
 						<div class="card bg-danger text-white shadow">
-							<div class="card-body">
-								Tri de ses affaires
-								<div class="text-white-50 small">Vous ne savez plus où donner de la tête ? Trier, donner, jeter ?</div>
+							<div class="card-body d-flex flex-column justify-content-center text-center">
+								<img class="img mx-auto w-25" src="img/man.png" />
+								<h4 class="font-weight-bold pt-3 pb-3">Tri de<br />ses affaires</h4>
+								<h5 class="text-white-50">Vous ne savez plus où donner de la tête ? Trier, donner, jeter ?</h5>
 							</div>
 						</div>
 					</a>
 				</div>
 				<div class="col-lg-12 mb-4">
-					<a href="/Demenagement">
+					<a href="GestionCartons">
 						<div class="card bg-danger text-white shadow">
-							<div class="card-body">
-								Faire ses cartons
-								<div class="text-white-50 small">Vous ne savez plus où donner de la tête ?</div>
+							<div class="card-body d-flex flex-column justify-content-center text-center">
+								<img class="img mx-auto w-25" src="img/woman.png" />
+								<h4 class="font-weight-bold pt-3 pb-3">Faire<br />ses cartons</h4>
+								<h5 class="text-white-50">Vous ne savez plus où donner de la tête ?</h5>
 							</div>
 						</div>
 					</a>
@@ -83,9 +71,10 @@ class Demenagement extends React.Component {
 				<div class="col-lg-12 mb-4">
 					<a href="Transport">
 						<div class="card bg-danger text-white shadow">
-							<div class="card-body">
-								Transport
-								<div class="text-white-50 small">Vous ne savez plus où donner de la tête ?</div>
+							<div class="card-body d-flex flex-column justify-content-center text-center">
+								<img class="img mx-auto w-25" src="img/man.png" />
+								<h4 class="font-weight-bold pt-3 pb-3">Transport</h4>
+								<h5 class="text-white-50">Vous ne savez plus où donner de la tête ?</h5>
 							</div>
 						</div>
 					</a>
