@@ -1,6 +1,5 @@
 # Projet Dana - Déménagement avec notre application
 
-
 installer le client : 
 
 npm install
@@ -13,5 +12,3 @@ npm start
 (ouvrir un 2eme terminal)
 demarer serveur : 
 node serveur.js
-
-

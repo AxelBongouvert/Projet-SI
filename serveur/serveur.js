@@ -38,6 +38,7 @@ let db = new sqlite3.Database('./BddDana.db', sqlite3.OPEN_READWRITE, (err) => {
 //############################################################################################ CAMION ############################################################################################
 
 //Liste des camions ayant un certain volume minimum
+<<<<<<< HEAD
 var corsOptions = {
   origin : 'http://http://localhost:3001/CheckCamions'
 }
@@ -45,6 +46,11 @@ var corsOptions = {
 app.get('/camion/:volumeMin',cors(corsOptions), (req,res) => {
 	console.log("get sur /camion/:volumeMin");
   var volumeMin = parseInt(req.params.volumeMin);1
+=======
+app.get('/camion/:volumeMin', (req,res) => {
+	var volumeMin = parseInt(req.params.volumeMin);
+  console.log("requete des camions");
+>>>>>>> 746f4ff963f8487c905875ce1bb2c9b5754bccef
 	const sqlString = "SELECT * FROM Camion WHERE volume >= ?";
 	const values = [volumeMin];
   db.all(sqlString, values, (err, rows) => {
