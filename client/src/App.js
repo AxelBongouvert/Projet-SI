@@ -45,6 +45,8 @@ class App extends React.Component {
 					<Route path="/GestionCartons" component={GestionCartons} />
 					<Route path="/CreationCarton" component={CreationCarton} />
 					<Route path="/Taches" component={Taches} />
+					<Route path="/Contrats" component={Contrats} />
+					<Route path="/Affaires" component={Affaires} />
 					<Route path="/Transport" component={Transport} />
 					<Route path="/Calculator" component={Calculator} />
 					<Route path="/CheckCamions" component={CheckCamions} />
@@ -52,6 +54,7 @@ class App extends React.Component {
 					<Route path="/Promos" component={Promos} />
 					<Route path="/Messages" component={Messages} />
 					<Route path="/Plus" component={Plus} />
+					<Route path="/Page404" component={Page404}/>
 					<Route path="/" component={Loader} />
 				</Switch>
 			</BrowserRouter>
