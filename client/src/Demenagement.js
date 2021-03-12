@@ -13,9 +13,9 @@ class Demenagement extends React.Component {
 			<div>
 				<Retour name="Déménagement"></Retour>
 				<div class="col-xl-12 col-lg-12 mb-4">
-					<form class="d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
+					<form class="d-sm-inline form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
 						<div class="input-group">
-							<input type="text" class="form-control bg-light border-0 small" placeholder="Rechercher" aria-label="Rechercher" aria-describedby="basic-addon2"></input>
+							<input type="text" class="form-control bg-light border-0 small" placeholder="Rechercher" aria-label="Rechercher"></input>
 							<div class="input-group-append">
 								<button class="btn btn-danger" type="button">
 									<i class="fas fa-search fa-sm"></i>
