@@ -4,7 +4,7 @@ class Connexion extends React.Component {
 	
 	constructor(props) {
 		super(props);
-		this.state = { email: '', mdp: '' };
+		this.state = { pseudo: '', mdp: '' };
 		this.handleInputChange = this.handleInputChange.bind(this);
 	}
 
@@ -16,7 +16,23 @@ class Connexion extends React.Component {
 	
 	handleSubmit = (event) => {
 		const { history } = this.props;
-		history.push('/Accueil');
+		fetch('http://localhost:5000/connexion', {
+			method: 'POST',
+			headers: {
+				'Content-Type': 'application/json',
+				'Access-Control-Allow-Origin': '*',
+				'Access-Control-Allow-Methods': 'GET, PUT, POST, DELETE, PATCH, OPTIONS'
+			},
+			body: JSON.stringify({ pseudo: this.state.pseudo, mdp: this.state.mdp })
+		}).then(function (result) {
+			return result.json();
+		}).then(function (result) {
+			if (result.connexion == true) {
+				history.push('Accueil')
+			} else {
+				alert('Identifians incorrects !')
+			}
+		})
 		event.preventDefault();
 	}
 	
@@ -35,7 +51,7 @@ class Connexion extends React.Component {
 											</div>
 											<form class="user" onSubmit={this.handleSubmit}>
 												<div class="form-group">
-													<input type="email" class="form-control form-control-user" id="email" placeholder="Adresse email" onChange={this.handleInputChange}></input>
+													<input type="text" class="form-control form-control-user" id="pseudo" placeholder="Pseudo" onChange={this.handleInputChange}></input>
 												</div>
 												<div class="form-group">
 													<input type="password" class="form-control form-control-user" id="mdp" placeholder="Mot de passe" onChange={this.handleInputChange}></input>

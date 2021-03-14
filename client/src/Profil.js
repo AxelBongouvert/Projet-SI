@@ -35,6 +35,9 @@ class Profil extends React.Component {
 														<input type="text" class="form-control form-control-user" id="prenom" placeholder="Prénom" onChange={this.handleInputChange}></input>
 													</div>
 													<div class="form-group">
+														<input type="text" class="form-control form-control-user" id="pseudo" placeholder="Nom de compte" onChange={this.handleInputChange}></input>
+													</div>
+													<div class="form-group">
 														<input type="email" class="form-control form-control-user" id="email" placeholder="Adresse email" onChange={this.handleInputChange}></input>
 													</div>
 													<div class="form-group">

@@ -41,10 +41,10 @@ class Inscription extends React.Component {
 													<input type="text" class="form-control form-control-user" id="prenom" placeholder="Prénom" onChange={this.handleInputChange}></input>
 												</div>
 												<div class="form-group">
-													<input type="email" class="form-control form-control-user" id="email" placeholder="Adresse email" onChange={this.handleInputChange}></input>
+													<input type="text" class="form-control form-control-user" id="pseudo" placeholder="Nom de compte" onChange={this.handleInputChange}></input>
 												</div>
 												<div class="form-group">
-													<input type="text" class="form-control form-control-user" id="adresse" placeholder="Adresse postale" onChange={this.handleInputChange}></input>
+													<input type="email" class="form-control form-control-user" id="email" placeholder="Adresse email" onChange={this.handleInputChange}></input>
 												</div>
 												<div class="form-group">
 													<input type="password" class="form-control form-control-user" id="mdp" placeholder="Mot de passe" onChange={this.handleInputChange}></input>
