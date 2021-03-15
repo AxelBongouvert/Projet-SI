@@ -4,7 +4,7 @@ class Inscription extends React.Component {
 	
 	constructor(props) {
 		super(props);
-		this.state = { nom: '', prenom: '', email: '', adresse: '', mdp: '' };
+		this.state = { nom: '', prenom: '', pseudo: '', email: '', mdp: '' };
 		this.handleInputChange = this.handleInputChange.bind(this);
 	}
 
@@ -15,6 +15,16 @@ class Inscription extends React.Component {
 	}
 	
 	handleSubmit = (event) => {
+		const json = [{ nom: this.state.nom, prenom: this.state.prenom, type: 'client', email: this.state.email, pseudo: this.state.pseudo, mdp: this.state.mdp}];
+       	fetch('http://localhost:5000/client', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Access-Control-Allow-Origin': '*',
+                'Access-Control-Allow-Methods': 'GET, PUT, POST, DELETE, PATCH, OPTIONS'
+			},
+			body: JSON.stringify(json)
+        })
 		const { history } = this.props;
 		history.push('/Connexion');
 		event.preventDefault();
@@ -35,19 +45,19 @@ class Inscription extends React.Component {
 											</div>
 											<form class="user" onSubmit={this.handleSubmit}>
 												<div class="form-group">
-													<input type="text" class="form-control form-control-user" id="nom" placeholder="Nom" onChange={this.handleInputChange}></input>
+													<input type="text" class="form-control form-control-user" id="nom" name="nom" placeholder="Nom" onChange={this.handleInputChange}></input>
 												</div>
 												<div class="form-group">
-													<input type="text" class="form-control form-control-user" id="prenom" placeholder="Prénom" onChange={this.handleInputChange}></input>
+													<input type="text" class="form-control form-control-user" id="prenom" name="prenom" placeholder="Prénom" onChange={this.handleInputChange}></input>
 												</div>
 												<div class="form-group">
-													<input type="text" class="form-control form-control-user" id="pseudo" placeholder="Nom de compte" onChange={this.handleInputChange}></input>
+													<input type="text" class="form-control form-control-user" id="pseudo" name="pseudo" placeholder="Nom de compte" onChange={this.handleInputChange}></input>
 												</div>
 												<div class="form-group">
-													<input type="email" class="form-control form-control-user" id="email" placeholder="Adresse email" onChange={this.handleInputChange}></input>
+													<input type="email" class="form-control form-control-user" id="email" name="email" placeholder="Adresse email" onChange={this.handleInputChange}></input>
 												</div>
 												<div class="form-group">
-													<input type="password" class="form-control form-control-user" id="mdp" placeholder="Mot de passe" onChange={this.handleInputChange}></input>
+													<input type="password" class="form-control form-control-user" id="mdp" name="mdp" placeholder="Mot de passe" onChange={this.handleInputChange}></input>
 												</div>
 												<button class="btn btn-info btn-user btn-block" id="submit" type="submit">Inscription</button>
 											</form>
