@@ -9,80 +9,89 @@ class CheckCamions extends React.Component {
 
 	constructor(props) {
 		super(props)
-		this.componentDidMount = this.componentDidMount.bind(this)
-
 		this.state = {
-			camions: [
-				{
-					"id": 1,
-					"description": "description Camion 1",
-					"largeur": 3.50,
-					"hauteur": 1.85,
-					"profondeur": 4.65,
-					"permisMin": "Permis B",
-					"volume": 6
-				}
-
-			]
+			camions: [],
+			traitementFini : false
 		};
-
 	}
-
-	componentDidMount() {
-		var url = 'http://localhost:5000/camion/' + localStorage.getItem("volume")
-		//axios.get(`localhost:5000/camion/${localStorage.getItem("volume")}`)
-		fetch(url)
-			.then((res) => res.json())
-			.then((result) => {
-				console.log(result);
-				this.setState({
-					camions: result
-				});
-			})
-			.catch((error) => {
-				console.error(error);
-			})
-		console.log("bolos")
+	componentDidMount() {	
+		const { history } = this.props;	
+		var url = 'http://localhost:5000/camion/'+ localStorage.getItem("volume")
+		fetch(url, {
+			method: 'GET',
+			headers: {
+				'Content-Type': 'application/json',
+				'Access-Control-Allow-Origin': '*',
+				'Access-Control-Allow-Methods': 'GET, PUT, POST, DELETE, PATCH, OPTIONS'
+			}
+		})
+		.then(reponse => reponse.json())	
+		.then(data =>  {
+			console.log(data)
+			this.state.camions = data;							
+		})
+		.then(() => {
+			console.log(this.state.camions)
+			this.choixCamion()
+		})
+		.then(() => {
+			this.setState({traitementFini : true});
+		})	
 	}
-
-
-	choixCamion() {
+	
+	choixCamion() {			
 		var vomuleMini = 9999;
-		var camion = {}
-		for (let i = 0; i < this.state.camions.length - 1; i++) {
+		var camion = {};
+		let idCamion = -1
+
+		for (let i = 0; i < this.state.camions.length ; i++) {			
 			if (this.state.camions[i].volume < vomuleMini) {
 				camion = this.state.camions[i];
+				idCamion = i;
 			}
-		}
-		return camion
+		}	
+		console.log(idCamion)	
+		localStorage.setItem("idCamion", idCamion)			
 	}
 
-	/*
-		
-	*/
+	afficherCamion(){
+		if(this.state.traitementFini == true){
+			let i = localStorage.getItem("idCamion")
+			if(i == -1 ){return <div>un paquebot mgl ! </div>}	
+			if(!Object.keys(this.state.camions[i]))	return null;
+
+			// creer un objet a render avec les propriété du camtar
+			return <div>
+				<h2> Un vehicule de {this.state.camions[i].volume} m3 </h2>
+				<div className="card bg-primary text-white shadow">          			
+					<div className="col-md-1" style={{ fontSize: 14 }}>
+						Longueur : {this.state.camions[i].profondeur}
+					</div>
+					<div className="col-md-1" style={{ fontSize: 14 }}>
+						Hauteur :  {this.state.camions[i].hauteur}
+					</div>
+					<div className="col-md-1" style={{ fontSize: 14 }}>
+						Largeur :  {this.state.camions[i].largeur}
+					</div>
+					<div className="col-md-1" style={{ fontSize: 14 }}>
+						Permis mini :  {this.state.camions[i].permisMin}
+					</div>					
+				</div>
+			</div>
+		}
+	}
+	
 	render() {
 		return (
-			<div>
-				volume total : {localStorage.getItem("volume")}
-				<br></br>
-				taille la plus longue : {localStorage.getItem("dimMax")}
-				<br></br>
+			<div>			
+				
+				<h2> DANA te conseille ... 	</h2>
+				{(this.afficherCamion())}
 
-				{this.componentDidMount()}
-				{this.choixCamion()}
+				
 
-				<br></br>
-				<br></br>
-				<h2> DANA te conseille ...</h2>
-					Un véhicule de : {this.state.camions[0].volume} m3
-				<br></br>
-					Dim : {this.state.camions[0].largeur} x {this.state.camions[0].hauteur} x {this.state.camions[0].profondeur}
-
-
-			</div>
+			</div >
 		);
 	}
-
 }
-
 export default CheckCamions;
