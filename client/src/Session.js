@@ -8,49 +8,19 @@ var Session = (function () {
     localStorage.setItem('connecte', s);
   };
 
-  var setId = function (s) {
-    localStorage.setItem('id', s);
-  };
-
-  var getId = function () {
-    return localStorage.getItem('id');;
-  };
-
   var getPseudo = function () {
-    return localStorage.getItem('login');;
+    return localStorage.getItem('pseudo');;
   };
 
   var setPseudo = function (p) {
-    localStorage.setItem('login', p);
-  };
-
-  var getNom = function () {
-    return localStorage.getItem('nom');;
-  };
-
-  var setNom = function (p) {
-    localStorage.setItem('nom', p);
-  };
-
-  var getPrenom = function () {
-    return localStorage.getItem('prenom');;
-  };
-
-  var setPrenom = function (p) {
-    localStorage.setItem('prenom', p);
+    localStorage.setItem('pseudo', p);
   };
 
   return {
     isConnecte: isConnecte,
     setConnecte: setConnecte,
-    setId: setId,
-    getId: getId,
     getPseudo: getPseudo,
-    setPseudo: setPseudo,
-    getNom: getNom,
-    setNom: setNom,
-    getPrenom: getPrenom,
-    setPrenom: setPrenom
+    setPseudo: setPseudo
   }
 
 })();
