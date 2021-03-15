@@ -11,8 +11,9 @@ class Deconnexion extends React.Component {
 	handleSubmit = (event) => {
 		const { history } = this.props;
 		Session.setConnecte(false);
+		Session.setID('');
 		Session.setPseudo('');
-		history.push('/loader');
+		history.push('/Connexion');
 		event.preventDefault();
 	}
 	
