@@ -1,4 +1,5 @@
 import React from 'react';
+import Session from './Session';
 
 class Connexion extends React.Component {
 	
@@ -16,6 +17,7 @@ class Connexion extends React.Component {
 	
 	handleSubmit = (event) => {
 		const { history } = this.props;
+		const json = JSON.stringify({ pseudo: this.state.pseudo, mdp: this.state.mdp })
 		fetch('http://localhost:5000/connexion', {
 			method: 'POST',
 			headers: {
@@ -23,12 +25,14 @@ class Connexion extends React.Component {
 				'Access-Control-Allow-Origin': '*',
 				'Access-Control-Allow-Methods': 'GET, PUT, POST, DELETE, PATCH, OPTIONS'
 			},
-			body: JSON.stringify({ pseudo: this.state.pseudo, mdp: this.state.mdp })
+			body: json
 		}).then(function (result) {
 			return result.json();
 		}).then(function (result) {
 			if (result.connexion == true) {
-				history.push('Accueil')
+				Session.setConnecte(true);
+				Session.setPseudo(json.pseudo);
+				history.push('accueil');
 			} else {
 				alert('Identifians incorrects !')
 			}
@@ -51,10 +55,10 @@ class Connexion extends React.Component {
 											</div>
 											<form class="user" onSubmit={this.handleSubmit}>
 												<div class="form-group">
-													<input type="text" class="form-control form-control-user" id="pseudo" placeholder="Pseudo" onChange={this.handleInputChange}></input>
+													<input type="text" class="form-control form-control-user" id="pseudo" name="pseudo" placeholder="Pseudo" onChange={this.handleInputChange}></input>
 												</div>
 												<div class="form-group">
-													<input type="password" class="form-control form-control-user" id="mdp" placeholder="Mot de passe" onChange={this.handleInputChange}></input>
+													<input type="password" class="form-control form-control-user" id="mdp" name="mdp" placeholder="Mot de passe" onChange={this.handleInputChange}></input>
 												</div>
 												<div class="form-group">
 													<div class="custom-control custom-checkbox small">

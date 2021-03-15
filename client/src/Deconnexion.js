@@ -1,4 +1,5 @@
 import React from 'react';
+import Session from './Session';
 
 class Deconnexion extends React.Component {
 	
@@ -9,7 +10,9 @@ class Deconnexion extends React.Component {
 
 	handleSubmit = (event) => {
 		const { history } = this.props;
-		history.push('/Connexion');
+		Session.setConnecte(false);
+		Session.setPseudo('');
+		history.push('/loader');
 		event.preventDefault();
 	}
 	
