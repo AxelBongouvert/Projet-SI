@@ -37,7 +37,7 @@ let db = new sqlite3.Database('./BddDana.db', sqlite3.OPEN_READWRITE, (err) => {
 	console.log('Connecté à la BDD SQLite');
 });
 
-//############################################################################################ CONNEXIONT ############################################################################################
+//############################################################################################ CONNEXION ############################################################################################
 
 //Connexion 
 app.post('/connexion', (req,res) => {
@@ -496,16 +496,14 @@ app.delete('/salle', (req,res) => {
 
 //############################################################################################ LOGEMENT ############################################################################################
 
-//Liste des Logement ?
-app.get('/logement', (req,res) => {
-	console.log("get sur /Logement TODO");
-	res.status(500).json({});
+//Logement de depart d'un demenagement
+app.get('/logementDepart/:idDemenagement', (req,res) => {
+	console.log("get sur /LogementDepart/:idDemenagement");
+	var idDemenagement = parseInt(req.params.idDemenagement);
 	
-	/*
-	var idLogement = parseInt(req.params.idLogement);
 	
-	const sqlString = "SELECT Salle.id,nom,couleur,superficie,fk_id_logement FROM Salle INNER JOIN Logement ON Salle.fk_id_logement = Logement.id WHERE Logement.id = ?";
-	const values = [idLogement];
+	const sqlString = "SELECT Logement.id,adresse,typeLogement,etage,Logement.description FROM Logement INNER JOIN Demenagement ON Logement.id = Demenagement.fk_id_logementDepart WHERE Demenagement.id = ?";
+	const values = [idDemenagement];
 	db.all(sqlString, values, (err, rows) => {
 		if (err) {
 			console.error(err.message);
@@ -513,7 +511,23 @@ app.get('/logement', (req,res) => {
 		//console.log(rows);
 		res.status(200).json(rows);
 	});
-	*/
+})
+
+//Logement d'arrive'd'un demenagement
+app.get('/logementArrive/:idDemenagement', (req,res) => {
+	console.log("get sur /LogementArrive/:idDemenagement");
+	var idDemenagement = parseInt(req.params.idDemenagement);
+	
+	
+	const sqlString = "SELECT Logement.id,adresse,typeLogement,etage,Logement.description FROM Logement INNER JOIN Demenagement ON Logement.id = Demenagement.fk_id_logementArrive WHERE Demenagement.id = ?";
+	const values = [idDemenagement];
+	db.all(sqlString, values, (err, rows) => {
+		if (err) {
+			console.error(err.message);
+		}
+		//console.log(rows);
+		res.status(200).json(rows);
+	});
 })
 
 //insertion d'une liste de logement
@@ -571,12 +585,89 @@ app.delete('/logement', (req,res) => {
 	});
 })
 
+
+//############################################################################################ DEMENAGEMENT ############################################################################################
+
+//Liste des demenagement d'un client
+app.get('/demenagement/:idClient', (req,res) => {
+	console.log("get sur /demenagement/:idClient");
+	
+	var idClient = parseInt(req.params.idClient);
+	
+	const sqlString = "SELECT Demenagement.id,dateDebut,dateFin,numeroSuivi,mdpSuivi,fk_id_logementDepart,fk_id_logementArrive,fk_id_client,description FROM Demenagement INNER JOIN Client ON Demenagement.fk_id_client = Client.id WHERE Client.id = ?";
+	const values = [idClient];
+	db.all(sqlString, values, (err, rows) => {
+		if (err) {
+			console.error(err.message);
+		}
+		//console.log(rows);
+		res.status(200).json(rows);
+	});
+})
+
+
+//insertion d'une liste de demenagement
+app.post('/demenagement',  (req,res) => {
+	console.log("post sur /demenagement");
+	
+	var body = req.body;
+	const demenagements = body.map((m) => { return Object.values(m)});
+	
+	let sqlString = "INSERT INTO Demenagement (dateDebut,dateFin,numeroSuivi,mdpSuivi,description,fk_id_logementDepart,fk_id_logementArrive,fk_id_client) VALUES (?,?,?,?,?,?,?,?)";
+	let statement = db.prepare(sqlString);
+	//cartons.forEach( carton => console.log("UN CARTON : " + JSON.stringify(carton)));
+	
+	demenagements.forEach( demenagement => statement.run(demenagement, function(err, row) {
+		if (err) {
+			console.error(err.message);
+		}
+	}))
+	res.status(200).json({});
+})
+
+//Modification d'un demenagement
+app.put('/demenagement',  (req,res) => {
+	console.log("put sur /demenagement");
+	
+	var body = req.body;
+	const demenagement = Object.values(body);
+	
+	let sqlString = "UPDATE Demenagement SET dateDebut=?,dateFin=?,numeroSuivi=?,mdpSuivi=?,description=?,fk_id_logementDepart=?,fk_id_logementArrive=? WHERE id = ?";
+	const values = demenagement;
+	
+	db.all(sqlString, values, (err, rows) => {
+		if (err) {
+			console.error(err.message);
+		}
+		//console.log(rows);
+		res.status(200).json({});
+	});
+})
+
+//Suppresion d'un demenagemment
+app.delete('/demenagement', (req,res) => {
+	console.log("delete sur /demenagement");
+	
+	var id = req.body.id;
+	
+	let sqlString = "DELETE FROM Demenagement WHERE id = ?";
+	const values = [id];
+	db.all(sqlString, values, (err, rows) => {
+		if (err) {
+			console.error(err.message);
+		}
+		//console.log(rows);
+		res.status(200).json({});
+	});
+})
+
+
 //############################################################################################ LISTEN ############################################################################################
 app.listen(PORT_ECOUTE_SERVEUR, () => {
 	console.log('Serveur à l\'écoute sur le port ', PORT_ECOUTE_SERVEUR)
 })
 
-//############################################################################################ AUTRES ############################################################################################
+//############################################################################################ AUTRES / INUTILISE ############################################################################################
 
 /* // Code de fermeture de la connexion à la BDD SQLite
 db.close((err) => {
