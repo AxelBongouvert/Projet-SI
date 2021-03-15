@@ -1,19 +1,25 @@
 # Projet Dana - Déménagement avec notre application
 
-# Installation NPM
+##  Installation via NPM
 
-Dans le dossier \dana\client ou \dana\serveur
--> npm install (client et serveur)
--> npm install axios (client)
--> npm install express (serveur)
--> npm install sqlite3 (serveur)
+Commandes à exécuter dans les dossiers avant de pouvoir exécuter le client et le serveur
 
-# Client (1er terminal)
+### \dana\client 
+-> `npm install`
+-> `npm install axios`
+
+### \dana\serveur
+-> `npm install`
+-> `npm install express`
+-> `npm install sqlite3`
+-> `npm install cors`
+
+## Exécution du client (1er terminal)
 
 Démarrage du client depuis le dossier \dana\client
--> npm start
+-> `npm start`
 
-# Serveur (2d terminal)
+## Exécution du serveur (2nd terminal)
 
 Démarrage du serveur depuis le dossier \dana\serveur
--> node serveur.js
+-> `node serveur.js`

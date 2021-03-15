@@ -15,13 +15,13 @@ class Accueil extends React.Component {
 				<div class="col-xl-12 col-lg-12">
 					<div class="card shadow mb-4">
 						<div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-							<h6 class="m-0 font-weight-bold text-primary">Mes déménagements</h6>
+							<h6 class="m-0 font-weight-bold text-info">Mes déménagements</h6>
 						</div>
 					</div>
 				</div>
 				<div class="col-lg-12 mb-4">
 					<a href="/Demenagement">
-						<div class="card bg-primary text-white shadow">
+						<div class="card bg-info text-white shadow">
 							<div class="card-body">
 								Mon déménagement
 								<div class="text-white-50 small">18 Mai 2021 - 21 Mai 2021</div>

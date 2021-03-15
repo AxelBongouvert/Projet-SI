@@ -24,7 +24,7 @@ class Profil extends React.Component {
 													<h1 class="h4 text-gray-900 mb-4">[Nom utilisateur]</h1>
 												</div>
 												<div class="text-center">
-													<a href="/Deconnexion">Se déconnecter</a>
+													<a href="/Deconnexion" class="text-info">Se déconnecter</a>
 												</div>
 												<br/>
 												<form class="user" onSubmit={this.handleSubmit}>
@@ -33,6 +33,9 @@ class Profil extends React.Component {
 													</div>
 													<div class="form-group">
 														<input type="text" class="form-control form-control-user" id="prenom" placeholder="Prénom" onChange={this.handleInputChange}></input>
+													</div>
+													<div class="form-group">
+														<input type="text" class="form-control form-control-user" id="pseudo" placeholder="Nom de compte" onChange={this.handleInputChange}></input>
 													</div>
 													<div class="form-group">
 														<input type="email" class="form-control form-control-user" id="email" placeholder="Adresse email" onChange={this.handleInputChange}></input>

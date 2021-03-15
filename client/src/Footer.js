@@ -18,17 +18,18 @@ class Footer extends React.Component {
 							</a>
 						</li>
 						<li class="nav-item no-arrow">
-							<a class="nav-link mt-3" href="/Promos" id="promos" role="button" aria-haspopup="true" aria-expanded="false">
+							<a class="nav-link mt-3" href="Page404" id="promos" role="button" aria-haspopup="true" aria-expanded="false">
 								<i class="fas fa-cart-plus fa-fw"></i>
 							</a>
 						</li>
 						<li class="nav-item no-arrow">
 							<button class="btn btn-danger btn-circle btn-lg mb-5" href="#" id="creation_demenagement">
-								<i class="fas fa-truck fa-fw"></i>
+								
+								<img class="img-profile rounded-circle" src="img/logo_dana.png"/>
 							</button>
 						</li>
 						<li class="nav-item no-arrow">
-							<a class="nav-link mt-3" href="/Messages" id="messages" role="button" aria-haspopup="true" aria-expanded="false">
+							<a class="nav-link mt-3" href="Page404" id="messages" role="button" aria-haspopup="true" aria-expanded="false">
 								<i class="fas fa-envelope fa-fw"></i>
 							</a>
 						</li>
