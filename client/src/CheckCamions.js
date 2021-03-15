@@ -9,43 +9,31 @@ class CheckCamions extends React.Component {
 
 	constructor(props) {
 		super(props)
-		this.componentDidMount = this.componentDidMount.bind(this)
-
 		this.state = {
-			camions: [
-				{
-					"id": 1,
-					"description": "description Camion 1",
-					"largeur": 3.50,
-					"hauteur": 1.85,
-					"profondeur": 4.65,
-					"permisMin": "Permis B",
-					"volume": 6
-				}
-
-			]
+			camions: null
 		};
-
 	}
+	getCamions() {
+		var url = 'http://localhost:5000/camion/6'
+		fetch(url,{
+			mode: 'no-cors',
+			method:'GET',
+			credentials: 'same-origin',
+			headers: {'Content-Type': 'application/json', 
+					  'Accept': '*/*',
+					}
+		})
+		.then((response) => {			
+			console.log(response);
+		})
+		.then((datas) => {
+			console.log(datas);
+		})
+		.catch(error => console.log(error));
 
-	componentDidMount() {
-		var url = 'http://localhost:5000/camion/' + localStorage.getItem("volume")
-		//axios.get(`localhost:5000/camion/${localStorage.getItem("volume")}`)
-		fetch(url)
-			.then((res) => res.json())
-			.then((result) => {
-				console.log(result);
-				this.setState({
-					camions: result
-				});
-			})
-			.catch((error) => {
-				console.error(error);
-			})
 		console.log("bolos")
 	}
-
-
+	/*
 	choixCamion() {
 		var vomuleMini = 9999;
 		var camion = {}
@@ -56,33 +44,18 @@ class CheckCamions extends React.Component {
 		}
 		return camion
 	}
-
-	/*
-		
 	*/
 	render() {
 		return (
 			<div>
-				volume total : {localStorage.getItem("volume")}
-				<br></br>
-				taille la plus longue : {localStorage.getItem("dimMax")}
-				<br></br>
+				volume total : { localStorage.getItem("volume")}
+				< br ></br >
+		taille la plus longue : { localStorage.getItem("dimMax")}
+				< br ></br >
 
-				{this.componentDidMount()}
-				{this.choixCamion()}
-
-				<br></br>
-				<br></br>
-				<h2> DANA te conseille ...</h2>
-					Un véhicule de : {this.state.camions[0].volume} m3
-				<br></br>
-					Dim : {this.state.camions[0].largeur} x {this.state.camions[0].hauteur} x {this.state.camions[0].profondeur}
-
-
-			</div>
+				{this.getCamions()}
+			</div >
 		);
 	}
-
 }
-
 export default CheckCamions;

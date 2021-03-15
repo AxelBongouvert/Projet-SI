@@ -10,6 +10,10 @@ const express = require('express');
 const app = express();
 const sqlite3 = require('sqlite3').verbose();
 const bodyParser = require('body-parser');
+
+var cors = require('cors');
+app.use(cors());
+
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
@@ -45,9 +49,10 @@ app.get('/camion/:volumeMin', (req,res) => {
   db.all(sqlString, values, (err, rows) => {
     if (err) {
       console.error(err.message);
-    }
-    //console.log(rows);
+    }    
+    console.log(rows);
     res.status(200).json(rows);
+    
   });
 })
 
