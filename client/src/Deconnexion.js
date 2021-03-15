@@ -13,7 +13,7 @@ class Deconnexion extends React.Component {
 		Session.setConnecte(false);
 		Session.setID('');
 		Session.setPseudo('');
-		history.push('/loader');
+		history.push('/Connexion');
 		event.preventDefault();
 	}
 	
