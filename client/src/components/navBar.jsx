@@ -2,22 +2,30 @@ import React from "react";
 
 // Stateless Functional Component
 
-const NavBar = ({ totalCounters , totalVolume}) => {
+const NavBar = ({ totalCounters, totalVolume }) => {
   return (
-    <nav className="navbar navbar-light bg-primary fixed-bottom">
-      <div className="navbar-brand">        
-        <span className="badge badge-pill badge-info m-1" style={{ width: 50 }}>
-          {totalCounters}
-        </span>
-        Items
-        <span className="badge badge-pill badge-info m-1" style={{ width: 50 }}>
-          {totalVolume}
-        </span>
-        Volume (m3)
-      </div>
-      <a href="/CheckCamions" class="btn btn-success btn-circle">
-          <i class="fas fa-check"></i> 
-     </a>
+    <nav className="navbar navbar-expand navbar-light bg-danger topbar static-top shadow fixed-bottom">
+      <ul class="navbar-nav w-100 d-flex justify-content-around">
+        <li class="nav-item no-arrow">
+          <span class="badge badge-pill badge-info m-4" style={{ width: 75 }}>
+            <li class="nav-item no-arrow">{totalCounters}</li>
+            <li class="nav-item no-arrow">Items</li>
+          </span>
+        </li>
+        <li class="nav-item no-arrow">
+          <span class="badge badge-pill badge-info m-4" style={{ width: 125 }}>
+            <li class="nav-item no-arrow">{totalVolume}</li>
+            <li class="nav-item no-arrow">Volume (m3)</li>
+          </span>
+        </li>
+        <li class="nav-item no-arrow">
+          <a href="/CheckCamions">
+            <button class="btn btn-success btn-circle mt-3">
+              <i class="fas fa-check"></i>
+            </button>
+          </a>
+        </li>
+      </ul>
     </nav>
   );
 };

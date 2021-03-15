@@ -25,7 +25,6 @@ class Counters extends Component {
           />
         ))}
         <div>
-          YAKOI?!
           <br></br>
           <br></br>          
           <br></br>
