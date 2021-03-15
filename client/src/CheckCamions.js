@@ -10,50 +10,86 @@ class CheckCamions extends React.Component {
 	constructor(props) {
 		super(props)
 		this.state = {
-			camions: null
+			camions: [],
+			traitementFini : false
 		};
 	}
-	getCamions() {
-		var url = 'http://localhost:5000/camion/6'
-		fetch(url,{
-			mode: 'no-cors',
-			method:'GET',
-			credentials: 'same-origin',
-			headers: {'Content-Type': 'application/json', 
-					  'Accept': '*/*',
-					}
+	componentDidMount() {	
+		const { history } = this.props;	
+		var url = 'http://localhost:5000/camion/'+ localStorage.getItem("volume")
+		fetch(url, {
+			method: 'GET',
+			headers: {
+				'Content-Type': 'application/json',
+				'Access-Control-Allow-Origin': '*',
+				'Access-Control-Allow-Methods': 'GET, PUT, POST, DELETE, PATCH, OPTIONS'
+			}
 		})
-		.then((response) => {			
-			console.log(response);
+		.then(reponse => reponse.json())	
+		.then(data =>  {
+			console.log(data)
+			this.state.camions = data;							
 		})
-		.then((datas) => {
-			console.log(datas);
+		.then(() => {
+			console.log(this.state.camions)
+			this.choixCamion()
 		})
-		.catch(error => console.log(error));
-
-		console.log("bolos")
+		.then(() => {
+			this.setState({traitementFini : true});
+		})	
 	}
-	/*
-	choixCamion() {
+	
+	choixCamion() {			
 		var vomuleMini = 9999;
-		var camion = {}
-		for (let i = 0; i < this.state.camions.length - 1; i++) {
+		var camion = {};
+		let idCamion = -1
+
+		for (let i = 0; i < this.state.camions.length ; i++) {			
 			if (this.state.camions[i].volume < vomuleMini) {
 				camion = this.state.camions[i];
+				idCamion = i;
 			}
-		}
-		return camion
+		}	
+		console.log(idCamion)	
+		localStorage.setItem("idCamion", idCamion)			
 	}
-	*/
+
+	afficherCamion(){
+		if(this.state.traitementFini == true){
+			let i = localStorage.getItem("idCamion")
+			if(i == -1 ){return <div>un paquebot mgl ! </div>}	
+			if(!Object.keys(this.state.camions[i]))	return null;
+
+			// creer un objet a render avec les propriété du camtar
+			return <div>
+				<h2> Un vehicule de {this.state.camions[i].volume} m3 </h2>
+				<div className="card bg-primary text-white shadow">          			
+					<div className="col-md-1" style={{ fontSize: 14 }}>
+						Longueur : {this.state.camions[i].profondeur}
+					</div>
+					<div className="col-md-1" style={{ fontSize: 14 }}>
+						Hauteur :  {this.state.camions[i].hauteur}
+					</div>
+					<div className="col-md-1" style={{ fontSize: 14 }}>
+						Largeur :  {this.state.camions[i].largeur}
+					</div>
+					<div className="col-md-1" style={{ fontSize: 14 }}>
+						Permis mini :  {this.state.camions[i].permisMin}
+					</div>					
+				</div>
+			</div>
+		}
+	}
+	
 	render() {
 		return (
-			<div>
-				volume total : { localStorage.getItem("volume")}
-				< br ></br >
-		taille la plus longue : { localStorage.getItem("dimMax")}
-				< br ></br >
+			<div>			
+				
+				<h2> DANA te conseille ... 	</h2>
+				{(this.afficherCamion())}
 
-				{this.getCamions()}
+				
+
 			</div >
 		);
 	}

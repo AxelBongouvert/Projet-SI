@@ -10,15 +10,8 @@ const express = require('express');
 const app = express();
 const sqlite3 = require('sqlite3').verbose();
 const bodyParser = require('body-parser');
-<<<<<<< HEAD
-
-var cors = require('cors');
-app.use(cors());
-
-=======
 const cors = require('cors');
 app.use(cors());
->>>>>>> 1e0b6f63781a52413edbccbbec790ba45449f17d
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
