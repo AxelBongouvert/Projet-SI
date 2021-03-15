@@ -9,9 +9,9 @@
 const express = require('express');
 const app = express();
 const sqlite3 = require('sqlite3').verbose();
-const bodyParser = require('body-parser');
 const cors = require('cors');
 app.use(cors());
+const bodyParser = require('body-parser');
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
@@ -22,8 +22,6 @@ const PORT_ECOUTE_SERVEUR = 5000
 https://www.sqlitetutorial.net/sqlite-nodejs/
 https://github.com/mapbox/node-sqlite3/wiki
 
-TODO :
-pseudo table compte en UNIQUE
 
 Questions :
 coté client react, plutôt true/false ou 1/0 ? 
@@ -58,9 +56,9 @@ app.post('/connexion', (req,res) => {
 		}
 		console.log(rows);
 		if (rows[0] != null) {
-			res.status(200).json({"connexion":true});
+			res.status(200).json({"connexion":true,"id":rows[0].id});
 		} else {
-			res.status(200).json({"connexion":false});
+			res.status(200).json({"connexion":false,"id":null});
 		}
 	});
 })
@@ -74,9 +72,25 @@ app.post('/connexion', (req,res) => {
 app.get('/client', (req,res) => {
 	console.log("get sur /client");
 	
-	
-	const sqlString = "SELECT Client.id,nom,prenom,type,email,pseudo,mdp FROM Client INNER JOIN Compte ON Client.fk_id_compte = Compte.id";
+	const sqlString = "SELECT Client.id,nom,prenom,type,email,pseudo FROM Client INNER JOIN Compte ON Client.fk_id_compte = Compte.id";
 	const values = [];
+	db.all(sqlString, values, (err, rows) => {
+		if (err) {
+			console.error(err.message);
+		}
+		//console.log(rows);
+		res.status(200).json(rows);
+	});
+})
+
+//Information d'un compte client
+app.get('/client/:idClient', (req,res) => {
+	console.log("get sur /client/:idClient");
+
+  var idClient = parseInt(req.params.idClient);
+	
+	const sqlString = "SELECT Client.id,nom,prenom,type,email,pseudo FROM Client INNER JOIN Compte ON Client.fk_id_compte = Compte.id WHERE Client.id = ?";
+	const values = [idClient];
 	db.all(sqlString, values, (err, rows) => {
 		if (err) {
 			console.error(err.message);
@@ -106,49 +120,68 @@ app.post('/client',  (req,res) => {
 			statementCompte.run(valuesCompte, function(err, row) {
 				if (err) {
 					console.error(err.message);
+				} else {
+					var id_compte_insert = this.lastID;
+					var valuesClient = client.slice(0,4);
+					valuesClient.push(id_compte_insert);
+					
+					statementClient.run(valuesClient, function(err, row) {
+						if (err) {
+							console.error(err.message);
+						}
+						res.status(200).json({});
+					})
 				}
-				var id_compte_insert = this.lastID;
-				var valuesClient = client.slice(0,4);
-				valuesClient.push(id_compte_insert);
-				
-				statementClient.run(valuesClient, function(err, row) {
-					if (err) {
-						console.error(err.message);
-					}
-					res.status(200).json({});
-				})
 			})
 		})
 	});
 })
 
-/* TODO
-//Modification d'une salle
-app.put('/salle',  (req,res) => {
-	console.log("put sur /salle");
+
+//Modification d'un comtpe client
+app.put('/client',  (req,res) => {
+	console.log("put sur /client");
 	
 	var body = req.body;
-	const salle = Object.values(body);
+	const client = Object.values(body);
 	
-	let sqlString = "UPDATE Salle SET nom=?,couleur=?,superficie=?,fk_id_logement=? WHERE id = ?";
-	const values = salle;
+	const values = client;
 	
-	db.all(sqlString, values, (err, rows) => {
+  let sqlStringCompte = "UPDATE Compte SET mdp=? FROM (SELECT fk_id_compte FROM Client WHERE id = ?) WHERE id = fk_id_compte";
+	let sqlStringClient = "UPDATE Client SET nom=?,prenom=?,type=?,email=? WHERE id = ?";
+	
+	let statementCompte = db.prepare(sqlStringCompte);
+	let statementClient = db.prepare(sqlStringClient);
+	
+	var valuesCompte = client.slice(4,6);
+	var valuesClient = client;
+  valuesClient.splice(4,1);
+  
+  valuesCompte[0] = functions.hashPwd(valuesCompte[0]);
+			
+	statementCompte.run(valuesCompte, function(err, row) {
 		if (err) {
 			console.error(err.message);
+		} else {
+			
+			statementClient.run(valuesClient, function(err, row) {
+				if (err) {
+					console.error(err.message);
+				}
+				res.status(200).json({});
+			});
 		}
-		//console.log(rows);
-		res.status(200).json({});
 	});
 })
 
-//Suppresion d'une salle
-app.delete('/salle', (req,res) => {
-	console.log("delete sur /salle");
+
+//Suppresion d'un client
+app.delete('/client', (req,res) => {
+	console.log("delete sur /client");
 	
 	var id = req.body.id;
 	
-	let sqlString = "DELETE FROM Salle WHERE id = ?";
+	let sqlString = "DELETE FROM Client WHERE id = ?";
 	const values = [id];
 	db.all(sqlString, values, (err, rows) => {
 		if (err) {
@@ -158,7 +191,6 @@ app.delete('/salle', (req,res) => {
 		res.status(200).json({});
 	});
 })
-*/
 
 
 
