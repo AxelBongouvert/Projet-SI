@@ -1,15 +1,33 @@
 import React from 'react';
 import Footer from './Footer';
 import Retour from './Retour.js';
+import Session from './Session';
 
 class Profil extends React.Component {
 	
 	constructor(props) {
 		super(props);
-		this.state = { nom: '', prenom: '', email: '', mdp:'' };
+		this.state = {infos: [], nom: '', prenom: '', email: '', mdp:'' };
 		this.handleInputChange = this.handleInputChange.bind(this);
 	}
 
+	componentDidMount() {
+        const json = { pseudo: Session.getPseudo() };
+       	fetch('http://localhost:5000/client/'+ Session.getId, {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+                'Access-Control-Allow-Origin': '*',
+                'Access-Control-Allow-Methods': 'GET, PUT, POST, DELETE, PATCH, OPTIONS'
+            }
+        }).then(function (response) {
+            return response.json();
+        }).then(res => {
+			this.setState({ infos: res[0] })
+			alert(res)
+        })
+	}
+	
 	handleInputChange(event) {
 		this.setState({
 			[event.target.name]: event.target.value
@@ -22,6 +40,7 @@ class Profil extends React.Component {
 	}
 
 	render() {
+		var data = this.state.infos
 		return (
 			<div>
 				<Retour name="Profil"></Retour>
@@ -42,7 +61,7 @@ class Profil extends React.Component {
 												<br/>
 												<form class="user" onSubmit={this.handleSubmit}>
 													<div class="form-group">
-														<input type="text" class="form-control form-control-user" id="nom" name="nom" placeholder="Nom" /*value={data.nom || ''}*/  onChange={this.handleInputChange}></input>
+														<input type="text" class="form-control form-control-user" id="nom" name="nom" placeholder="Nom" /*value={data.nom || ''}*/ onChange={this.handleInputChange}></input>
 													</div>
 													<div class="form-group">
 														<input type="text" class="form-control form-control-user" id="prenom" name="prenom" placeholder="Prénom" /*value={data.prenom || ''}*/ onChange={this.handleInputChange}></input>
