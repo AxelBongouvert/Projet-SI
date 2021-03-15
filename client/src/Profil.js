@@ -6,6 +6,19 @@ class Profil extends React.Component {
 	
 	constructor(props) {
 		super(props);
+		this.state = { nom: '', prenom: '', email: '', mdp:'' };
+		this.handleInputChange = this.handleInputChange.bind(this);
+	}
+
+	handleInputChange(event) {
+		this.setState({
+			[event.target.name]: event.target.value
+		});
+	}
+
+	handleSubmit = (event) => {
+		alert('pas codé');
+		event.preventDefault();
 	}
 
 	render() {
@@ -21,7 +34,7 @@ class Profil extends React.Component {
 										<div class="col-lg-12">
 											<div class="p-5">
 												<div class="text-center">
-													<h1 class="h4 text-gray-900 mb-4">[Nom utilisateur]</h1>
+													<h1 class="h4 text-gray-900 mb-4"></h1>
 												</div>
 												<div class="text-center">
 													<a href="/Deconnexion" class="text-info">Se déconnecter</a>
@@ -29,21 +42,18 @@ class Profil extends React.Component {
 												<br/>
 												<form class="user" onSubmit={this.handleSubmit}>
 													<div class="form-group">
-														<input type="text" class="form-control form-control-user" id="nom" placeholder="Nom" onChange={this.handleInputChange}></input>
+														<input type="text" class="form-control form-control-user" id="nom" name="nom" placeholder="Nom" /*value={data.nom || ''}*/  onChange={this.handleInputChange}></input>
 													</div>
 													<div class="form-group">
-														<input type="text" class="form-control form-control-user" id="prenom" placeholder="Prénom" onChange={this.handleInputChange}></input>
+														<input type="text" class="form-control form-control-user" id="prenom" name="prenom" placeholder="Prénom" /*value={data.prenom || ''}*/ onChange={this.handleInputChange}></input>
 													</div>
 													<div class="form-group">
-														<input type="text" class="form-control form-control-user" id="pseudo" placeholder="Nom de compte" onChange={this.handleInputChange}></input>
+														<input type="email" class="form-control form-control-user" id="email" name="email" placeholder="Adresse email" /*value={data.email || ''}*/ onChange={this.handleInputChange}></input>
 													</div>
 													<div class="form-group">
-														<input type="email" class="form-control form-control-user" id="email" placeholder="Adresse email" onChange={this.handleInputChange}></input>
+														<input type="passsword" class="form-control form-control-user" id="mdp" name="mdp" placeholder="Mot de passe" onChange={this.handleInputChange}></input>
 													</div>
-													<div class="form-group">
-														<input type="passsword" class="form-control form-control-user" id="mdp" placeholder="Mot de passe" onChange={this.handleInputChange}></input>
-													</div>
-													<button class="btn btn-danger btn-user btn-block" id="submit" type="submit">Confirmer</button>
+													<button class="btn btn-info btn-user btn-block" id="submit" type="submit">Confirmer</button>
 												</form>
 											</div>
 										</div>

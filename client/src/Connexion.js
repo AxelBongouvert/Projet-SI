@@ -29,7 +29,7 @@ class Connexion extends React.Component {
 		}).then(function (result) {
 			return result.json();
 		}).then(function (result) {
-			if (result.connexion == true) {
+			if (result.connexion === true) {
 				Session.setConnecte(true);
 				Session.setPseudo(json.pseudo);
 				history.push('accueil');
@@ -66,18 +66,18 @@ class Connexion extends React.Component {
 														<label class="custom-control-label" for="souvenir">Se souvenir de moi</label>
 													</div>
 												</div>
-												<button class="btn btn-primary btn-user btn-block" id="submit" type="submit">Connexion</button>
+												<button class="btn btn-info btn-user btn-block" id="submit" type="submit">Connexion</button>
 												<hr />
-												<a href="Connexion" class="btn btn-google btn-user btn-block">
+												<a href="Connexion" class="btn btn-danger btn-user btn-block">
 													<i class="fab fa-google fa-fw"></i> Se connecter avec Google
 												</a>
 											</form>
 											<hr/>
 											<div class="text-center">
-												<a class="small" href="Connexion">Mot de passe oublié ?</a>
+												<a class="small text-info" href="Connexion">Mot de passe oublié ?</a>
 											</div>
 											<div class="text-center">
-												<a class="small" href="Inscription">Créer un compte</a>
+												<a class="small text-info" href="Inscription">Créer un compte</a>
 											</div>
 										</div>
 									</div>

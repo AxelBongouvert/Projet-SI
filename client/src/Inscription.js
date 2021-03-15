@@ -49,11 +49,11 @@ class Inscription extends React.Component {
 												<div class="form-group">
 													<input type="password" class="form-control form-control-user" id="mdp" placeholder="Mot de passe" onChange={this.handleInputChange}></input>
 												</div>
-												<button class="btn btn-primary btn-user btn-block" id="submit" type="submit">Inscription</button>
+												<button class="btn btn-info btn-user btn-block" id="submit" type="submit">Inscription</button>
 											</form>
 											<hr/>
 											<div class="text-center">
-												<a class="small" href="Connexion">Déjà un compte ?</a>
+												<a class="small text-info" href="Connexion">Déjà un compte ?</a>
 											</div>
 										</div>
 									</div>
