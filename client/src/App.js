@@ -54,7 +54,7 @@ class App extends React.Component {
 					<Route path="/Promos" component={Promos} />
 					<Route path="/Messages" component={Messages} />
 					<Route path="/Plus" component={Plus} />
-					<Route path="/Page404" component={Page404}/>
+					<Route path="/Page404" component={Page404} />
 					<Route path="/" component={Loader} />
 				</Switch>
 			</BrowserRouter>

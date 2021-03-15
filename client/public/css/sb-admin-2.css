@@ -251,6 +251,7 @@ button {
 button:focus {
   outline: 1px dotted;
   outline: 5px auto -webkit-focus-ring-color;
+  background-color: #FF5561;
 }
 
 input,
@@ -2670,6 +2671,8 @@ textarea.form-control.is-invalid {
 .btn.focus {
   outline: 0;
   box-shadow: 0 0 0 0.2rem rgba(78, 115, 223, 0.25);
+  background-color: #FF5561;
+  border-color: #FF5561;
 }
 
 .btn.disabled,
@@ -2899,15 +2902,15 @@ fieldset:disabled a.btn {
 
 .btn-danger:hover {
   color: #fff;
-  background-color: #e02d1b;
-  border-color: #d52a1a;
+  background-color: #FF5561;
+  border-color: #FF5561;
 }
 
 .btn-danger:focus,
 .btn-danger.focus {
   color: #fff;
-  background-color: #e02d1b;
-  border-color: #d52a1a;
+  background-color: #FF5561;
+  border-color: #FF5561;
   box-shadow: 0 0 0 0.2rem rgba(235, 101, 88, 0.5);
 }
 
@@ -2922,8 +2925,8 @@ fieldset:disabled a.btn {
 .btn-danger:not(:disabled):not(.disabled).active,
 .show>.btn-danger.dropdown-toggle {
   color: #fff;
-  background-color: #d52a1a;
-  border-color: #ca2819;
+  background-color: #FF5561;
+  border-color: #FF5561;
 }
 
 .btn-danger:not(:disabled):not(.disabled):active:focus,
@@ -11938,6 +11941,8 @@ a:focus {
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  background-color: #FF5561;
+  border-color: #FF5561;
 }
 
 .btn-circle.btn-sm,
