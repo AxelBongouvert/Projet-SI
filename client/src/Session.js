@@ -12,7 +12,7 @@ var Session = (function () {
 		return localStorage.getItem('id');;
 	};
 	
-	var setID = function (s) {
+	var setId = function (s) {
 		localStorage.setItem('id', s);
 	};
 	
@@ -28,7 +28,7 @@ var Session = (function () {
 		isConnecte: isConnecte,
 		setConnecte: setConnecte,
 		getId: getId,
-		setID: setID,
+		setId: setId,
 		getPseudo: getPseudo,
 		setPseudo: setPseudo
 	}
