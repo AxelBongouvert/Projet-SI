@@ -54,27 +54,57 @@ class CheckCamions extends React.Component {
 	afficherCamion(){
 		if(this.state.traitementFini == true){
 			let i = localStorage.getItem("idCamion")
-			if(i == -1 ){return <div>un paquebot mgl ! </div>}	
+			if (i == -1) {
+				return (
+					<div class="col-xl-12 col-md-12 m-2 text-center">
+						<h3>Un paquebot mgl !</h3>
+					</div>
+				);
+			}
 			if(!Object.keys(this.state.camions[i]))	return null;
 
 			// creer un objet a render avec les propriété du camtar
-			return <div>
-				<h2> Un vehicule de {this.state.camions[i].volume} m3 </h2>
-				<div className="card bg-primary text-white shadow">          			
-					<div className="col-md-1" style={{ fontSize: 14 }}>
-						Longueur : {this.state.camions[i].profondeur}
+			return (
+				<div>
+					<div class="col-xl-12 col-md-12 mb-3 text-center">
+						<h3> Un vehicule de {this.state.camions[i].volume} m3 </h3>
 					</div>
-					<div className="col-md-1" style={{ fontSize: 14 }}>
-						Hauteur :  {this.state.camions[i].hauteur}
-					</div>
-					<div className="col-md-1" style={{ fontSize: 14 }}>
-						Largeur :  {this.state.camions[i].largeur}
-					</div>
-					<div className="col-md-1" style={{ fontSize: 14 }}>
-						Permis mini :  {this.state.camions[i].permisMin}
-					</div>					
+					<ul class="navbar-nav w-75 d-flex justify-content-around ml-5">
+						<li class="nav-item no-arrow">
+							<li class="nav-item no-arrow">
+								Longueur :
+								<span class="badge badge-pill badge-info m-2" style={{ width: 75 }}>
+									{this.state.camions[i].profondeur}
+								</span>
+							</li>
+						</li>
+						<li class="nav-item no-arrow">
+							<li class="nav-item no-arrow">
+								Hauteur :
+								<span class="badge badge-pill badge-info m-2" style={{ width: 75 }}>
+									{this.state.camions[i].hauteur}
+								</span>
+							</li>
+						</li>
+						<li class="nav-item no-arrow">
+							<li class="nav-item no-arrow">
+								Largeur :
+								<span class="badge badge-pill badge-info m-2" style={{ width: 75 }}>
+									{this.state.camions[i].largeur}
+								</span>
+							</li>
+						</li>
+						<li class="nav-item no-arrow">
+							<li class="nav-item no-arrow">
+								Permis mini :
+								<span class="badge badge-pill badge-info m-2" style={{ width: 75 }}>
+									{this.state.camions[i].permisMin}
+								</span>
+							</li>
+						</li>
+					</ul>
 				</div>
-			</div>
+			);
 		}
 	}
 	
@@ -82,10 +112,16 @@ class CheckCamions extends React.Component {
 		return (
 			<div>			
 				<Retour name="Conseil camion"></Retour>
-				<h2> DANA te conseille ... 	</h2>
-				{(this.afficherCamion())};
+				<div class="col-xl-12 col-md-12 mb-4 text-center">
+					<h4> DANA te conseille ... </h4>
+				</div>
+				<div class="col-xl-12 col-md-12 mb-4">
+					<div class="card border-left-danger shadow h-100 py-2">
+						{(this.afficherCamion())}
+					</div>
+				</div>
 				<Footer></Footer>
-			</div >
+			</div>
 		);
 	}
 }
