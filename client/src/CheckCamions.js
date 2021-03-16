@@ -112,7 +112,6 @@ class CheckCamions extends React.Component {
 		return (
 			<div>			
 				<Retour name="Conseil camion"></Retour>
-<<<<<<< HEAD
 				<div class="col-xl-12 col-md-12 mb-4 text-center">
 					<h4> DANA te conseille ... </h4>
 				</div>
@@ -121,10 +120,9 @@ class CheckCamions extends React.Component {
 						{(this.afficherCamion())}
 					</div>
 				</div>
-=======
+
 				<h2> DANA te conseille ... 	</h2>
 				{(this.afficherCamion())}
->>>>>>> 34fd818a93cea1b8fd4ab346f1d4bd396c900da6
 				<Footer></Footer>
 			</div>
 		);
