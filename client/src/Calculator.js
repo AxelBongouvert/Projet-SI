@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Counters from "./components/counters";
 import NavBar from "./components/navBar";
 import Retour from "./Retour";
+import Footer from "./Footer";
 
 class Calculator extends Component {
 
@@ -74,20 +75,19 @@ class Calculator extends Component {
 		return (
 			<div>
 			<Retour name="Calculateur de volume"></Retour>
-			<NavBar
-				totalCounters={this.getSomme()}
-				totalVolume={this.getVolume()}
-				
-			/>
-			{this.getPlusLong()}
 			<main className="container">
 				<Counters
 					counters={this.state.counters}            
 					onIncrement={this.handleIncrement}
 					onDecrement={this.handleDecrement}
 					onRestart={this.handleRestart}            
-				/>          
-			</main>
+				/>;  
+				</main>
+				<NavBar
+				totalCounters={this.getSomme()}
+				totalVolume={this.getVolume()}
+				/>;
+				<Footer></Footer>
 		</div>
 		);
 	}

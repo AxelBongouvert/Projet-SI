@@ -24,6 +24,9 @@ class Profil extends React.Component {
 			return response.json();
 		}).then(res => {
 			this.setState({ infos: res[0] })
+			this.state.nom = this.state.infos.nom;
+			this.state.prenom = this.state.infos.prenom;
+			this.state.email = this.state.infos.email;
 		});
 	}
 	

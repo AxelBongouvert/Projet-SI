@@ -31,7 +31,7 @@ class Deconnexion extends React.Component {
 												<h1 class="h4 text-gray-900 mb-4">Espace de déconnexion</h1>
 											</div>
 											<form class="user" onSubmit={this.handleSubmit}>
-												<button class="btn btn-primary btn-user btn-block" id="submit" type="submit">Déconnexion</button>
+												<button class="btn btn-info btn-user btn-block" id="submit" type="submit">Déconnexion</button>
 											</form>
 										</div>
 									</div>

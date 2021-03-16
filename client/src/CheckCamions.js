@@ -1,9 +1,6 @@
 import React from 'react';
-import Calculator from './Calculator';
-import Counters from "./components/counters";
-import NavBar from "./components/navBar";
-import Counter from "./components/counter";
-import axios from 'axios'
+import Retour from './Retour';
+import Footer from './Footer';
 
 class CheckCamions extends React.Component {
 
@@ -84,14 +81,13 @@ class CheckCamions extends React.Component {
 	render() {
 		return (
 			<div>			
-				
+				<Retour name="Conseil camion"></Retour>
 				<h2> DANA te conseille ... 	</h2>
-				{(this.afficherCamion())}
-
-				
-
+				{(this.afficherCamion())};
+				<Footer></Footer>
 			</div >
 		);
 	}
 }
+
 export default CheckCamions;
