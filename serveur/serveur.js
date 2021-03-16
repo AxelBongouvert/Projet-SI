@@ -282,7 +282,7 @@ app.get('/carton/:idSalle', (req,res) => {
 		if (err) {
 			console.error(err.message);
 		}
-		//console.log(rows);
+		console.log(idSalle);
 		res.status(200).json(rows);
 	});
 })

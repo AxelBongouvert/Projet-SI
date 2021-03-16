@@ -16,11 +16,31 @@ var Session = (function () {
     localStorage.setItem('pseudo', p);
   };
 
+  var getIdSalle = function () {
+    return localStorage.getItem('idSalle');;
+  };
+
+  var setIdSalle = function (p) {
+    localStorage.setItem('IdSalle', p);
+  };
+
+  var getIdCarton = function () {
+    return localStorage.getItem('IdCarton');;
+  };
+
+  var setIdCarton = function (p) {
+    localStorage.setItem('IdCarton', p);
+  };
+
   return {
     isConnecte: isConnecte,
     setConnecte: setConnecte,
     getPseudo: getPseudo,
-    setPseudo: setPseudo
+    setPseudo: setPseudo,
+    getIdSalle: getIdSalle,
+    setIdSalle: setIdSalle,
+    getIdCarton: getIdCarton,
+    setIdCarton: setIdCarton
   }
 
 })();

@@ -14,6 +14,7 @@ import Accueil from './Accueil.js';
 import Demenagement from './Demenagement.js';
 import GestionCartons from './GestionCartons.js';
 import CreationCarton from './CreationCarton.js';
+import MaSalle from './MaSalle.js';
 import Taches from './Taches.js';
 import Transport from './Transport.js';
 import Contrats from './Contrats.js';
@@ -44,6 +45,7 @@ class App extends React.Component {
 					<Route path="/Demenagement" component={Demenagement} />
 					<Route path="/GestionCartons" component={GestionCartons} />
 					<Route path="/CreationCarton" component={CreationCarton} />
+					<Route path="/MaSalle" component={MaSalle} />
 					<Route path="/Taches" component={Taches} />
 					<Route path="/Contrats" component={Contrats} />
 					<Route path="/Affaires" component={Affaires} />
