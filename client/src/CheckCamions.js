@@ -83,7 +83,7 @@ class CheckCamions extends React.Component {
 			<div>			
 				<Retour name="Conseil camion"></Retour>
 				<h2> DANA te conseille ... 	</h2>
-				{(this.afficherCamion())};
+				{(this.afficherCamion())}
 				<Footer></Footer>
 			</div >
 		);

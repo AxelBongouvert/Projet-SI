@@ -81,13 +81,12 @@ class Calculator extends Component {
 					onIncrement={this.handleIncrement}
 					onDecrement={this.handleDecrement}
 					onRestart={this.handleRestart}            
-				/>;  
+				/>  
 				</main>
 				<NavBar
 				totalCounters={this.getSomme()}
 				totalVolume={this.getVolume()}
-				/>;
-				<Footer></Footer>
+				/>
 		</div>
 		);
 	}
