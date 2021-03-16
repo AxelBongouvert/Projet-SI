@@ -11,10 +11,7 @@ class Calculator extends Component {
 			{ nom: "Canapé 2 places", volume:4, dimX:2, dimY:2, dimZ:1, id: 1, value: 0 },
 			{ nom: "Télé", volume: 1 ,dimX:1, dimY:0.5,dimZ:0.5, id: 2, value: 0 },
 			{ nom: "Chaise", volume: 1, dimX:1.2, dimY:0.5,dimZ:1, id: 3, value: 0 },
-			{ nom: "Table basse", volume: 2 ,dimX:2, dimY:1, dimZ:0.5, id: 4, value: 0 },
-			{ nom: "Table basse", volume: 2 ,dimX:2, dimY:1, dimZ:0.5, id: 4, value: 0 },
-			{ nom: "Table basse", volume: 2 ,dimX:2, dimY:1, dimZ:0.5, id: 4, value: 0 },
-			{ nom: "Table basse", volume: 2 ,dimX:2, dimY:1, dimZ:0.5, id: 4, value: 0 }
+			{ nom: "Table basse", volume: 2 ,dimX:2, dimY:1, dimZ:0.5, id: 4, value: 0 }			
 		]
  	};
 
@@ -81,13 +78,12 @@ class Calculator extends Component {
 					onIncrement={this.handleIncrement}
 					onDecrement={this.handleDecrement}
 					onRestart={this.handleRestart}            
-				/>;  
+				/>  
 				</main>
 				<NavBar
 				totalCounters={this.getSomme()}
 				totalVolume={this.getVolume()}
-				/>;
-				<Footer></Footer>
+				/>
 		</div>
 		);
 	}
