@@ -120,9 +120,6 @@ class CheckCamions extends React.Component {
 						{(this.afficherCamion())}
 					</div>
 				</div>
-
-				<h2> DANA te conseille ... 	</h2>
-				{(this.afficherCamion())}
 				<Footer></Footer>
 			</div>
 		);
