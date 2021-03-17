@@ -31,6 +31,7 @@ import Promos from './Promos.js';
 import Messages from './Messages.js';
 import Plus from './Plus.js';
 import Page404 from './Page404.js';
+import Carton from './Carton.js';
 
 class App extends React.Component {
 
@@ -65,9 +66,11 @@ class App extends React.Component {
 					<Route path="/Profil" component={Profil} />
 					<Route path="/Promos" component={Promos} />
 					<Route path="/Messages" component={Messages} />
+					<Route path="/Carton" component={Carton} />
 					<Route path="/Plus" component={Plus} />
 					<Route path="/Page404" component={Page404} />
 					<Route path="/" component={Loader} />
+					
 				</Switch>
 			</BrowserRouter>
 		);
