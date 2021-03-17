@@ -439,7 +439,7 @@ app.get('/logementDepart/:idDemenagement', (req,res) => {
 	});
 })
 
-//Logement d'arrive'd'un demenagement
+//Logement d'arrive d'un demenagement
 app.get('/logementArrive/:idDemenagement', (req,res) => {
 	console.log("get sur /LogementArrive/:idDemenagement");
 	var idDemenagement = parseInt(req.params.idDemenagement);
@@ -539,7 +539,7 @@ app.post('/demenagement',  (req,res) => {
 	var body = req.body;
 	const demenagements = body.map((m) => { return Object.values(m)});
 	
-	let sqlString = "INSERT INTO Demenagement (dateDebut,dateFin,numeroSuivi,mdpSuivi,description,fk_id_logementDepart,fk_id_logementArrive,fk_id_client) VALUES (?,?,?,?,?,?,?,?)";
+	let sqlString = "INSERT INTO Demenagement (dateDebut,dateFin,numeroSuivi,mdpSuivi,description,fk_id_logementDepart,fk_id_logementArrive,fk_id_client) VALUES (?,?, 'DANA' || (SELECT MAX(id)+1 FROM Demenagement),?,?,?,?,?)";
 	let statement = db.prepare(sqlString);
 	//cartons.forEach( carton => console.log("UN CARTON : " + JSON.stringify(carton)));
 	
@@ -558,7 +558,7 @@ app.put('/demenagement',  (req,res) => {
 	var body = req.body;
 	const demenagement = Object.values(body);
 	
-	let sqlString = "UPDATE Demenagement SET dateDebut=?,dateFin=?,numeroSuivi=?,mdpSuivi=?,description=?,fk_id_logementDepart=?,fk_id_logementArrive=? WHERE id = ?";
+	let sqlString = "UPDATE Demenagement SET dateDebut=?,dateFin=?,mdpSuivi=?,description=?,fk_id_logementDepart=?,fk_id_logementArrive=? WHERE id = ?";
 	const values = demenagement;
 	
 	db.all(sqlString, values, (err, rows) => {
