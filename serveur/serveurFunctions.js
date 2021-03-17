@@ -9,6 +9,24 @@
 const crypto = require('crypto');
 
 
+//############################################################################################ FONCTION ############################################################################################
+
+// Execute le statement sur toutes les iterations de tabValues, dans l'odre, en série, à partir d'index. effectue traitement une fois toutes les iterations de statement executé.
+function sqlInsert(statement, tabValues, resJson=[], index=0, traitement) {
+	statement.run(tabValues[index], function(err, row) {
+		if (err) {
+			console.error(err.message);
+		}
+		resJson.push(this.lastID);
+
+		if ( index == tabValues.length-1) {
+			traitement(resJson);
+		} else {
+			sqlInsert(statement,tabValues,resJson,++index,traitement);
+		}
+	})
+}
+
 //############################################################################################ FONCTION OUTILS ############################################################################################
 
 //Vérifie un boolean passé en paramètre, pour true ou false,
@@ -43,4 +61,4 @@ function hashPwd(pwd) {
 }
 
 
-module.exports = {booleanToInt, intToBoolean, hashPwd};
+module.exports = {sqlInsert,booleanToInt, intToBoolean, hashPwd};

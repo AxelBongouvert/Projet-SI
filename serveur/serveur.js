@@ -23,10 +23,6 @@ https://www.sqlitetutorial.net/sqlite-nodejs/
 https://github.com/mapbox/node-sqlite3/wiki
 
 
-Questions :
-coté client react, plutôt true/false ou 1/0 ? 
-suppresion en cascade ou osef ? 
-
 */
 
 // Connexion à la BDD SQLite
@@ -112,28 +108,27 @@ app.post('/client',  (req,res) => {
 	let statementCompte = db.prepare(sqlStringCompte);
 	let statementClient = db.prepare(sqlStringClient);
 	
+	var valuesComptes = [];
 	clients.forEach( client => {
-		db.serialize(function() {
-			var valuesCompte = client.slice(4,6);
-			valuesCompte[1] = functions.hashPwd(valuesCompte[1]);
-			
-			statementCompte.run(valuesCompte, function(err, row) {
-				if (err) {
-					console.error(err.message);
-				} else {
-					var id_compte_insert = this.lastID;
-					var valuesClient = client.slice(0,4);
-					valuesClient.push(id_compte_insert);
-					
-					statementClient.run(valuesClient, function(err, row) {
-						if (err) {
-							console.error(err.message);
-						}
-						res.status(200).json({});
-					})
-				}
-			})
-		})
+		valuesComptes.push(client.slice(4,6))
+		valuesComptes[valuesComptes.length-1][1] = functions.hashPwd(valuesComptes[valuesComptes.length-1][1]);
+	});
+
+	tabIdComptes = [];
+	functions.sqlInsert(statementCompte,valuesComptes,[],0, (resJson) => {
+		// ICI TOUS LES COMPTES ON ETE CREE ET ON A LA LISTE DES ID DANS LORDRE
+		tabIdComptes = resJson;
+		valuesClients = [];
+
+		clients.forEach( client => {
+			temp = client.slice(0,4);
+			temp.push(tabIdComptes.shift());
+			valuesClients.push(temp);
+		});
+		functions.sqlInsert(statementClient,valuesClients,[],0, (resJsonIdClient) => {
+			// ICI TOUS LES CLIENTS ON ETE CREE ET ON A LA LISTE DES ID CLIENT DANS LORDRE
+			res.status(200).json({"id":resJsonIdClient});
+		});
 	});
 })
 
@@ -223,13 +218,10 @@ app.post('/camion',  (req,res) => {
 	let sqlString = "INSERT INTO Camion (description, largeur, hauteur, profondeur, permisMin, volume) VALUES (?,?,?,?,?,?)";
 	let statement = db.prepare(sqlString);
 	//camions.forEach( carton => console.log("UN CAMION : " + JSON.stringify(camion)));
-	
-	camions.forEach( camion => statement.run(camion, function(err, row) {
-		if (err) {
-			console.error(err.message);
-		}
-	}))
-	res.status(200).json({});
+
+  functions.sqlInsert(statement,camions,[],0, (resJson) => {
+		res.status(200).json({"id":resJson});
+	});
 })
 
 //Modification d'un camion
@@ -273,13 +265,30 @@ app.delete('/camion', (req,res) => {
 //############################################################################################ CARTON ############################################################################################
 
 //Liste des cartons d'une salle
-app.get('/carton/:idSalle', (req,res) => {
-	console.log("get sur /carton/:idSalle");
+app.get('/cartonParSalle/:idSalle', (req,res) => {
+	console.log("get sur /cartonParSalle/:idSalle");
 	
 	var idSalle = parseInt(req.params.idSalle);
 	
 	const sqlString = "SELECT Carton.id,photo,qrCode,volume,largeur,hauteur,poids,profondeur,fragile,descriptionContenu FROM Carton INNER JOIN Salle ON Carton.fk_id_salle = Salle.id WHERE Salle.id = ?";
 	const values = [idSalle];
+	db.all(sqlString, values, (err, rows) => {
+		if (err) {
+			console.error(err.message);
+		}
+		//console.log(rows);
+		res.status(200).json(rows);
+	});
+})
+
+//Information d'un carton
+app.get('/carton/:idCarton', (req,res) => {
+	console.log("get sur /carton/:idCarton");
+	
+	var idCarton = parseInt(req.params.idCarton);
+	
+	const sqlString = "SELECT id,photo,qrCode,volume,largeur,hauteur,poids,profondeur,fragile,descriptionContenu FROM Carton WHERE id = ?";
+	const values = [idCarton];
 	db.all(sqlString, values, (err, rows) => {
 		if (err) {
 			console.error(err.message);
@@ -300,12 +309,9 @@ app.post('/carton',  (req,res) => {
 	let statement = db.prepare(sqlString);
 	//cartons.forEach( carton => console.log("UN CARTON : " + JSON.stringify(carton)));
 	
-	cartons.forEach( carton => statement.run(carton, function(err, row) {
-		if (err) {
-			console.error(err.message);
-		}
-	}))
-	res.status(200).json({});
+	functions.sqlInsert(statement,cartons,[],0, (resJson) => {
+		res.status(200).json({"id":resJson});
+	});
 })
 
 //Modification d'un carton
@@ -375,12 +381,9 @@ app.post('/salle',  (req,res) => {
 	let statement = db.prepare(sqlString);
 	//cartons.forEach( carton => console.log("UN CARTON : " + JSON.stringify(carton)));
 	
-	salles.forEach( salle => statement.run(salle, function(err, row) {
-		if (err) {
-			console.error(err.message);
-		}
-	}))
-	res.status(200).json({});
+	functions.sqlInsert(statement,salles,[],0, (resJson) => {
+		res.status(200).json({"id":resJson});
+	});
 })
 
 //Modification d'une salle
@@ -467,12 +470,9 @@ app.post('/logement',  (req,res) => {
 	let statement = db.prepare(sqlString);
 	//cartons.forEach( carton => console.log("UN CARTON : " + JSON.stringify(carton)));
 	
-	logements.forEach( logement => statement.run(logement, function(err, row) {
-		if (err) {
-			console.error(err.message);
-		}
-	}))
-	res.status(200).json({});
+	functions.sqlInsert(statement,logements,[],0, (resJson) => {
+		res.status(200).json({"id":resJson});
+	});
 })
 
 //Modification d'un logement
@@ -543,12 +543,9 @@ app.post('/demenagement',  (req,res) => {
 	let statement = db.prepare(sqlString);
 	//cartons.forEach( carton => console.log("UN CARTON : " + JSON.stringify(carton)));
 	
-	demenagements.forEach( demenagement => statement.run(demenagement, function(err, row) {
-		if (err) {
-			console.error(err.message);
-		}
-	}))
-	res.status(200).json({});
+	functions.sqlInsert(statement,demenagements,[],0, (resJson) => {
+		res.status(200).json({"id":resJson});
+	});
 })
 
 //Modification d'un demenagement
