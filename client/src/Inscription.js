@@ -1,4 +1,5 @@
 import React from 'react';
+import Session from './Session';
 
 class Inscription extends React.Component {
 	
@@ -13,10 +14,7 @@ class Inscription extends React.Component {
 			dateFin: '',
 			dateDebut: '',
 			adresse1: '',
-			adresse2: '',
-			fk_id_logementDepart: '',
-			fk_id_logementArrive: '',
-			fk_id_client: ''
+			adresse2: ''
 		};
 		this.handleInputChange = this.handleInputChange.bind(this);
 	}
@@ -28,6 +26,10 @@ class Inscription extends React.Component {
 	}
 	
 	handleSubmit = (event) => {
+		var stateAdresse1 = this.state.adresse1;
+		var stateAdresse2 = this.state.adresse2;
+		var stateDateDebut = this.state.dateDebut;
+		var stateDateFin = this.state.dateFin;
 		const json1 = [{
 			nom: this.state.nom,
 			prenom: this.state.prenom,
@@ -36,32 +38,29 @@ class Inscription extends React.Component {
 			pseudo: this.state.pseudo,
 			mdp: this.state.mdp
 		}];
-       	fetch('http://localhost:5000/client', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-                'Access-Control-Allow-Origin': '*',
-                'Access-Control-Allow-Methods': 'GET, PUT, POST, DELETE, PATCH, OPTIONS'
+		fetch('http://localhost:5000/client', {
+			method: 'POST',
+			headers: {
+				'Content-Type': 'application/json',
+				'Access-Control-Allow-Origin': '*',
+				'Access-Control-Allow-Methods': 'GET, PUT, POST, DELETE, PATCH, OPTIONS'
 			},
 			body: JSON.stringify(json1)
-		}).then(function (result) {
-			return result.json();
-		}).then(function (result) {
-			// récupération id client
-		});
-		const json2 = [{
-			adresse: this.state.adresse1,
-			typeLogement: 0,
-			etage: 0,
-			description: 'Logement actuel'
-		},
-		{
-			adresse: this.state.adresse2,
-			typeLogement: 0,
-			etage: 0,
-			description: 'Nouveau logement'
-		}];
-		fetch('http://localhost:5000/logement', {
+		}).then(function (res1) {
+			return res1.json();
+		}).then(res2 => {
+			const json2 = [{
+				adresse: stateAdresse1,
+				typeLogement: 0,
+				etage: 0,
+				description: 'Logement actuel'
+			},{
+				adresse: stateAdresse2,
+				typeLogement: 0,
+				etage: 0,
+				description: 'Nouveau logement'
+			}];
+			fetch('http://localhost:5000/logement', {
 			method: 'POST',
 			headers: {
 				'Content-Type': 'application/json',
@@ -69,19 +68,17 @@ class Inscription extends React.Component {
 				'Access-Control-Allow-Methods': 'GET, PUT, POST, DELETE, PATCH, OPTIONS'
 			},
 			body: JSON.stringify(json2)
-		}).then(function (result) {
-			return result.json();
-		}).then(function (result) {
-			// récupération ids logements
-		});
-		const json3 = [{
-			dateDebut: this.state.dateDebut,
-			dateFin: this.state.dateFin,
+		}).then(function (res3) {
+			return res3.json();
+		}).then(function (res4) {
+			const json3 = [{
+			dateDebut: stateDateDebut,
+			dateFin: stateDateFin,
 			mdpSuivi: 1234,
 			description: "Mon déménagement",
-			fk_id_logementDepart: this.state.fk_id_logementDepart,
-			fk_id_logementArrive: this.state.fk_id_logementArrive,
-			fk_id_client: this.state.fk_id_client
+			fk_id_logementDepart: res4.id[0],
+			fk_id_logementArrive: res4.id[1],
+			fk_id_client: res2.id[0]
 		}];
 		fetch('http://localhost:5000/demenagement', {
 			method: 'POST',
@@ -91,6 +88,8 @@ class Inscription extends React.Component {
 				'Access-Control-Allow-Methods': 'GET, PUT, POST, DELETE, PATCH, OPTIONS'
 			},
 			body: JSON.stringify(json3)
+		})
+		})
 		});
 		const { history } = this.props;
 		history.push('/Connexion');

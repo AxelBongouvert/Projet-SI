@@ -63,7 +63,7 @@ var Session = (function () {
 	var setIdCarton = function (p) {
 		localStorage.setItem('IdCarton', p);
 	};
-	
+
 	return {
 		isConnecte: isConnecte,
 		setConnecte: setConnecte,
