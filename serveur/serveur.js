@@ -37,7 +37,7 @@ let db = new sqlite3.Database('./BddDana.db', sqlite3.OPEN_READWRITE, (err) => {
 	console.log('Connecté à la BDD SQLite');
 });
 
-//############################################################################################ CONNEXIONT ############################################################################################
+//############################################################################################ CONNEXION ############################################################################################
 
 //Connexion 
 app.post('/connexion', (req,res) => {
@@ -47,14 +47,14 @@ app.post('/connexion', (req,res) => {
 	const pseudoMdp = Object.values(body);
 	pseudoMdp[1] = functions.hashPwd(pseudoMdp[1]);
 	
-	const sqlString = "SELECT id FROM Compte WHERE pseudo = ? AND mdp = ?";
+	const sqlString = "SELECT Client.id FROM Compte INNER JOIN Client on Compte.id = Client.fk_id_compte WHERE pseudo = ? AND mdp = ?";
 	const values = pseudoMdp;
 	
 	db.all(sqlString, values, (err, rows) => {
 		if (err) {
 			console.error(err.message);
 		}
-		console.log(rows);
+		//console.log(rows);
 		if (rows[0] != null) {
 			res.status(200).json({"connexion":true,"id":rows[0].id});
 		} else {
@@ -268,6 +268,8 @@ app.delete('/camion', (req,res) => {
 	});
 })
 
+
+
 //############################################################################################ CARTON ############################################################################################
 
 //Liste des cartons d'une salle
@@ -294,7 +296,7 @@ app.post('/carton',  (req,res) => {
 	var body = req.body;
 	const cartons = body.map((m) => { return Object.values(m)});
 	
-	let sqlString = "INSERT INTO Carton (photo, qrCode, volume, largeur, hauteur, poids, profondeur, fragile, fk_id_salle) VALUES (?,?,?,?,?,?,?,?,?)";
+	let sqlString = "INSERT INTO Carton (photo, qrCode, volume, largeur, hauteur, poids, profondeur, fragile, descriptionContenu, fk_id_salle) VALUES (?,?,?,?,?,?,?,?,?,?)";
 	let statement = db.prepare(sqlString);
 	//cartons.forEach( carton => console.log("UN CARTON : " + JSON.stringify(carton)));
 	
@@ -313,7 +315,7 @@ app.put('/carton',  (req,res) => {
 	var body = req.body;
 	const carton = Object.values(body);
 	
-	let sqlString = "UPDATE Carton SET photo=?, qrCode=?, volume=?, largeur=?, hauteur=?, poids=?, profondeur=?, fragile=?, fk_id_salle=? WHERE id = ?";
+	let sqlString = "UPDATE Carton SET photo=?, qrCode=?, volume=?, largeur=?, hauteur=?, poids=?, profondeur=?, fragile=?, descriptionContenu=?, fk_id_salle=? WHERE id = ?";
 	const values = carton;
 	
 	db.all(sqlString, values, (err, rows) => {
@@ -332,80 +334,6 @@ app.delete('/carton', (req,res) => {
 	var id = req.body.id;
 	
 	let sqlString = "DELETE FROM Carton WHERE id = ?";
-	const values = [id];
-	db.all(sqlString, values, (err, rows) => {
-		if (err) {
-			console.error(err.message);
-		}
-		//console.log(rows);
-		res.status(200).json({});
-	});
-})
-
-//############################################################################################ CONTENU CARTON ############################################################################################
-
-//Liste des contenu cartons d'un carton
-app.get('/contenuCarton/:idCarton', (req,res) => {
-	console.log("get sur /contenuCarton/:idCarton");
-	
-	var idCarton = parseInt(req.params.idCarton);
-	
-	const sqlString = "SELECT ContenuCarton.id,description,fk_id_carton FROM ContenuCarton INNER JOIN Carton ON ContenuCarton.fk_id_carton = Carton.id WHERE Carton.id = ?";
-	const values = [idCarton];
-	db.all(sqlString, values, (err, rows) => {
-		if (err) {
-			console.error(err.message);
-		}
-		//console.log(rows);
-		res.status(200).json(rows);
-	});
-})
-
-//insertion d'une liste de contenuCartons
-app.post('/contenuCarton',  (req,res) => {
-	console.log("post sur /contenuCarton");
-	
-	var body = req.body;
-	const contenuCartons = body.map((m) => { return Object.values(m)});
-	
-	let sqlString = "INSERT INTO ContenuCarton (description, fk_id_carton) VALUES (?,?)";
-	let statement = db.prepare(sqlString);
-	//cartons.forEach( carton => console.log("UN CARTON : " + JSON.stringify(carton)));
-	
-	contenuCartons.forEach( contenuCarton => statement.run(contenuCarton, function(err, row) {
-		if (err) {
-			console.error(err.message);
-		}
-	}))
-	res.status(200).json({});
-})
-
-//Modification d'un contenuCarton
-app.put('/contenuCarton',  (req,res) => {
-	console.log("put sur /contenuCarton");
-	
-	var body = req.body;
-	const contenuCarton = Object.values(body);
-	
-	let sqlString = "UPDATE ContenuCarton SET description=?, fk_id_carton=? WHERE id = ?";
-	const values = contenuCarton;
-	
-	db.all(sqlString, values, (err, rows) => {
-		if (err) {
-			console.error(err.message);
-		}
-		//console.log(rows);
-		res.status(200).json({});
-	});
-})
-
-//Suppresion d'un contenuCarton
-app.delete('/contenuCarton', (req,res) => {
-	console.log("delete sur /contenuCarton");
-	
-	var id = req.body.id;
-	
-	let sqlString = "DELETE FROM ContenuCarton WHERE id = ?";
 	const values = [id];
 	db.all(sqlString, values, (err, rows) => {
 		if (err) {
@@ -494,16 +422,14 @@ app.delete('/salle', (req,res) => {
 
 //############################################################################################ LOGEMENT ############################################################################################
 
-//Liste des Logement ?
-app.get('/logement', (req,res) => {
-	console.log("get sur /Logement TODO");
-	res.status(500).json({});
+//Logement de depart d'un demenagement
+app.get('/logementDepart/:idDemenagement', (req,res) => {
+	console.log("get sur /LogementDepart/:idDemenagement");
+	var idDemenagement = parseInt(req.params.idDemenagement);
 	
-	/*
-	var idLogement = parseInt(req.params.idLogement);
 	
-	const sqlString = "SELECT Salle.id,nom,couleur,superficie,fk_id_logement FROM Salle INNER JOIN Logement ON Salle.fk_id_logement = Logement.id WHERE Logement.id = ?";
-	const values = [idLogement];
+	const sqlString = "SELECT Logement.id,adresse,typeLogement,etage,Logement.description FROM Logement INNER JOIN Demenagement ON Logement.id = Demenagement.fk_id_logementDepart WHERE Demenagement.id = ?";
+	const values = [idDemenagement];
 	db.all(sqlString, values, (err, rows) => {
 		if (err) {
 			console.error(err.message);
@@ -511,7 +437,23 @@ app.get('/logement', (req,res) => {
 		//console.log(rows);
 		res.status(200).json(rows);
 	});
-	*/
+})
+
+//Logement d'arrive'd'un demenagement
+app.get('/logementArrive/:idDemenagement', (req,res) => {
+	console.log("get sur /LogementArrive/:idDemenagement");
+	var idDemenagement = parseInt(req.params.idDemenagement);
+	
+	
+	const sqlString = "SELECT Logement.id,adresse,typeLogement,etage,Logement.description FROM Logement INNER JOIN Demenagement ON Logement.id = Demenagement.fk_id_logementArrive WHERE Demenagement.id = ?";
+	const values = [idDemenagement];
+	db.all(sqlString, values, (err, rows) => {
+		if (err) {
+			console.error(err.message);
+		}
+		//console.log(rows);
+		res.status(200).json(rows);
+	});
 })
 
 //insertion d'une liste de logement
@@ -569,12 +511,91 @@ app.delete('/logement', (req,res) => {
 	});
 })
 
+
+//############################################################################################ DEMENAGEMENT ############################################################################################
+
+//Liste des demenagement d'un client
+app.get('/demenagement/:idClient', (req,res) => {
+	console.log("get sur /demenagement/:idClient");
+	
+	var idClient = parseInt(req.params.idClient);
+	
+	const sqlString = "SELECT Demenagement.id,dateDebut,dateFin,numeroSuivi,mdpSuivi,fk_id_logementDepart,fk_id_logementArrive,fk_id_client,description FROM Demenagement INNER JOIN Client ON Demenagement.fk_id_client = Client.id WHERE Client.id = ?";
+	const values = [idClient];
+	db.all(sqlString, values, (err, rows) => {
+		if (err) {
+			console.error(err.message);
+		}
+		//console.log(rows);
+		res.status(200).json(rows);
+	});
+})
+
+
+//insertion d'une liste de demenagement
+app.post('/demenagement',  (req,res) => {
+	console.log("post sur /demenagement");
+	
+	var body = req.body;
+	const demenagements = body.map((m) => { return Object.values(m)});
+	
+	let sqlString = "INSERT INTO Demenagement (dateDebut,dateFin,numeroSuivi,mdpSuivi,description,fk_id_logementDepart,fk_id_logementArrive,fk_id_client) VALUES (?,?,?,?,?,?,?,?)";
+	let statement = db.prepare(sqlString);
+	//cartons.forEach( carton => console.log("UN CARTON : " + JSON.stringify(carton)));
+	
+	demenagements.forEach( demenagement => statement.run(demenagement, function(err, row) {
+		if (err) {
+			console.error(err.message);
+		}
+	}))
+	res.status(200).json({});
+})
+
+//Modification d'un demenagement
+app.put('/demenagement',  (req,res) => {
+	console.log("put sur /demenagement");
+	
+	var body = req.body;
+	const demenagement = Object.values(body);
+	
+	let sqlString = "UPDATE Demenagement SET dateDebut=?,dateFin=?,numeroSuivi=?,mdpSuivi=?,description=?,fk_id_logementDepart=?,fk_id_logementArrive=? WHERE id = ?";
+	const values = demenagement;
+	
+	db.all(sqlString, values, (err, rows) => {
+		if (err) {
+			console.error(err.message);
+		}
+		//console.log(rows);
+		res.status(200).json({});
+	});
+})
+
+//Suppresion d'un demenagemment
+app.delete('/demenagement', (req,res) => {
+	console.log("delete sur /demenagement");
+	
+	var id = req.body.id;
+	
+	let sqlString = "DELETE FROM Demenagement WHERE id = ?";
+	const values = [id];
+	db.all(sqlString, values, (err, rows) => {
+		if (err) {
+			console.error(err.message);
+		}
+		//console.log(rows);
+		res.status(200).json({});
+	});
+})
+
+
 //############################################################################################ LISTEN ############################################################################################
 app.listen(PORT_ECOUTE_SERVEUR, () => {
 	console.log('Serveur à l\'écoute sur le port ', PORT_ECOUTE_SERVEUR)
 })
 
-//############################################################################################ AUTRES ############################################################################################
+//############################################################################################################################################################################################################
+//############################################################################################ AUTRES / INUTILISE ############################################################################################
+//############################################################################################################################################################################################################
 
 /* // Code de fermeture de la connexion à la BDD SQLite
 db.close((err) => {
@@ -583,4 +604,81 @@ db.close((err) => {
 	}
 	console.log('Close the database connection.');
 });
+*/
+
+
+//############################################################################################ CONTENU CARTON ############################################################################################
+
+/*
+//Liste des contenu cartons d'un carton
+app.get('/contenuCarton/:idCarton', (req,res) => {
+	console.log("get sur /contenuCarton/:idCarton");
+	
+	var idCarton = parseInt(req.params.idCarton);
+	
+	const sqlString = "SELECT ContenuCarton.id,description,fk_id_carton FROM ContenuCarton INNER JOIN Carton ON ContenuCarton.fk_id_carton = Carton.id WHERE Carton.id = ?";
+	const values = [idCarton];
+	db.all(sqlString, values, (err, rows) => {
+		if (err) {
+			console.error(err.message);
+		}
+		//console.log(rows);
+		res.status(200).json(rows);
+	});
+})
+
+//insertion d'une liste de contenuCartons
+app.post('/contenuCarton',  (req,res) => {
+	console.log("post sur /contenuCarton");
+	
+	var body = req.body;
+	const contenuCartons = body.map((m) => { return Object.values(m)});
+	
+	let sqlString = "INSERT INTO ContenuCarton (description, fk_id_carton) VALUES (?,?)";
+	let statement = db.prepare(sqlString);
+	//cartons.forEach( carton => console.log("UN CARTON : " + JSON.stringify(carton)));
+	
+	contenuCartons.forEach( contenuCarton => statement.run(contenuCarton, function(err, row) {
+		if (err) {
+			console.error(err.message);
+		}
+	}))
+	res.status(200).json({});
+})
+
+//Modification d'un contenuCarton
+app.put('/contenuCarton',  (req,res) => {
+	console.log("put sur /contenuCarton");
+	
+	var body = req.body;
+	const contenuCarton = Object.values(body);
+	
+	let sqlString = "UPDATE ContenuCarton SET description=?, fk_id_carton=? WHERE id = ?";
+	const values = contenuCarton;
+	
+	db.all(sqlString, values, (err, rows) => {
+		if (err) {
+			console.error(err.message);
+		}
+		//console.log(rows);
+		res.status(200).json({});
+	});
+})
+
+//Suppresion d'un contenuCarton
+app.delete('/contenuCarton', (req,res) => {
+	console.log("delete sur /contenuCarton");
+	
+	var id = req.body.id;
+	
+	let sqlString = "DELETE FROM ContenuCarton WHERE id = ?";
+	const values = [id];
+	db.all(sqlString, values, (err, rows) => {
+		if (err) {
+			console.error(err.message);
+		}
+		//console.log(rows);
+		res.status(200).json({});
+	});
+})
 */

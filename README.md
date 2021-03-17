@@ -25,6 +25,11 @@ Démarrage du serveur depuis le dossier \dana\serveur :
 -> `node serveur.js`
 
 ## Utilisation de Git
+
+Lorsque vous souhaitez push ou pull des modifications, vous devez d'abord commit les fichiers modifiés via git add et git commit.
+Si votre push/pull ne passe pas, regardez bien la console, git vous dira si vous avez oublier de pull ou de push des modifications récentes.
+Vous ne pouvez pas push/pull si git bloque votre commande.
+
 -> `git add --all`
 -> `git commit -m "..."`
 -> `git pull [nom source local] [nom dépôt distant]`

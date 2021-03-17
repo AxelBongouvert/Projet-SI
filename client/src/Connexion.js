@@ -31,6 +31,7 @@ class Connexion extends React.Component {
 		}).then(function (result) {
 			if (result.connexion === true) {
 				Session.setConnecte(true);
+				Session.setID(result.id);
 				Session.setPseudo(json.pseudo);
 				history.push('accueil');
 			} else {

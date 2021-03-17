@@ -17,7 +17,7 @@ var Session = (function () {
   };
 
   var getIdSalle = function () {
-    return localStorage.getItem('idSalle');;
+    return localStorage.getItem('IdSalle');;
   };
 
   var setIdSalle = function (p) {

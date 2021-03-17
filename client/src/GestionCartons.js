@@ -14,16 +14,13 @@ class GestionCartons extends React.Component {
 
    handleSalleClicked(id){
        const { history } = this.props;
-       Session.setIdSalle(id)
-       alert(id)
-        var json = Session.getIdSalle()
-        alert(json)
+       Session.setIdSalle(id);
         history.push('MaSalle');
     }
 
     componentDidMount() {
         //const json = { idUser: Session.getId() };
-        var url = 'http://localhost:5000/salle/1'
+        var url = 'http://localhost:5000/salle/2'
         fetch(url)
             .then((res) => res.json())
             .then((result) => {
