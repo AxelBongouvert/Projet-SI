@@ -23,7 +23,7 @@ var Session = (function () {
 	var setPseudo = function (s) {
 		localStorage.setItem('pseudo', s);
 	};
-
+	
 	var getIdDemenagement = function () {
 		return localStorage.getItem('idDemenagement');;
 	};
@@ -31,7 +31,7 @@ var Session = (function () {
 	var setIdDemenagement = function (s) {
 		localStorage.setItem('idDemenagement', s);
 	};
-
+	
 	var getIdLogementDepart = function () {
 		return localStorage.getItem('idLogementDepart');;
 	};
@@ -39,13 +39,29 @@ var Session = (function () {
 	var setIdLogementDepart = function (s) {
 		localStorage.setItem('idLogementDepart', s);
 	};
-
+	
 	var getIdLogementArrivee = function () {
 		return localStorage.getItem('idLogementArrivee');;
 	};
 	
 	var setIdLogementArrivee = function (s) {
 		localStorage.setItem('idLogementArrivee', s);
+	};
+	
+	var getIdSalle = function () {
+		return localStorage.getItem('IdSalle');;
+	};
+	
+	var setIdSalle = function (p) {
+		localStorage.setItem('IdSalle', p);
+	};
+	
+	var getIdCarton = function () {
+		return localStorage.getItem('IdCarton');;
+	};
+	
+	var setIdCarton = function (p) {
+		localStorage.setItem('IdCarton', p);
 	};
 	
 	return {
@@ -61,6 +77,10 @@ var Session = (function () {
 		setIdLogementDepart: setIdLogementDepart,
 		getIdLogementArrivee: getIdLogementArrivee,
 		setIdLogementArrivee: setIdLogementArrivee,
+		getIdSalle: getIdSalle,
+		setIdSalle: setIdSalle,
+		getIdCarton: getIdCarton,
+		setIdCarton: setIdCarton
 	}
 	
 })();
