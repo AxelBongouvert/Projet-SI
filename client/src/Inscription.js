@@ -4,7 +4,20 @@ class Inscription extends React.Component {
 	
 	constructor(props) {
 		super(props);
-		this.state = { nom: '', prenom: '', pseudo: '', email: '', mdp: '' };
+		this.state = {
+			nom: '',
+			prenom: '',
+			pseudo: '',
+			email: '',
+			mdp: '',
+			dateFin: '',
+			dateDebut: '',
+			adresse1: '',
+			adresse2: '',
+			fk_id_logementDepart: '',
+			fk_id_logementArrive: '',
+			fk_id_client: ''
+		};
 		this.handleInputChange = this.handleInputChange.bind(this);
 	}
 
@@ -15,7 +28,14 @@ class Inscription extends React.Component {
 	}
 	
 	handleSubmit = (event) => {
-		const json = [{ nom: this.state.nom, prenom: this.state.prenom, type: 'client', email: this.state.email, pseudo: this.state.pseudo, mdp: this.state.mdp}];
+		const json1 = [{
+			nom: this.state.nom,
+			prenom: this.state.prenom,
+			type: 'client',
+			email: this.state.email,
+			pseudo: this.state.pseudo,
+			mdp: this.state.mdp
+		}];
        	fetch('http://localhost:5000/client', {
             method: 'POST',
             headers: {
@@ -23,8 +43,55 @@ class Inscription extends React.Component {
                 'Access-Control-Allow-Origin': '*',
                 'Access-Control-Allow-Methods': 'GET, PUT, POST, DELETE, PATCH, OPTIONS'
 			},
-			body: JSON.stringify(json)
-        })
+			body: JSON.stringify(json1)
+		}).then(function (result) {
+			return result.json();
+		}).then(function (result) {
+			// récupération id client
+		});
+		const json2 = [{
+			adresse: this.state.adresse1,
+			typeLogement: 0,
+			etage: 0,
+			description: 'Logement actuel'
+		},
+		{
+			adresse: this.state.adresse2,
+			typeLogement: 0,
+			etage: 0,
+			description: 'Nouveau logement'
+		}];
+		fetch('http://localhost:5000/logement', {
+			method: 'POST',
+			headers: {
+				'Content-Type': 'application/json',
+				'Access-Control-Allow-Origin': '*',
+				'Access-Control-Allow-Methods': 'GET, PUT, POST, DELETE, PATCH, OPTIONS'
+			},
+			body: JSON.stringify(json2)
+		}).then(function (result) {
+			return result.json();
+		}).then(function (result) {
+			// récupération ids logements
+		});
+		const json3 = [{
+			dateDebut: this.state.dateDebut,
+			dateFin: this.state.dateFin,
+			mdpSuivi: 1234,
+			description: "Mon déménagement",
+			fk_id_logementDepart: this.state.fk_id_logementDepart,
+			fk_id_logementArrive: this.state.fk_id_logementArrive,
+			fk_id_client: this.state.fk_id_client
+		}];
+		fetch('http://localhost:5000/demenagement', {
+			method: 'POST',
+			headers: {
+				'Content-Type': 'application/json',
+				'Access-Control-Allow-Origin': '*',
+				'Access-Control-Allow-Methods': 'GET, PUT, POST, DELETE, PATCH, OPTIONS'
+			},
+			body: JSON.stringify(json3)
+		});
 		const { history } = this.props;
 		history.push('/Connexion');
 		event.preventDefault();
@@ -40,10 +107,10 @@ class Inscription extends React.Component {
 								<div class="row">
 									<div class="col-lg-12">
 										<div class="p-5">
-											<div class="text-center">
-												<h1 class="h4 text-gray-900 mb-4">Espace d'inscription</h1>
-											</div>
 											<form class="user" onSubmit={this.handleSubmit}>
+												<div class="text-center">
+													<h1 class="h5 text-gray-900 mb-4">Informations du compte</h1>
+												</div>
 												<div class="form-group">
 													<input type="text" class="form-control form-control-user" id="nom" name="nom" placeholder="Nom" onChange={this.handleInputChange}></input>
 												</div>
@@ -51,17 +118,36 @@ class Inscription extends React.Component {
 													<input type="text" class="form-control form-control-user" id="prenom" name="prenom" placeholder="Prénom" onChange={this.handleInputChange}></input>
 												</div>
 												<div class="form-group">
-													<input type="text" class="form-control form-control-user" id="pseudo" name="pseudo" placeholder="Nom de compte" onChange={this.handleInputChange}></input>
+													<input type="email" class="form-control form-control-user" id="email" name="email" placeholder="Adresse email" onChange={this.handleInputChange}></input>
 												</div>
 												<div class="form-group">
-													<input type="email" class="form-control form-control-user" id="email" name="email" placeholder="Adresse email" onChange={this.handleInputChange}></input>
+													<input type="text" class="form-control form-control-user" id="pseudo" name="pseudo" placeholder="Nom de compte" onChange={this.handleInputChange}></input>
 												</div>
 												<div class="form-group">
 													<input type="password" class="form-control form-control-user" id="mdp" name="mdp" placeholder="Mot de passe" onChange={this.handleInputChange}></input>
 												</div>
+												<hr />
+												<div class="text-center">
+													<h1 class="h5 text-gray-900 mb-4">Déménagement</h1>
+												</div>
+												<p class="text-center">Date de début</p>
+												<div class="form-group">
+													<input type="date" class="form-control form-control-user" id="dateDebut" name="dateDebut" placeholder="Date de début" onChange={this.handleInputChange}></input>
+												</div>
+												<p class="text-center">Date de fin</p>
+												<div class="form-group">
+													<input type="date" class="form-control form-control-user" id="dateFin" name="dateFin" placeholder="Date de fin" onChange={this.handleInputChange}></input>
+												</div>
+												<div class="form-group">
+													<input type="text" class="form-control form-control-user" id="adresse1" name="adresse1" placeholder="Adresse logemenent actuel" onChange={this.handleInputChange}></input>
+												</div>
+												<div class="form-group">
+													<input type="text" class="form-control form-control-user" id="adresse2" name="adresse2" placeholder="Adresse nouveau logement" onChange={this.handleInputChange}></input>
+												</div>
+												<hr />
 												<button class="btn btn-info btn-user btn-block" id="submit" type="submit">Inscription</button>
+												<hr/>
 											</form>
-											<hr/>
 											<div class="text-center">
 												<a class="small text-info" href="Connexion">Déjà un compte ?</a>
 											</div>

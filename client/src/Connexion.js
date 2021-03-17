@@ -67,6 +67,7 @@ class Connexion extends React.Component {
 														<label class="custom-control-label" for="souvenir">Se souvenir de moi</label>
 													</div>
 												</div>
+												<hr/>
 												<button class="btn btn-info btn-user btn-block" id="submit" type="submit">Connexion</button>
 												<hr />
 												<a href="Connexion" class="btn btn-danger btn-user btn-block">

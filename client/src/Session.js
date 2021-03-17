@@ -23,6 +23,30 @@ var Session = (function () {
 	var setPseudo = function (s) {
 		localStorage.setItem('pseudo', s);
 	};
+
+	var getIdDemenagement = function () {
+		return localStorage.getItem('idDemenagement');;
+	};
+	
+	var setIdDemenagement = function (s) {
+		localStorage.setItem('idDemenagement', s);
+	};
+
+	var getIdLogementDepart = function () {
+		return localStorage.getItem('idLogementDepart');;
+	};
+	
+	var setIdLogementDepart = function (s) {
+		localStorage.setItem('idLogementDepart', s);
+	};
+
+	var getIdLogementArrivee = function () {
+		return localStorage.getItem('idLogementArrivee');;
+	};
+	
+	var setIdLogementArrivee = function (s) {
+		localStorage.setItem('idLogementArrivee', s);
+	};
 	
 	return {
 		isConnecte: isConnecte,
@@ -30,7 +54,13 @@ var Session = (function () {
 		getId: getId,
 		setId: setId,
 		getPseudo: getPseudo,
-		setPseudo: setPseudo
+		setPseudo: setPseudo,
+		getIdDemenagement: getIdDemenagement,
+		setIdDemenagement: setIdDemenagement,
+		getIdLogementDepart: getIdLogementDepart,
+		setIdLogementDepart: setIdLogementDepart,
+		getIdLogementArrivee: getIdLogementArrivee,
+		setIdLogementArrivee: setIdLogementArrivee,
 	}
 	
 })();

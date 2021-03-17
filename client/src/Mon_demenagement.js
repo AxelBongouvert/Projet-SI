@@ -7,7 +7,7 @@ class Mon_demenagement extends React.Component {
 	
 	constructor(props) {
 		super(props);
-		this.state = {infos: [], adresse: '', typeLogement: '', etage: '', description:'' };
+		this.state = {infos: [], dateDebut: '', dateFin: '', description:'' };
 		this.handleInputChange = this.handleInputChange.bind(this);
 	}
 
@@ -50,9 +50,6 @@ class Mon_demenagement extends React.Component {
 													</div>
 													<div class="form-group">
 														<input type="text" class="form-control form-control-user" id="description" name="description" placeholder="Description" defaultValue={data.description || ''} onChange={this.handleInputChange}></input>
-													</div>
-													<div class="form-group">
-														<input type="password" class="form-control form-control-user" id="mdpSuivi" name="mdpSuivi" placeholder="Mot de passe de suivi" defaultValue={data.mdpSuivi || ''} onChange={this.handleInputChange}></input>
 													</div>
 													<button class="btn btn-info btn-user btn-block" id="submit" type="submit">Modifier</button>
 												</form>
