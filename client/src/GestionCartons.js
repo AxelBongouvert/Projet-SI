@@ -12,9 +12,9 @@ class GestionCartons extends React.Component {
         }
     }
 
-   handleSalleClicked(id){
-       const { history } = this.props;
-       Session.setIdSalle(id);
+    handleSalleClicked(id) {
+        const { history } = this.props;
+        Session.setIdSalle(id);
         history.push('MaSalle');
     }
 
@@ -58,20 +58,19 @@ class GestionCartons extends React.Component {
                         <div class="row">
                             {this.state.salle.map(result => {
                                 return (
-                                    <div class="col-lg-0 mb-2" onClick={e =>this.handleSalleClicked(result.id)}>
-                                            <div class="card bg-primary text-white shadow">
-                                                <div class="card-body">
-                                                    <i class="fas fa-box fa-fw"></i>
-                                                    <div class="text-white-50 small">{result.nom}</div>
-                                                </div>
+                                    <div class="col-lg-0 mb-2" onClick={e => this.handleSalleClicked(result.id)}>
+                                        <div class="card bg-primary text-white shadow">
+                                            <div class="card-body">
+                                                <i class="fas fa-box fa-fw"></i>
+                                                <div class="text-white-50 small">{result.nom}</div>
                                             </div>
+                                        </div>
                                     </div>
                                 )
                             })}
                         </div>
                     </div>
                 </div>
-
                 <Footer></Footer>
             </div>
         );
