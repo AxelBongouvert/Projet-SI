@@ -11,9 +11,13 @@ import Connexion from './Connexion.js';
 import Inscription from './Inscription.js';
 import Deconnexion from './Deconnexion.js';
 import Accueil from './Accueil.js';
-import Demenagement from './Demenagement.js';
+import TableauDeBord from './TableauDeBord.js';
 import GestionCartons from './GestionCartons.js';
 import CreationCarton from './CreationCarton.js';
+import Demenagement from './Demenagement.js';
+import Mon_demenagement from './Mon_demenagement.js';
+import Depart from './Depart.js';
+import Arrivee from './Arrivee.js';
 import Taches from './Taches.js';
 import Transport from './Transport.js';
 import Contrats from './Contrats.js';
@@ -41,9 +45,13 @@ class App extends React.Component {
 					<Route path="/Inscription" component={Inscription} />
 					<Route path="/Deconnexion" component={Deconnexion} />
 					<Route path="/Accueil" component={Accueil} />
-					<Route path="/Demenagement" component={Demenagement} />
+					<Route path="/TableauDeBord" component={TableauDeBord} />
 					<Route path="/GestionCartons" component={GestionCartons} />
 					<Route path="/CreationCarton" component={CreationCarton} />
+					<Route path="/Demenagement" component={Demenagement} />
+					<Route path="/Mon_demenagement" component={Mon_demenagement} />
+					<Route path="/Depart" component={Depart} />
+					<Route path="/Arrivee" component={Arrivee} />
 					<Route path="/Taches" component={Taches} />
 					<Route path="/Contrats" component={Contrats} />
 					<Route path="/Affaires" component={Affaires} />
