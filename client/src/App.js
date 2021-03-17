@@ -14,6 +14,8 @@ import Accueil from './Accueil.js';
 import TableauDeBord from './TableauDeBord.js';
 import GestionCartons from './GestionCartons.js';
 import CreationCarton from './CreationCarton.js';
+import MaSalle from './MaSalle.js';
+import MonCarton from './MonCarton.js';
 import Demenagement from './Demenagement.js';
 import Mon_demenagement from './Mon_demenagement.js';
 import Depart from './Depart.js';
@@ -49,6 +51,8 @@ class App extends React.Component {
 					<Route path="/TableauDeBord" component={TableauDeBord} />
 					<Route path="/GestionCartons" component={GestionCartons} />
 					<Route path="/CreationCarton" component={CreationCarton} />
+					<Route path="/MaSalle" component={MaSalle} />
+					<Route path="/MonCarton" component={MonCarton} />
 					<Route path="/Demenagement" component={Demenagement} />
 					<Route path="/Mon_demenagement" component={Mon_demenagement} />
 					<Route path="/Depart" component={Depart} />

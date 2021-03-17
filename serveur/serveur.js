@@ -270,13 +270,13 @@ app.get('/cartonParSalle/:idSalle', (req,res) => {
 	
 	var idSalle = parseInt(req.params.idSalle);
 	
-	const sqlString = "SELECT Carton.id,photo,qrCode,volume,largeur,hauteur,poids,profondeur,fragile,descriptionContenu FROM Carton INNER JOIN Salle ON Carton.fk_id_salle = Salle.id WHERE Salle.id = ?";
+	const sqlString = "SELECT Carton.id,photo,qrCode,volume,largeur,hauteur,poids,profondeur,fragile FROM Carton INNER JOIN Salle ON Carton.fk_id_salle = Salle.id WHERE Salle.id = ?";
 	const values = [idSalle];
 	db.all(sqlString, values, (err, rows) => {
 		if (err) {
 			console.error(err.message);
 		}
-		//console.log(rows);
+		console.log(idSalle);
 		res.status(200).json(rows);
 	});
 })
