@@ -1,6 +1,11 @@
+
 import React from 'react';
-import Retour from './Retour';
-import Footer from './Footer';
+import Calculator from './Calculator';
+import Counters from "./components/counters";
+import NavBar from "./components/navBar";
+import Counter from "./components/counter";
+import axios from 'axios'
+import Footer from "./Footer";
 
 class CheckCamions extends React.Component {
 
@@ -55,6 +60,7 @@ class CheckCamions extends React.Component {
 		if(this.state.traitementFini == true){
 			let i = localStorage.getItem("idCamion")
 			if(i == -1 ){return <div>un paquebot mgl ! </div>}	
+			if(localStorage.getItem("volume") == 0){ return <div> ta voiture suffira. </div> }
 			if(!Object.keys(this.state.camions[i]))	return null;
 
 			// creer un objet a render avec les propriété du camtar
@@ -81,13 +87,12 @@ class CheckCamions extends React.Component {
 	render() {
 		return (
 			<div>			
-				<Retour name="Conseil camion"></Retour>
+				
 				<h2> DANA te conseille ... 	</h2>
-				{(this.afficherCamion())}
+				{(this.afficherCamion())}				
 				<Footer></Footer>
 			</div >
 		);
 	}
 }
-
 export default CheckCamions;
