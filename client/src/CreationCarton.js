@@ -177,7 +177,7 @@ class CreationCarton extends React.Component {
                                                     </label>
 
                                                     <div class="text-center">
-                                                        <button class="btn btn-info btn-user btn-block" id="submit" type="submit">modifier</button>
+                                                        <button class="btn btn-info btn-user btn-block" id="submit" type="submit">Ajouter</button>
                                                     </div>
 
                                                 </form>
