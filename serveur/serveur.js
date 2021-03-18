@@ -286,14 +286,14 @@ app.get('/carton/:idCarton', (req,res) => {
 	console.log("get sur /carton/:idCarton");
 	
 	var idCarton = parseInt(req.params.idCarton);
-	
-	const sqlString = "SELECT id,photo,qrCode,volume,largeur,hauteur,poids,profondeur,fragile,descriptionContenu FROM Carton WHERE id = ?";
+	console.log("carton : "+idCarton);
+	const sqlString = "SELECT id,photo,qrCode,volume,largeur,hauteur,poids,profondeur,fragile,descriptionContenu,fk_id_salle FROM Carton WHERE id = ?";
 	const values = [idCarton];
 	db.all(sqlString, values, (err, rows) => {
 		if (err) {
 			console.error(err.message);
 		}
-		//console.log(rows);
+		console.log(rows);
 		res.status(200).json(rows);
 	});
 })
