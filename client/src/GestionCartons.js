@@ -19,8 +19,7 @@ class GestionCartons extends React.Component {
     }
 
     componentDidMount() {
-        //const json = { idUser: Session.getId() };
-        var url = 'http://localhost:5000/salle/2'
+        var url = 'http://localhost:5000/salle/'+ Session.getIdLogementDepart()
         fetch(url)
             .then((res) => res.json())
             .then((result) => {
@@ -37,7 +36,7 @@ class GestionCartons extends React.Component {
     render() {
         return (
             <div>
-                <Retour name="Gestion cartons"></Retour>
+                <Retour name="Gestion des cartons"></Retour>
                 <div class="card shadow mb-2">
                     <div class="card-header py-2">
                         <h6 class="m-1 font-weight-bold text-primary">Mes cartons</h6>
@@ -46,7 +45,7 @@ class GestionCartons extends React.Component {
                         <div class="row">
                             <div class="col-lg-0 mb-2">
                                 <a href="/CreationCarton">
-                                    <div class="card bg-primary text-white shadow">
+                                    <div class="card bg-danger text-white shadow">
                                         <div class="card-body">
                                             <i class="fas fa-box-open fa-fw"></i><i class="fas fa-plus fa-fw"></i>
                                             <div class="text-white-50 small">Ajouter un carton</div>
@@ -59,7 +58,7 @@ class GestionCartons extends React.Component {
                             {this.state.salle.map(result => {
                                 return (
                                     <div class="col-lg-0 mb-2" onClick={e => this.handleSalleClicked(result.id)}>
-                                        <div class="card bg-primary text-white shadow">
+                                        <div class="card bg-danger text-white shadow">
                                             <div class="card-body">
                                                 <i class="fas fa-box fa-fw"></i>
                                                 <div class="text-white-50 small">{result.nom}</div>
