@@ -1,6 +1,6 @@
 import React from 'react';
-import Footer from './Footer.js';
 import Retour from './Retour.js';
+import Footer from './Footer.js';
 
 class Demenagement extends React.Component {
 	
@@ -11,74 +11,55 @@ class Demenagement extends React.Component {
 	render() {
 		return (
 			<div>
-				<Retour name="Déménagement"></Retour>
-				<div class="col-xl-12 col-lg-12 mb-4">
-					<form class="d-sm-inline form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
-						<div class="input-group">
-							<input type="text" class="form-control bg-light border-0 small" placeholder="Rechercher" aria-label="Rechercher"></input>
-							<div class="input-group-append">
-								<button class="btn btn-danger" type="button">
-									<i class="fas fa-search fa-sm"></i>
-								</button>
+                <Retour name="Tâches administratives"></Retour>
+                <div class="col-xl-12 col-md-12 mb-4">
+						<a href="/Mon_demenagement">
+							<div class="card border-left-danger shadow h-100 py-2">
+								<div class="card-body">
+									<div class="row no-gutters align-items-center">
+										<div class="col mr-2">
+											<div class="h5 mb-0 font-weight-bold text-gray-800">Mon déménagement</div>
+										</div>
+										<div class="col-auto">
+											<i class="fas fa-boxes fa-2x text-info"></i>
+										</div>
+									</div>
+								</div>
 							</div>
-						</div>
-					</form>
-				</div>
-				<div class="col-lg-12 mb-4">
-					<a href="Taches">
-						<div class="card bg-danger text-white shadow">
-							<div class="card-body d-flex flex-column justify-content-center text-center">
-								<img class="img mx-auto w-25" src="img/man.png" />
-								<h4 class="font-weight-bold pt-3 pb-3">Tâches<br />administratives</h4>
-								<h5 class="text-white-50">On vous accompagne pour vous facilier la vie avec la paperasse.</h5>
+						</a>
+					</div>
+					<div class="col-xl-12 col-md-12 mb-4">
+						<a href="/Depart">
+							<div class="card border-left-danger shadow h-100 py-2">
+								<div class="card-body">
+									<div class="row no-gutters align-items-center">
+										<div class="col mr-2">
+											<div class="h5 mb-0 font-weight-bold text-gray-800">Logement de départ</div>
+										</div>
+										<div class="col-auto">
+											<i class="fas fa-house-user fa-2x text-info"></i>
+										</div>
+									</div>
+								</div>
 							</div>
-						</div>
-					</a>
-				</div>
-				<div class="col-lg-12 mb-4">
-					<a href="Contrats">
-						<div class="card bg-danger text-white shadow">
-							<div class="card-body d-flex flex-column justify-content-center text-center">
-								<img class="img mx-auto w-25" src="img/woman.png" />
-								<h4 class="font-weight-bold pt-3 pb-3">Gestion<br />des contrats</h4>
-								<h5 class="text-white-50">Laissez-vous guider pour transférer ou souscrire à un contrat.</h5>
+						</a>
+					</div>
+					<div class="col-xl-12 col-md-12 mb-4">
+						<a href="/Arrivee">
+							<div class="card border-left-danger shadow h-100 py-2">
+								<div class="card-body">
+									<div class="row no-gutters align-items-center">
+										<div class="col mr-2">
+											<div class="h5 mb-0 font-weight-bold text-gray-800">Logement d'arrivée</div>
+										</div>
+										<div class="col-auto">
+											<i class="fas fa-home fa-2x text-info"></i>
+										</div>
+									</div>
+								</div>
 							</div>
-						</div>
-					</a>
-				</div>
-				<div class="col-lg-12 mb-4">
-					<a href="Affaires">
-						<div class="card bg-danger text-white shadow">
-							<div class="card-body d-flex flex-column justify-content-center text-center">
-								<img class="img mx-auto w-25" src="img/man.png" />
-								<h4 class="font-weight-bold pt-3 pb-3">Tri de<br />ses affaires</h4>
-								<h5 class="text-white-50">Vous ne savez plus où donner de la tête ? Trier, donner, jeter ?</h5>
-							</div>
-						</div>
-					</a>
-				</div>
-				<div class="col-lg-12 mb-4">
-					<a href="GestionCartons">
-						<div class="card bg-danger text-white shadow">
-							<div class="card-body d-flex flex-column justify-content-center text-center">
-								<img class="img mx-auto w-25" src="img/woman.png" />
-								<h4 class="font-weight-bold pt-3 pb-3">Faire<br />ses cartons</h4>
-								<h5 class="text-white-50">Vous ne savez plus où donner de la tête ?</h5>
-							</div>
-						</div>
-					</a>
-				</div>
-				<div class="col-lg-12 mb-4">
-					<a href="Transport">
-						<div class="card bg-danger text-white shadow">
-							<div class="card-body d-flex flex-column justify-content-center text-center">
-								<img class="img mx-auto w-25" src="img/man.png" />
-								<h4 class="font-weight-bold pt-3 pb-3">Transport</h4>
-								<h5 class="text-white-50">Vous ne savez plus où donner de la tête ?</h5>
-							</div>
-						</div>
-					</a>
-				</div>
+						</a>
+					</div>
 				<Footer></Footer>
 			</div>
 		);

@@ -30,8 +30,22 @@ class Connexion extends React.Component {
 			return result.json();
 		}).then(function (result) {
 			if (result.connexion === true) {
+				fetch('http://localhost:5000/demenagement/' + result.id, {
+					method: 'GET',
+					headers: {
+						'Content-Type': 'application/json',
+						'Access-Control-Allow-Origin': '*',
+						'Access-Control-Allow-Methods': 'GET, PUT, POST, DELETE, PATCH, OPTIONS'
+					}
+				}).then(function (result) {
+					return result.json();
+				}).then(function (result) {
+					Session.setIdDemenagement(result[0].id);
+					Session.setIdLogementDepart(result[0].fk_id_logementDepart);
+					Session.setIdLogementArrivee(result[0].fk_id_logementArrive);
+				})
 				Session.setConnecte(true);
-				Session.setID(result.id);
+				Session.setId(result.id);
 				Session.setPseudo(json.pseudo);
 				history.push('accueil');
 			} else {
@@ -67,6 +81,7 @@ class Connexion extends React.Component {
 														<label class="custom-control-label" for="souvenir">Se souvenir de moi</label>
 													</div>
 												</div>
+												<hr/>
 												<button class="btn btn-info btn-user btn-block" id="submit" type="submit">Connexion</button>
 												<hr />
 												<a href="Connexion" class="btn btn-danger btn-user btn-block">

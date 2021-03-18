@@ -12,7 +12,7 @@ class Accueil extends React.Component {
 				<a href="Accueil" class="d-flex justify-content-center align-items-center bg-info text-white h-50 ">
 					<h1 class="h3 mb-4 text-white">Je veux aider à déménager</h1>
 				</a>
-				<a href="Demenagement" class="d-flex justify-content-center align-items-center bg-danger text-white h-50 ">
+				<a href="TableauDeBord" class="d-flex justify-content-center align-items-center bg-danger text-white h-50 ">
 					<h1 class="h3 mb-4 text-white">Je déménage</h1>
 				</a>
 			</div>
