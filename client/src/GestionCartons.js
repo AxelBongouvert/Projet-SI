@@ -19,7 +19,7 @@ class GestionCartons extends React.Component {
     }
 
     componentDidMount() {
-        var url = 'http://localhost:5000/salle/'+ Session.getIdLogementDepart()
+        var url = 'http://localhost:5000/salle/2';//+ Session.getIdLogementDepart()
         fetch(url)
             .then((res) => res.json())
             .then((result) => {

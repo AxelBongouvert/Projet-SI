@@ -39,7 +39,7 @@ class MaSalle extends React.Component {
                 <Retour name="Gestion des cartons"></Retour>
                 <div class="card shadow mb-2">
                     <div class="card-header py-2">
-                        <h6 class="m-1 font-weight-bold text-primary">Ma salle</h6>
+                        <h6 class="m-1 font-weight-bold text-primary">Ma salle, identifiant : {Session.getIdSalle()}</h6>
                     </div>
                     <div class="card-body">
                         <div class="row">
