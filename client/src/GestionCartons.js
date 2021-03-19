@@ -40,20 +40,17 @@ class GestionCartons extends React.Component {
 				<Retour name="Gestion des salles"></Retour>
 				<div class="col-xl-12 col-md-12 mb-4">
 					<div class="col-lg-0 mb-2">
-							<a href="/CreationSalle">
-								<div class="card bg-info text-white shadow">
-									<div class="card-body">
-										<i class="fas fa-home fa-fw"></i><i class="fas fa-plus fa-fw"></i>
-										<div class="text-white-100 small">Ajouter une salle</div>
-									</div>
+						<a href="/CreationSalle">
+							<div class="card bg-info text-white shadow">
+								<div class="card-body">
+									<i class="fas fa-home fa-fw"></i><i class="fas fa-plus fa-fw"></i>
+									<div class="text-white-100 small">Ajouter une salle</div>
 								</div>
-							</a>
-						</div>
+							</div>
+						</a>
 					</div>
+				</div>
 				<div class="card shadow mb-2">
-					<div class="card-header py-2">
-						<h6 class="m-1 font-weight-bold text-primary">Mes salles</h6>
-					</div>
 					<div class="card-body">
 						<div class="row">
 							{this.state.salle.map(result => {

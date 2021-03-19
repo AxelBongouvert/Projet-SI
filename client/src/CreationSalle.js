@@ -45,7 +45,7 @@ class CreationSalle extends React.Component {
     render() {
         return (
             <div>
-                <Retour name="Création de salle"></Retour>
+                <Retour name="Création d'une salle"></Retour>
                     <div class="container h-100">
                         <div class="row justify-content-center">
                             <div class="col-xl-10 col-lg-12 col-md-9">

@@ -78,15 +78,15 @@ class MonCarton extends React.Component {
                                         <div class="col-lg-12">
                                             <div class="p-5">
                                                 <div class="text-center">
-                                                    <h6 class="m-1 font-weight-bold text-primary">Mon Carton</h6>
+                                                    <h1 class="h4 text-gray-900 mb-4">Mon carton</h1>
                                                 </div>
                                                 <form class="user" onSubmit={this.handleSubmit}>
                                                     <div class="form-group">
-                                                        photo
+                                                        Photo
                                                             <input type="text" class="form-control form-control-user" id="photo" name="photo" placeholder="photo" defaultValue={data.photo || ''} onChange={this.handleInputChange}></input>
                                                     </div>
                                                     <div class="form-group">
-                                                        qrcode
+                                                        Qrcode
                                                             <input type="text" class="form-control form-control-user" id="qrCode" name="qrCode" placeholder="qrCode" defaultValue={data.qrCode || ''} onChange={this.handleInputChange}></input>
                                                     </div>
                                                     <div class="form-group">
@@ -98,19 +98,19 @@ class MonCarton extends React.Component {
                                                             <input type="text" class="form-control form-control-user" id="largeur" name="largeur" placeholder="largeur" defaultValue={data.largeur || ''} onChange={this.handleInputChange}></input>
                                                     </div>
                                                     <div class="form-group">
-                                                        hauteur
+                                                        Hauteur
                                                         <input type="text" class="form-control form-control-user" id="hauteur" name="hauteur" placeholder="hauteur" defaultValue={data.hauteur || ''} onChange={this.handleInputChange}></input>
                                                     </div>
                                                     <div class="form-group">
-                                                        poids
+                                                        Poids
                                                             <input type="text" class="form-control form-control-user" id="poids" name="poids" placeholder="poids" defaultValue={data.poids || ''} onChange={this.handleInputChange}></input>
                                                     </div>
                                                     <div class="form-group">
-                                                        profondeur
+                                                        Profondeur
                                                             <input type="text" class="form-control form-control-user" id="profondeur" name="profondeur" placeholder="profondeur" defaultValue={data.profondeur || ''} onChange={this.handleInputChange}></input>
                                                     </div>
                                                     <div class="form-group">
-                                                        contenu
+                                                        Contenu
                                                         <input type="text" class="form-control form-control-user" id="descriptionContenu" name="descriptionContenu" placeholder="contenu" defaultValue={data.descriptionContenu || ''} onChange={this.handleInputChange}></input>
                                                     </div>
                                                     <div class="form-group">

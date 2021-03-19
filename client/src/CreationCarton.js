@@ -45,8 +45,7 @@ class CreationCarton extends React.Component {
                 console.log(error);
             });
         const { history } = this.props;
-        history.push('MaSalle');
-        window.location.reload();
+        history.push('GestionCartons');
     };
 
     handlePhotoChange(event) {
@@ -88,7 +87,7 @@ class CreationCarton extends React.Component {
     render() {
         return (
             <div>
-                <Retour name="Gestion des cartons"></Retour>
+                <Retour name="Création d'un carton"></Retour>
                 <div class="container h-100">
                     <div class="row justify-content-center">
                         <div class="col-xl-10 col-lg-12 col-md-9">
@@ -98,88 +97,58 @@ class CreationCarton extends React.Component {
                                         <div class="col-lg-12">
                                             <div class="p-5">
                                                 <div class="text-center">
-                                                    <h6 class="m-1 font-weight-bold text-primary">Ajouter un carton</h6>
+                                                    <h1 class="h4 text-gray-900 mb-4">Ajout d'un carton</h1>
                                                 </div>
                                                 <form class="user" onSubmit={this.handleSubmit}>
-                                                    <label>
-                                                        Photo:
+                                                    <label>Photo
                                                         <div class="form-group">
                                                             <input type="text" class="form-control form-control-user" value={this.state.photo} onChange={this.handlePhotoChange.bind(this)} />
                                                         </div>
-
                                                     </label>
-
-                                                    <label>
-                                                        Qrcode:
+                                                    <label>Qrcode
                                                         <div class="form-group">
                                                             <input type="text" class="form-control form-control-user"value={this.state.qrcode} onChange={this.handleQrcodeChange.bind(this)} />
                                                         </div>
-
                                                     </label>
-
-                                                    <label>
-                                                        Volume:
+                                                    <label>Volume
                                                         <div class="form-group">
                                                             <input type="number" class="form-control form-control-user" value={this.state.volume} onChange={this.handleVolumeChange.bind(this)} />
                                                         </div>
-
                                                     </label>
-
-                                                    <label>
-                                                        Largueur:
+                                                    <label>Largueur
                                                         <div class="form-group">
                                                             <input type="number" class="form-control form-control-user"value={this.state.largeur} onChange={this.handleLargueurChange.bind(this)} />
                                                         </div>
-
                                                     </label>
-
-                                                    <label>
-                                                        Hauteur:
+                                                    <label>Hauteur
                                                         <div class="form-group">
                                                             <input type="number" class="form-control form-control-user" value={this.state.hauteur} onChange={this.handleHauteurChange.bind(this)} />
                                                         </div>
-
                                                     </label>
-
-                                                    <label>
-                                                        Poids:
+                                                    <label>Poids
                                                         <div class="form-group">
                                                             <input type="number" class="form-control form-control-user" value={this.state.poids} onChange={this.handlePoidsChange.bind(this)} />
                                                         </div>
-
                                                     </label>
-
-                                                    <label>
-                                                        Profondeur:
+                                                    <label>Profondeur
                                                         <div class="form-group">
                                                             <input type="number" class="form-control form-control-user" value={this.state.profondeur} onChange={this.handleProfondeurChange.bind(this)} />
                                                         </div>
-
                                                     </label>
-
-                                                    <label>
-                                                        Fragile:
+                                                    <label>Fragile (0/1)
                                                         <div class="form-group">
                                                             <input type="number"class="form-control form-control-user"  value={this.state.fragile} onChange={this.handleFragileChange.bind(this)} />
                                                         </div>
-
                                                     </label>
-
-                                                    <label>
-                                                        DescriptionContenu:
+                                                    <label>Contenu
                                                         <div class="form-group">
                                                             <input type="text" class="form-control form-control-user" value={this.state.descriptionContenu} onChange={this.handleDescriptionContenuChange.bind(this)} />
                                                         </div>
-                                                        
                                                     </label>
-
                                                     <div class="text-center">
                                                         <button class="btn btn-info btn-user btn-block" id="submit" type="submit">Ajouter</button>
                                                     </div>
-
                                                 </form>
-
-                                                <br />
                                             </div>
                                         </div>
                                     </div>
