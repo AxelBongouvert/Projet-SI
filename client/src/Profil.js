@@ -12,7 +12,6 @@ class Profil extends React.Component {
 	}
 
 	componentDidMount() {
-		const json = { pseudo: Session.getPseudo() };
 		fetch('http://localhost:5000/client/' + Session.getId(), {
 			method: 'GET',
 			headers: {

@@ -7,12 +7,35 @@ class Arrivee extends React.Component {
 	
 	constructor(props) {
 		super(props);
-		this.state = {infos: [], adresse: '', typeLogement: '', etage: '', description:'' };
+		this.state = {
+			infos: [],
+			adresse: '',
+			typeLogement: '',
+			etage: '',
+			description: '',
+			id: ''
+		};
 		this.handleInputChange = this.handleInputChange.bind(this);
 	}
 
 	componentDidMount() {
-		
+		fetch('http://localhost:5000/logementArrive/' + Session.getIdDemenagement(), {
+			method: 'GET',
+			headers: {
+				'Content-Type': 'application/json',
+				'Access-Control-Allow-Origin': '*',
+				'Access-Control-Allow-Methods': 'GET, PUT, POST, DELETE, PATCH, OPTIONS'
+			}
+		}).then(function (response) {
+			return response.json();
+		}).then(res => {
+			this.setState({ infos: res[0] })
+			this.state.adresse = this.state.infos.adresse;
+			this.state.typeLogement = this.state.infos.typeLogement;
+			this.state.etage = this.state.infos.etage;
+			this.state.description = this.state.infos.description;
+			this.state.id = this.state.infos.id;
+		});
 	}
 	
 	handleInputChange(event) {
@@ -22,7 +45,24 @@ class Arrivee extends React.Component {
 	}
 
 	handleSubmit = (event) => {
-		
+		const json = {
+			adresse: this.state.adresse,
+			typeLogement: this.state.typeLogement,
+			etage: this.state.etage,
+			description: this.state.description,
+			id: this.state.id
+		};
+       	fetch('http://localhost:5000/logement', {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json',
+                'Access-Control-Allow-Origin': '*',
+                'Access-Control-Allow-Methods': 'GET, PUT, POST, DELETE, PATCH, OPTIONS'
+			},
+			body: JSON.stringify(json)
+        })
+		event.preventDefault();
+		window.location.reload();
 	}
 
 	render() {
@@ -46,7 +86,7 @@ class Arrivee extends React.Component {
 														<input type="text" class="form-control form-control-user" id="adresse" name="adresse" placeholder="Adresse postale" defaultValue={data.adresse || ''} onChange={this.handleInputChange}></input>
 													</div>
 													<div class="form-group">
-														<input type="text" class="form-control form-control-user" id="type" name="type" placeholder="Type de logement" defaultValue={data.typeLogement || ''} onChange={this.handleInputChange}></input>
+														<input type="text" class="form-control form-control-user" id="typeLogement" name="typeLogement" placeholder="Type de logement" defaultValue={data.typeLogement || ''} onChange={this.handleInputChange}></input>
 													</div>
 													<div class="form-group">
 														<input type="text" class="form-control form-control-user" id="etage" name="etage" placeholder="Etage" defaultValue={data.etage || ''} onChange={this.handleInputChange}></input>

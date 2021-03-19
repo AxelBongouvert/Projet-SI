@@ -7,12 +7,39 @@ class Mon_demenagement extends React.Component {
 	
 	constructor(props) {
 		super(props);
-		this.state = {infos: [], dateDebut: '', dateFin: '', description:'' };
+		this.state = {
+			infos: [],
+			dateDebut: '',
+			dateFin: '',
+			mdpSuivi: '',
+			description: '',
+			fk_id_logementDepart: '',
+			fk_id_logementArrive: '',
+			id: ''
+		};
 		this.handleInputChange = this.handleInputChange.bind(this);
 	}
 
 	componentDidMount() {
-		
+		fetch('http://localhost:5000/demenagement/' + Session.getId(), {
+			method: 'GET',
+			headers: {
+				'Content-Type': 'application/json',
+				'Access-Control-Allow-Origin': '*',
+				'Access-Control-Allow-Methods': 'GET, PUT, POST, DELETE, PATCH, OPTIONS'
+			}
+		}).then(function (response) {
+			return response.json();
+		}).then(res => {
+			this.setState({ infos: res[0] })
+			this.state.dateDebut = this.state.infos.dateDebut;
+			this.state.dateFin = this.state.infos.dateFin;
+			this.state.mdpSuivi = this.state.infos.mdpSuivi;
+			this.state.description = this.state.infos.description;
+			this.state.fk_id_logementDepart = this.state.infos.fk_id_logementDepart;
+			this.state.fk_id_logementArrive = this.state.infos.fk_id_logementArrive;
+			this.state.id = this.state.infos.id;
+		});
 	}
 	
 	handleInputChange(event) {
@@ -22,7 +49,26 @@ class Mon_demenagement extends React.Component {
 	}
 
 	handleSubmit = (event) => {
-		
+		const json = {
+			dateDebut: this.state.dateDebut,
+			dateFin: this.state.dateFin,
+			mdpSuivi: this.state.mdpSuivi,
+			description: this.state.description,
+			fk_id_logementDepart: this.state.fk_id_logementDepart,
+			fk_id_logementArrive: this.state.fk_id_logementArrive,
+			id: this.state.id
+		};
+       	fetch('http://localhost:5000/demenagement', {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json',
+                'Access-Control-Allow-Origin': '*',
+                'Access-Control-Allow-Methods': 'GET, PUT, POST, DELETE, PATCH, OPTIONS'
+			},
+			body: JSON.stringify(json)
+        })
+		event.preventDefault();
+		window.location.reload();
 	}
 
 	render() {
