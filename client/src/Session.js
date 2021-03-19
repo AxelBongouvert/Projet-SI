@@ -55,6 +55,14 @@ var Session = (function () {
 	var setIdSalle = function (p) {
 		localStorage.setItem('IdSalle', p);
 	};
+
+	var getSalleActuelle = function () {
+		return localStorage.getItem('salleActuelle');;
+	};
+	
+	var setSalleActuelle = function (p) {
+		localStorage.setItem('salleActuelle', p);
+	};
 	
 	var getIdCarton = function () {
 		return localStorage.getItem('IdCarton');;
@@ -79,6 +87,8 @@ var Session = (function () {
 		setIdLogementArrivee: setIdLogementArrivee,
 		getIdSalle: getIdSalle,
 		setIdSalle: setIdSalle,
+		getSalleActuelle: getSalleActuelle,
+		setSalleActuelle: setSalleActuelle,
 		getIdCarton: getIdCarton,
 		setIdCarton: setIdCarton
 	}

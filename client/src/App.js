@@ -12,6 +12,7 @@ import Inscription from './Inscription.js';
 import Deconnexion from './Deconnexion.js';
 import Accueil from './Accueil.js';
 import TableauDeBord from './TableauDeBord.js';
+import CreationSalle from './CreationSalle.js';
 import GestionCartons from './GestionCartons.js';
 import CreationCarton from './CreationCarton.js';
 import MaSalle from './MaSalle.js';
@@ -49,6 +50,7 @@ class App extends React.Component {
 					<Route path="/Deconnexion" component={Deconnexion} />
 					<Route path="/Accueil" component={Accueil} />
 					<Route path="/TableauDeBord" component={TableauDeBord} />
+					<Route path="/CreationSalle" component={CreationSalle} />
 					<Route path="/GestionCartons" component={GestionCartons} />
 					<Route path="/CreationCarton" component={CreationCarton} />
 					<Route path="/MaSalle" component={MaSalle} />

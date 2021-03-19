@@ -119,7 +119,6 @@ class MonCarton extends React.Component {
                                                     </div>
                                                     <button class="btn btn-info btn-user btn-block" id="submit" type="submit">modifier</button>
                                                 </form>
-                                                <br />
                                             </div>
                                         </div>
                                     </div>

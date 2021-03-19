@@ -1,14 +1,13 @@
 import React from 'react';
-import Header from './Header.js';
 import Footer from './Footer.js';
 import Retour from './Retour.js';
 import axios from 'axios';
+import Session from './Session.js';
 
 
 class CreationCarton extends React.Component {
-    constructor() {
-
-        super();
+    constructor(props) {
+        super(props);
         this.state = {
             "photo": "",
             "qrcode": "",
@@ -18,14 +17,14 @@ class CreationCarton extends React.Component {
             "poids": 0,
             "profondeur": 0,
             "fragile": 0,
-            "fk_id_salle": 0,
+            "fk_id_salle": Session.getIdSalle(),
             "descriptionContenu": ""
         };
     }
+
     handleSubmit = (event) => {
         console.log(this.state)
         axios.post('/carton',
-
             [{
                 "photo": this.state.photo,
                 "qrCode": this.state.qrcode,
@@ -39,46 +38,53 @@ class CreationCarton extends React.Component {
                 "fk_id_salle": this.state.fk_id_salle
 
             }]
-
         )
             .then((response) => {
                 console.log(response);
             }, (error) => {
                 console.log(error);
             });
-
-
+        const { history } = this.props;
+        history.push('MaSalle');
+        window.location.reload();
     };
+
     handlePhotoChange(event) {
         this.setState({ photo: event.target.value });
     }
+
     handleQrcodeChange(event) {
         this.setState({ qrcode: event.target.value });
     }
+
     handleVolumeChange(event) {
         this.setState({ volume: event.target.value });
     }
+
     handleLargueurChange(event) {
         this.setState({ largeur: event.target.value });
     }
+
     handleHauteurChange(event) {
         this.setState({ hauteur: event.target.value });
     }
+
     handlePoidsChange(event) {
         this.setState({ poids: event.target.value });
     }
+
     handleProfondeurChange(event) {
         this.setState({ profondeur: event.target.value });
     }
+
     handleFragileChange(event) {
         this.setState({ fragile: event.target.value });
     }
-    handleIdSalleChange(event) {
-        this.setState({ fk_id_salle: event.target.value });
-    }
+
     handleDescriptionContenuChange(event) {
         this.setState({ descriptionContenu: event.target.value });
     }
+
     render() {
         return (
             <div>
@@ -155,15 +161,6 @@ class CreationCarton extends React.Component {
                                                         Fragile:
                                                         <div class="form-group">
                                                             <input type="number"class="form-control form-control-user"  value={this.state.fragile} onChange={this.handleFragileChange.bind(this)} />
-                                                        </div>
-
-                                                    </label>
-
-
-                                                    <label>
-                                                        IdSalle:
-                                                        <div class="form-group">
-                                                            <input type="number"class="form-control form-control-user"  value={this.state.fk_id_salle} onChange={this.handleIdSalleChange.bind(this)} />
                                                         </div>
 
                                                     </label>
